@@ -1,0 +1,46 @@
+body{
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+
+  margin-top: 150px;
+  font-family: 'Numans', sans-serif;
+  }
+  .ng-invalid :not(form){
+    border-left:5px solid red ;
+    }
+
+    .ng-valid :not(form){
+      border-left:5px solid green;
+      }
+  .card{
+
+    margin-top: auto;
+    margin-bottom: auto;
+    border-style: inset;
+    background-color: rgba(255, 255, 255, 0.397)!important;
+    }
+
+  .card-header h3{
+  color:#080045;
+  size: large;
+
+  text-align: center;
+  }
+  .card-body
+  {
+    background-color: rgba(255, 255, 255, 0.397)!important;
+
+  }
+
+  @media (max-width: 767px) {
+      footer .text-right { text-align:left }
+  }
+  .fpass
+{
+text-align: right;
+margin-left:500px;
+padding: 0px;
+display: inline;
+}

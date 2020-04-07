@@ -1,0 +1,22 @@
+li {
+  display: inline;
+
+}
+ul{overflow: hidden;
+}
+li a {
+  display: block;
+  color: darkred;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: large ;
+
+}
+li a:hover {
+  text-decoration:underline darkred 15px;
+}
+.home {
+ color:#080045!important;
+
+
+}

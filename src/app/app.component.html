@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+   </head>
+   <body>
+    <app-navbar  *ngIf="loggedIn"></app-navbar>
+<app-menu-bar *ngIf="loggedIn"></app-menu-bar>
+    <!--<app-navbar ></app-navbar>-->
+
+<notifier-container></notifier-container>
+<div class="container">
+<router-outlet></router-outlet>
+</div>
+   </body>
+
+</html>
