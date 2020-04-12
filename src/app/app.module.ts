@@ -21,6 +21,16 @@ import { NotifierModule } from "angular-notifier";
 import { ToastrModule } from 'ngx-toastr';
 import { HomePageComponent } from './Menu/home-page/home-page.component';
 import {MenuBarComponent} from'./components/menu-bar/menu-bar.component';
+import { NewRXComponent } from './Vet/new-rx/new-rx.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { NgSelectModule } from '@ng-select/ng-select';
+
+
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ManageUserComponent } from './SuperViseur/manage-user/manage-user.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +43,9 @@ import {MenuBarComponent} from'./components/menu-bar/menu-bar.component';
     ResponseComponent,
     HomePageComponent,
 MenuBarComponent,
+NewRXComponent,
+ManageUserComponent,
+
 
   ],
   imports: [
@@ -43,8 +56,10 @@ MenuBarComponent,
     HttpClientModule ,
     SnotifyModule,
     NotifierModule,
-    ToastrModule// ToastrModule added,
-
+    ToastrModule,
+    BrowserAnimationsModule,// ToastrModule added,
+ BsDatepickerModule.forRoot(),
+ MatDatepickerModule,NgSelectModule
   ],
   providers: [JarwisService,
   TokenService, AuthService,

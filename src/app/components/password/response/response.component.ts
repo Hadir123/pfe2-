@@ -12,7 +12,7 @@ import { NotifierService } from 'angular-notifier';
   styleUrls: ['./response.component.css']
 })
 export class ResponseComponent implements OnInit {
-  public error=null ;
+
   public form =
   {
     email :null ,
@@ -20,7 +20,7 @@ export class ResponseComponent implements OnInit {
     password_confirmation : null,
     restToken:null
   }
-
+  public error=null ;
   constructor( private route:ActivatedRoute, private jarwis:JarwisService,  private notify:SnotifyService,private notifier:NotifierService , private router :Router,private auth:AuthService) {
     route.queryParams.subscribe(params=>
       {
@@ -34,7 +34,11 @@ this.form.restToken=params['tokenn'];
   {
 this.jarwis.changePassword(this.form).subscribe(
   data=>this.handleResponse(data),
-  error=>this.handleErro(error)
+  error=>{
+    this.handleErro(error);
+    error=null;
+  }
+
 )
   }
   handleResponse(data)

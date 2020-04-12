@@ -1,0 +1,132 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+$(document).ready(function () {
+  $('select').selectize({
+      sortField: 'text'
+  });
+});</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
+
+<body>
+<h3 style ="color:#01094E;"> Create New Rx Order</h3>
+<br>
+<div class ="buttongroupe">
+<button type="button" class="btn btn-secondary"  [disabled]="!formvalide" (click)="write()"> <span class="fa fa-save"style="font-size:20px ;color:black"></span> &nbsp; Save and Exist  </button>
+<button type="button" class="btn btn-secondary" id="cancel" (click)="Exit()" > <span class="fa fa-ban"style="font-size:20px ;color:white"></span> &nbsp; Cancel  </button>
+</div>
+<div class ="select_bar" style="padding-bottom: 20px;">
+  <h4 style ="color:#01094E; margin-left: 20px;">Step 1: Select Pet Owner & Patient  </h4>
+    <br>
+    <div class="input_bar">
+      <p style ="color:#01094E;">Pet Owner Name*</p>
+<!--<select class="custom-select custom-select-lg mb-3" type ="checkbox" name="form.PetOwner"
+[(ngModel)]="form.PetOwner" (change)="Petowner()"  data-show-subtext="true" data-live-search="true">
+
+  <option  value="null"></option>
+    <option *ngFor="let user of user" >
+      {{ user.email}} </option>
+</select>-->
+<ng-select class="custom"[items]="user"
+bindLabel="email"
+placeholder="Select PetOwner"
+[(ngModel)]="form.PetOwner"(change)="Petowner()" >
+</ng-select>
+
+<p style ="color:#01094E; padding-top: 20px;">Patient (Pet) Name*</p>
+<ng-select class="custom"[items]="pet"
+bindLabel="animal_name"
+placeholder="Select Pet"
+[(ngModel)]="form.Pet"(change)="peet()"   [disabled]="!formvalide">
+</ng-select>
+<span class="text-danger"[hidden]="!error">
+  Select a Pet Owner Please !
+</span>
+<p style ="color:#01094E; ">Need to add a new patient (pet)? &nbsp; &nbsp; <a style="text-align: left;color:cyan ;text-decoration: underline;">Click Here</a> </p>
+</div>
+</div>
+<h4 style ="color:#01094E; margin-left: 20px; padding-top: 15px;">Step 2: Select Order Content</h4>
+<div  class="input-item">
+
+<select class="custom-select custom-select-lg mb-3" required [disabled]="!formvalide" >
+<option selected >
+   </option>
+    <option  >
+    </option>
+  </select>
+
+  <button type="button" id="first" class="btn"[disabled]="!formvalide" > <span class="fa fa-plus"style="font-size:20px ;color:white;float:left ; margin-top:5px"></span> &nbsp;Add </button>
+
+  <button type="button" id="deuxieme"class="btn"  [disabled]="!formvalide"> <span class="fa fa-list-ul"style="font-size:20px ;color:black ; float:left ; margin-top:5px"></span> &nbsp; Treatment Plans </button>
+
+</div>
+
+<div class="row">
+  <div class="">
+<small>Rx Start Date</small>
+<br>
+
+ <!-- <input class="form-control" placeholder="MM/DD/YYYY" bsDatepicker #dp="bsDatepicker"
+[isDisabled]="isDisabled" name="form.date" style="color:#01094E" for="date"   style="display: inline;"[(ngModel)]="form.date">
+<span class="fa fa-calendar"  id="date" style="display: inline;"></span>-->
+<input class="form-control" placeholder="MM-DD-YYYY" type="date" [(ngModel)]="form.date"  name="form.date">
+
+
+  </div>
+  <small>DD-MM-YYYY</small>
+<br>
+</div>
+<br>
+<br>
+<table class="table" style="color:#01094E">
+  <thead class="table-active">
+    <tr style="font-size:small; font-style:normal">
+      <th scope="col" style="width:16%;">Product</th>
+      <th scope="col" style="width:5%;">Qty</th>
+      <th scope="col">Type</th>
+      <th scope="col">Form</th>
+      <th scope="col">Strength</th>
+      <th scope="col">Size</th>
+      <th scope="col">Refills</th>
+      <th scope="col">Auto Refill</th>
+      <th scope="col">Days of Supply</th>
+      <th scope="col"> Unit Price</th>
+      <th scope="col"> </th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr rowspan=2>
+      <th scope="row">2</th>
+      <td >Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td>@fat</td>
+      <td>@fat</td>
+      <td>@fat</td>
+      <td>@fat</td>
+      <td>@fat</td>
+      <td>@fat</td>
+      <td>@fat</td></tr>
+<tr>
+
+
+      tr<td  colspan=3 style="align:center"><input class="form-control" style="display: inline-block;size: 500px;"></td>
+
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+  <tr>
+
+
+
+  </tr>
+</table>
+
+</body>

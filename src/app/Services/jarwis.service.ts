@@ -12,7 +12,7 @@ export class JarwisService {
 public jsonURL='http://backend.test:8800/api';
   constructor(private http: HttpClient) {
   }
-public error=null ;
+
   signup(data)
   {
     return this.http.post('http://backend2.test:8800/api/register',data) ;

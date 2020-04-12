@@ -1,0 +1,25 @@
+
+
+button{
+
+border: 0cm;
+text-align: center;
+margin-left:25px;
+height: 125px;
+
+
+}
+
+
+
+.centre
+{
+  margin-left: 200px;
+
+}
+
+
+.btn:hover{outline:0;box-shadow:0 0 0 .2rem rgba(0,123,255,.25)}
+
+
+

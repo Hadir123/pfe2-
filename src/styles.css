@@ -11,3 +11,17 @@
 
 @import 'C:/Users/Hadir/angular larvel/Login3/node_modules/ngx-toastr/toastr.css';
 
+@import "./assets/fontawesome-free-5.13.0-web/css/all.css";
+@import "./assets/fontawesome-free-5.13.0-web/css/fontawesome.css";
+@import "./assets/fontawesome-free-5.13.0-web/css/brands.css";
+@import "./assets/fontawesome-free-5.13.0-web/css/solid.css";
+@import "./assets/fontawesome-free-5.13.0-web/css/regular.css";
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

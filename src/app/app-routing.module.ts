@@ -9,7 +9,9 @@ import {ResponseComponent}from './components/password/response/response.componen
 import { BeforeLoginService } from './Services/before-login.service';
 import { AfterLoginService } from './Services/after-login.service';
 import{HomePageComponent}from './Menu/home-page/home-page.component';
-
+import{NewRXComponent} from'./Vet/new-rx/new-rx.component' ;
+import{ManageUserComponent}from'./SuperViseur/manage-user/manage-user.component';
+import { from } from 'rxjs';
 const routes: Routes = [
   { path: 'login', component: LoginComponent ,
   canActivate:[BeforeLoginService]},
@@ -17,11 +19,15 @@ const routes: Routes = [
   { path:'profil', component: ProfilComponent ,
 canActivate: [AfterLoginService] },
 
+{ path:'NewRX', component: NewRXComponent ,
+canActivate: [AfterLoginService] },
+
 { path:'HomePage', component: HomePageComponent ,
 canActivate: [AfterLoginService] },
   { path:'request-password', component: RequestComponent ,canActivate: [BeforeLoginService]},
   { path:'response-password', component: ResponseComponent,canActivate: [BeforeLoginService] },
-
+  { path:'MangeUsers', component: ManageUserComponent ,
+  canActivate: [AfterLoginService] },
 ];
 
 @NgModule({

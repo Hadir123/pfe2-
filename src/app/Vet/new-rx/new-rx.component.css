@@ -1,0 +1,115 @@
+body{
+  padding: 0px, 0px;
+}
+button{
+  color:black ;
+  background-color: lightgrey;
+
+  margin-left: 15px;
+}
+.buttongroupe{
+  margin-left: 750px;
+}
+.buttongroupe #cancel
+{
+
+  width: 150px;
+  background-color: darkred;
+  color: white;
+
+}
+.select_bar
+{margin-top:10px;
+
+  background-color: #E8E8EE;
+  margin-left: 00px;
+}
+.select_bar h4{
+  padding-top: 5px;
+}
+.input_bar
+{
+  width:500px;
+  margin-left: 15px;
+}
+.input_bar p{
+  margin-left :5px;
+}
+.input-item select{
+  width:500px;
+  margin-left: 15px;
+margin-top: 15px;
+height:30px;
+}
+.input-item{
+  display: inline-block;
+}
+ .input_item button{
+margin-top: 0px;
+ }
+ .input-item #deuxieme{
+  width:400px;
+  display: inline-block;
+  margin-left: 20px;
+ font-style: oblique;
+ font-size: large;
+}
+.input-item #first{
+width:150px;
+display: inline-block;
+background-color: #01094E;
+color :white;
+font-style: oblique;
+font-size: large;
+}
+.row{
+margin-left: 700px;
+  display: inline-block;
+}
+.row input{
+width: 300px;
+margin-top: 5px;
+}
+.row label{
+  margin-left: 0px;
+display: inline-block;
+}
+input[type="date"] {
+  position: relative;
+}
+
+/* create a new arrow, because we are going to mess up the native one
+see "List of symbols" below if you want another, you could also try to add a font-awesome icon.. */
+input[type="date"]:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f073";
+  color: #01094E;
+  padding: 0 5px;
+}
+
+/* change color of symbol on hover */
+input[type="date"]:hover:after {
+  color: #bf1400;
+}
+
+/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+}
+
+/* adjust increase/decrease button */
+
+
+/* adjust clear button */
+/*input[type="date"]::-webkit-clear-button {
+   z-index: 1;
+}*/
