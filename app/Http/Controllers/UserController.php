@@ -17,7 +17,8 @@ class UserController extends Controller
  {
     $user= DB::table('users')->get(['email','id'])->toArray();
 return $user ;
- }public function show($id)
+ }
+ public function show($id)
 {
     $task =DB::table('pets')->where('pet_owner_id',$id)->get()->toArray();
 

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use Tymon\JWTAuth\Facades\JWTAuth;
-
+use App\Http\Controllers\AdresseController;
 use App\User;
+use App\Adresse;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Requests\RegistrationFormRequest;
@@ -13,11 +16,13 @@ class APIController extends Controller
      * @var bool
      */
     public $loginAfterSignUp = true;
-
+public $adresse=null ;
+public $user=null ;
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
+
 public function login(Request $request)
     {
         $input = $request->only('email', 'password');
@@ -65,28 +70,35 @@ public function login(Request $request)
                 'message' => 'Sorry, the user cannot be logged out'
             ], 500);
         }
+
     }
 
     /**
      * @param RegistrationFormRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function register(RegistrationFormRequest $request)
-    {
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->save();
 
-     /*   if ($this->loginAfterSignUp) {
-            return $this->login($request);
-        }*/
+public  function NewAdresse( $city,$street,$code,$adress)
+{$hi=1;
+    $res=DB::table('table_adresse')->where(['city'=>$city,'street'=>$street,'postal_code'=>$code,'adresse'=>$adress])->first();
+if($res)
+ {
+return $res->id;
+}
+else
+$adressee= new Adresse();
+$adressee->city=$city;
+$adressee->street=$street;
+$adressee->postal_code=$code;
+$adressee->adresse=$adress;
 
-        return response()->json([
-            'success'   =>  true,
-            'data'      =>  $user
-        ], 200);
+if($adressee->save())
+return($adressee->id);
+else
+return response()->json([
+   'success' => false,
+   'message' => 'Sorry, task could not be added.'
+], 500);
 
 }
 }

@@ -25,7 +25,7 @@ class CreatePetsTable extends Migration
             $table->date('date_of_death');
             $table->unsignedBigInteger('pet_owner_id');
             $table->timestamps();
-            $table->foreign('pet_owner_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('pet_owner_id')->references('id')->on('Pet_Owners')->onDelete('cascade');
         });
     }
 

@@ -17,7 +17,9 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','age','last_name','adresse_id', 'phone','date_of_birth','age',
+
+
     ];
 
     /**
@@ -26,7 +28,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token','image_url',
     ];
 
     /**
@@ -54,5 +56,10 @@ class User extends Authenticatable implements JWTSubject
     public function pets()
 {
     return $this->hasMany(Pet::class);
+}
+public function adrese()
+{
+    return $this->hasOne(Adresse::class);
+
 }
 }

@@ -14,13 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::post('login', 'ApiController@login');
-Route::post('register', 'ApiController@register');
+Route::post('loginVet', 'VetController@loginVet');
+
+Route::post('loginPetOwner', 'PeetOwnerController@loginPetOwner');
+
+
 Route ::post('SendPasswordRasetLink','ResetPasswordController@SendEmail');
 Route ::post('restPassword','ChangerPasswordController@process');
 
 Route::group(['middleware' => 'auth.jwt'], function () {
     Route::get('logout', 'ApiController@logout');
-    Route::get('Users','UserController@index');
+    Route::post('addVet', 'VetController@register');
+    Route::post('addPetOwner', 'PeetOwnerController@register');
+    Route::get('Vets','VetController@index');
+     Route::get('Users','UserController@index');
     Route::get('pet/{id}','UserController@show');
 
     Route::post('tasks', 'TaskController@store');
