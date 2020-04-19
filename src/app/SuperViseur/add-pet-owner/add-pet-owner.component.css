@@ -1,0 +1,60 @@
+.form-row #hi
+{margin-top: 20px;
+  margin-left: 0px;
+  margin-right: 0px;padding-left: 0px;
+width: 200px;
+}
+.col #sexe
+{
+  margin-top:50px;
+  display: inline;
+  width: 20px;
+}
+.sexe
+{
+  margin-left:50px;
+
+}
+input[type="date"] {
+  position: relative;
+}
+
+/* create a new arrow, because we are going to mess up the native one
+see "List of symbols" below if you want another, you could also try to add a font-awesome icon.. */
+input[type="date"]:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f073";
+  color: #01094E;
+  padding: 0 5px;
+}
+
+/* change color of symbol on hover */
+input[type="date"]:hover:after {
+  color: #bf1400;
+}
+
+/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+}
+label{
+  color:#01094E;
+}
+a{
+  font-size: small;
+  color: darkblue;
+
+    text-decoration: darkred underline;
+}
+button{
+  background-color: #01094E;
+}

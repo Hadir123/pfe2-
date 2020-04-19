@@ -11,10 +11,15 @@ import { AfterLoginService } from './Services/after-login.service';
 import{HomePageComponent}from './Menu/home-page/home-page.component';
 import{NewRXComponent} from'./Vet/new-rx/new-rx.component' ;
 import{ManageUserComponent}from'./SuperViseur/manage-user/manage-user.component';
+import{AddPetOwnerComponent}from'./SuperViseur/add-pet-owner/add-pet-owner.component';
+
 import { from } from 'rxjs';
 const routes: Routes = [
-  { path: 'login', component: LoginComponent ,
-  canActivate:[BeforeLoginService]},
+  { path: '', redirectTo: '/login', pathMatch:'full' ,
+   },
+  {
+     path: 'login', component: LoginComponent ,
+ },
   { path: 'singnup', component: SignUpComponent ,canActivate:[BeforeLoginService] },
   { path:'profil', component: ProfilComponent ,
 canActivate: [AfterLoginService] },
@@ -28,6 +33,7 @@ canActivate: [AfterLoginService] },
   { path:'response-password', component: ResponseComponent,canActivate: [BeforeLoginService] },
   { path:'MangeUsers', component: ManageUserComponent ,
   canActivate: [AfterLoginService] },
+  { path:'addPetOwner', component: AddPetOwnerComponent,canActivate: [AfterLoginService] },
 ];
 
 @NgModule({

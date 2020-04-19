@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { ɵangular_packages_platform_browser_dynamic_platform_browser_dynamic_a } from '@angular/platform-browser-dynamic';
-import { ThrowStmt } from '@angular/compiler';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
 private iss= {
-  login :'http://backend2.test:8800/api/login',
-  signup:'http://backend2.test:8800/api/register'
+  login :'http://backend2.test:8800/api/loginVet',
+  addPetOwner:'http://backend2.test:8800/api/addPetOwner',
+  addVet:'http://backend2.test:8800/api/addVet'
 }
   constructor() { }
   handle(token)
@@ -49,5 +49,7 @@ decode(payloadd)
 return JSON.parse(atob(payloadd))
 }
 loggedIn()
-{ return this.isValid();}
+{ return this.isValid();
 }
+}
+

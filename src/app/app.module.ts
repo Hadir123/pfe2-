@@ -29,6 +29,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ManageUserComponent } from './SuperViseur/manage-user/manage-user.component';
+import { AddPetOwnerComponent } from './SuperViseur/add-pet-owner/add-pet-owner.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { ManageUserComponent } from './SuperViseur/manage-user/manage-user.compo
 MenuBarComponent,
 NewRXComponent,
 ManageUserComponent,
+AddPetOwnerComponent,
 
 
   ],
