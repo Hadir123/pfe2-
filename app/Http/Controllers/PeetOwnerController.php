@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\PetownerMail;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Redis;
+
 class PeetOwnerController extends APIController
 { public $adresse ;
 
@@ -30,6 +32,7 @@ class PeetOwnerController extends APIController
        $user->age=$request->age ;
        $user->gender=$request->gender;
        $user->phone=$request->phone;
+       $user->status='active';
        $user->date_of_birth=$request->date_of_birth;
        $result=$this->NewAdresse($request->city ,$request->street, $request->postal_code,$request->adresse);
         $user->adresse_id=$result;
@@ -44,7 +47,7 @@ class PeetOwnerController extends APIController
                         {$this->sendEmail($user->email);
                         return response()->json([
                               'success'=>true,
-                              'data'=>$user],200);
+                              'user'=>$user],200);
                         }
 
                    else
@@ -99,6 +102,53 @@ public function sendEmail($email)
 Mail::to($email)->send(new PetownerMail());
 
 }
+public function attachVet(Request $request)
+{
+$res=DB::table('vet_pet_careful')->insert([ 'id_petOwner'=>$request->id_petOwner ,
+'id_vet'=>$request->id_vet
 
+]);
+if ($res)
+return response()->json(['ok'=>'ok']);
+else
+return response()->json(['ok'=>'Not Ok']);
 
+}
+public function index()
+{$petOwner= new PetOwner();
+$petOwner=null ;
+   $petOwners= DB::table('pet_owners')->get();
+
+$i=0;
+$user=[];
+foreach($petOwners as $petOwner)
+{
+   $user[$i]=$this->showw($petOwner->user_id);
+   $i++;
+}
+return $user ;
+
+}
+public function showw($id)
+{
+    $user = DB::table('users')->where('id',$id)->get();
+    return $user;
+}
+public function ChangeStatus($id)
+{
+    $user = DB::table('users')->where('id',$id)->get()->first();
+$users = new User();
+$users=$user;
+    if ($users->status=="active")
+    {
+        $user= DB::table('users')->where('id',$id)->update(['status'=>'desactive']);
+    }
+else
+$user= DB::table('users')->where('id',$id)->update(['status'=>'active']);
+if($user)
+    return response()->json(['ok'=>'ok']);
+ else
+ return response()->json(['ok'=>'niok']);
+
+}
 }

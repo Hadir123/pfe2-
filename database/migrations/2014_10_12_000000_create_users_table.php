@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->double('phone');
             $table->string('image_url')->nullable();
+            $table->enum('status',['active','desactive']);
 
             $table->date('date_of_birth');
             $table->double('age');

@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('login', 'ApiController@login');
 Route::post('loginVet', 'VetController@loginVet');
-
 Route::post('loginPetOwner', 'PeetOwnerController@loginPetOwner');
 
 
@@ -24,10 +23,18 @@ Route ::post('restPassword','ChangerPasswordController@process');
 
 Route::group(['middleware' => 'auth.jwt'], function () {
     Route::get('logout', 'ApiController@logout');
-    Route::post('addVet', 'VetController@register');
+    //PetOwners
     Route::post('addPetOwner', 'PeetOwnerController@register');
+    Route::post('attache_vet', 'PeetOwnerController@attachVet');
+    Route::get('PetOwners','PeetOwnerController@index');
+    Route::get('PetOwnerChangeStatus/{id}','PeetOwnerController@ChangeStatus');
+    // vets
     Route::get('Vets','VetController@index');
-     Route::get('Users','UserController@index');
+
+    Route::post('addVet', 'VetController@register');
+
+     //all
+    Route::get('Users','UserController@index');
     Route::get('pet/{id}','UserController@show');
 
     Route::post('tasks', 'TaskController@store');
