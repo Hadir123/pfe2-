@@ -11,7 +11,8 @@ import { TokenService } from './Services/token.service';
 
 export class AppComponent {
   title = 'Login3';
-  public loggedIn :boolean
+  public loggedIn = false ;
+
   constructor(private auth :AuthService, private route:Router, private Token :TokenService ) { }
 
   ngOnInit(): void {
@@ -24,6 +25,13 @@ export class AppComponent {
     this.Token.remove() ;
 
 this.route.navigateByUrl('/login');
+  }
+  nav()
+  {
+    if(this.Token.get()===null)
+    return false ;
+    else
+    return true ;
   }
 
 }

@@ -31,12 +31,14 @@
               "node_modules/angular-notifier/styles/themes/theme-material.css",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/sweetalert2/dist/sweetalert2.min.css",
-              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"
+              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "node_modules/bootstrap4-toggle/css/bootstrap4-toggle.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/sweetalert2/dist/sweetalert2.all.min.js"
+              "node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+            "node_modules/bootstrap4-toggle/js/bootstrap4-toggle.min.js"
             ]
           },
           "configurations": {

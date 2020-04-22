@@ -58,3 +58,7 @@ a{
 button{
   background-color: #01094E;
 }
+input[checkbox]
+{
+width: 10px;
+}

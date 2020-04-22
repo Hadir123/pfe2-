@@ -3,6 +3,13 @@ import { PetOwnerService } from 'src/app/Services/pet-owner.service';
 import { HttpClient } from '@angular/common/http';
 import { TokenService } from 'src/app/Services/token.service';
 import Swal from 'sweetalert2';
+import { ThrowStmt } from '@angular/compiler';
+import { NotifierService } from 'angular-notifier';
+import { Router } from '@angular/router';
+
+
+
+
 @Component({
   selector: 'app-add-pet-owner',
   templateUrl: './add-pet-owner.component.html',
@@ -12,11 +19,12 @@ export class AddPetOwnerComponent implements OnInit {
 public num:-1;
 public token;
 public err=null ;
-public user={
-  email:"hhhhh",
-name:"user"};
-
-
+public vets=null;
+petowner=null
+public relation ={
+  id_petOwner:null ,
+  id_vet:null,
+};
 public form=
 { name:null,
   date_of_birth:null ,
@@ -30,8 +38,10 @@ public form=
   postal_code:null ,
   city:null ,
   Hospital:"Haygard",
+  id:null ,
 };
-  constructor(private newOne : PetOwnerService ,private http: HttpClient ,private tokenn : TokenService) { }
+vet2=[] ;
+  constructor(private newOne : PetOwnerService , private router :Router,private tokenn : TokenService ,private notifier:NotifierService) { }
 
   ngOnInit(): void {
   }
@@ -58,7 +68,10 @@ else
   {
 
 this.newOne.onSubmit(this.form).subscribe(
-  data=>console.log(data),
+  data=>{
+
+this.handleData(data);
+  },
   err=>{
     this.handelErro(err);
     if (this.err.gender)
@@ -71,7 +84,8 @@ this.newOne.onSubmit(this.form).subscribe(
     }
   }
 );
-    console.log(this.form)
+    console.log(this.form);
+
   }
   handelErro(err)
   {
@@ -79,36 +93,56 @@ this.newOne.onSubmit(this.form).subscribe(
   }
 handleData(data)
 {
-
+this.petowner=data.user
+console.log(this.petowner)
+  console.log(this.petowner.id)
+  if(this.petowner.id!= null )
+ {var id = this.petowner.id ;
+   for (var i=0;i<this.vet2.length;i++)
+{this.relation.id_petOwner=id ;
+  console.log(id);
+  this.relation.id_vet=this.vet2[i];
+  console.log(this.vet2[i]);
+  console.log(this.relation);
+       this.newOne.vetsAdd(this.relation).subscribe( data=>{console.log(data);},
+        err=>console.log(err));
+}}
+this.notifier.notify("success", "Done!,Pet Owner added ");
+this.router.navigateByUrl('/PetOwners');
 }
-ok()
+Vets()
 {
-  /*(async () => {
+  this.newOne.Vets().subscribe(data=>{
+  //console.log(this.vets[0][0].id)
+  this.vets=data ;
+for( var i=0; i<this.vets.length;i++)
+{
+this.vets[i]=this.vets[i][0];
+}
+console.log(this.vets)},
+  err=>console.log(err));
+}
 
-    const { value: user} = await Swal.fire({
-      title: 'Select field validation',
-      input: 'select',
-      inputOptions:{
-        email:this.user.email,
-      name:this.user.name},
-      inputPlaceholder: 'Select a fruit',
-      showCancelButton: true,
-      inputValidator: (value) => {
-        return new Promise((resolve) => {
-          if (value === 'oranges') {
-            resolve()
-          } else {
-            resolve('You need to select oranges :)')
-          }
-        })
+onChange(id: number, isChecked: boolean) {
+
+  if (isChecked) {
+    var i=0;
+    while ((i<this.vet2.length )&& (this.vet2[i]!=id))
+    {
+     i++;
       }
-    })
+if(i===this.vet2.length)
+  { this.vet2[this.vet2.length]=id
+  //  console.log(this.vet2)
 
-    if (fruit) {
-      Swal.fire(`You selected: ${fruit}`)
-    }
-
-    })()*/
   }
+  //console.log(this.vet2)
+}
+}
+ saveVet()
+ {
+console.log(this.vet2);
+ }
+
 }
 

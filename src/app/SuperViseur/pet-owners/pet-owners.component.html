@@ -1,0 +1,44 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<a routerLink="/HomePage"> <- Dashbord</a>
+<h2 style="color:#01094E"> PetOwners List </h2>
+<button routerLink="/addPetOwner"type="button" class="btn btn-secondary" id="add2">  <span class="fa fa-plus" style="margin-right: 15px;"></span>Add New PetOwner</button>
+<div class="input-group">
+  <input type="text" id='search' class="form-control" [(ngModel)]='search' placeholder="Search by Name">
+  <div class="input-group-append">
+
+  <button type="button" class="btn btn-primary" (click)="find()" style="display: inline; background-color: green;margin-left:5px;" >Find </button>
+  </div>
+</div>
+<br>
+
+<table class="table" >
+<thead>
+    <tr style="color :midnightblue; background-color: #DEDEDE; height: 60px;">
+
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile Number</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <tr *ngFor="let users of user| filter:search">
+       <td>{{users.name }}  </td>
+        <td>{{users.last_name}}</td>
+        <td>{{users.email}}</td>
+        <td>{{users.phone}}</td>
+        <td>
+          <label class="switch">
+            <input type="checkbox" [checked]="users.status== 'active'" (change)='hi(users.id)' >
+            <span class="slider round"></span>
+          </label>
+        </td>
+        <td><button type="button"  id ="edit" class="btn btn-primary"> <span class="fa fa-pencil"></span>Edit</button></td>
+    </tr>
+</tbody>
+</table>

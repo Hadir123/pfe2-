@@ -28,9 +28,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { ManageUserComponent } from './SuperViseur/manage-user/manage-user.component';
 import { AddPetOwnerComponent } from './SuperViseur/add-pet-owner/add-pet-owner.component';
+import { PetOwnersComponent } from './SuperViseur/pet-owners/pet-owners.component';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -45,8 +46,9 @@ import { AddPetOwnerComponent } from './SuperViseur/add-pet-owner/add-pet-owner.
     HomePageComponent,
 MenuBarComponent,
 NewRXComponent,
-ManageUserComponent,
 AddPetOwnerComponent,
+PetOwnersComponent,
+
 
 
   ],
@@ -61,7 +63,8 @@ AddPetOwnerComponent,
     ToastrModule,
     BrowserAnimationsModule,// ToastrModule added,
  BsDatepickerModule.forRoot(),
- MatDatepickerModule,NgSelectModule
+ MatDatepickerModule,NgSelectModule,
+ Ng2SearchPipeModule
   ],
   providers: [JarwisService,
   TokenService, AuthService,
