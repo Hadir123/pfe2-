@@ -101,4 +101,9 @@ return response()->json([
 ], 500);
 
 }
+public function updateAdreese( $id,$city,$street,$code,$adress)
+{
+    $adress= DB::table('table_adresse')->where('id',$id)->update(['city'=>$city,'street'=>$street,'postal_code'=>$code,'adresse'=>$adress]);
+return $adress;
+}
 }

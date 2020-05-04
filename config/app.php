@@ -161,7 +161,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+App\Providers\AdresseService::class,
+App\Providers\UserService::class,
+App\Providers\PetOwnerService::class,
         /*
          * Package Service Providers...
          */

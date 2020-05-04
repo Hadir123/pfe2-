@@ -12,4 +12,8 @@ class Vet extends Model
 
 
     ];
+    public function PetOwner()
+    {
+        return $this->hasMany(PetOwner::class);
+    }
 }

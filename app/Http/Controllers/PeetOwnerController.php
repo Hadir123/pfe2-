@@ -10,47 +10,67 @@ use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Symfony\Component\HttpFoundation\Response;
 
+//use App\Providers\PetOwnerService;
+use App\Notifications\MyFirstNotification;
+
 use Illuminate\Contracts\Mail\Mailer;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PetownerMail;
+use App\Providers\PetOwnerService;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Notifications\Notifiable;
+
 
 class PeetOwnerController extends APIController
 { public $adresse ;
-
+    protected $petownerservice;
+    public function __construct()
+	{
+		$this->petownerservice =new PetOwnerService();
+	}
 
  public function register(RegistrationFormRequest $request)
     {
-       $user=new User();
-       $user->email=$request->email ;
+       // $request->password=bcrypt(Str::random());
+
+     /* $user=new User();
+      $user->email=$request->email ;
        $user->name=$request->name ;
        $user->last_name=$request->last_name ;
        $user->password=bcrypt($request->password);
-       $user->age=$request->age ;
+      // $user->age=$request->age ;
        $user->gender=$request->gender;
        $user->phone=$request->phone;
        $user->status='active';
-       $user->date_of_birth=$request->date_of_birth;
-       $result=$this->NewAdresse($request->city ,$request->street, $request->postal_code,$request->adresse);
-        $user->adresse_id=$result;
+      $user->date_of_birth=$request->date_of_birth;
+     $result=$this->NewAdresse($request->city ,$request->street, $request->postal_code,$request->adresse);
+       $user->adresse_id=$result;
+       $user->password=bcrypt(Str::random());
         $user->save();
             $petOwner =new PetOwner() ;
             $petOwner->user_id=$user->id ;
 
 
             $res=DB::table('table__hospitals')->first();
-            $petOwner->hospital_id=$res->id;
-               if($petOwner->save())
-                        {$this->sendEmail($user->email);
-                        return response()->json([
-                              'success'=>true,
-                              'user'=>$user],200);
-                        }
+            $petOwner->hospital_id=$res->id;*/
+if($user=$this->petownerservice->create($request))
 
-                   else
+                {     $this->sendEmail($user->email);
+                     $res= $this->sendNotif();
+                             return response()->json([
+                              'success'=>true,
+                              'user'=>$user//,'notif'=>$res
+                              ]
+                              ,200);
+                }
+
+
+                  else
                    return response()->json([
                        'success' => false,
 
@@ -102,6 +122,26 @@ public function sendEmail($email)
 Mail::to($email)->send(new PetownerMail());
 
 }
+public function sendNotif()
+{    //$user = DB::table('users')->where('id',$id)->get()->first();
+    $details = [
+
+        'greeting' => 'Hi Artisan',
+
+        'body' => 'This is my first notification from ItSolutionStuff.com',
+
+        'thanks' => 'Thank you for using ItSolutionStuff.com tuto!',
+
+        'actionText' => 'View My Site',
+
+        'actionURL' => url('/'),
+        'order_id'=>'hi'
+
+
+    ];
+    Notification::send(Auth::user(), new MyFirstNotification($details));
+return response()->json(['user'=>Auth::user()]);
+}
 public function attachVet(Request $request)
 {
 $res=DB::table('vet_pet_careful')->insert([ 'id_petOwner'=>$request->id_petOwner ,
@@ -129,10 +169,23 @@ foreach($petOwners as $petOwner)
 return $user ;
 
 }
+
+public function show($id)
+{$userr=new User();
+    $user = DB::table('users')->where('id',$id)->get()->first();
+$userr=$user;
+  $adresse=DB::table('table_adresse')->where(['id'=>$userr->adresse_id])->get();
+    return response()->json([
+       'user'=>$user,
+       'adresse'=>$adresse
+       ]);
+}
 public function showw($id)
 {
     $user = DB::table('users')->where('id',$id)->get();
+
     return $user;
+
 }
 public function ChangeStatus($id)
 {
@@ -150,5 +203,44 @@ if($user)
  else
  return response()->json(['ok'=>'niok']);
 
+}
+public function Update(Request $request)
+{$email=DB::table('users')->where(['email'=>$request->email])->count();
+    if($email>1)
+    {
+if($emil2=DB::table('users')->where(['email'=>$request->email,'id'=>$request->id])->count())
+        {
+            if($emil2===1)
+{
+    $user= DB::table('users')->where('id',$request->id)->update(['name'=>$request->name ,'last_name'=>$request->last_name ,'phone'=>$request->phone ,'date_of_birth'=>$request->date_of_birth]);
+    return response()->json(['success'=>true,
+    'count'=>$email,
+    'user' =>$user ]);
+}
+
+             else
+ //if
+  //($user= DB::table('users')->where('id',$request->id)->update(['name'=>$request->name ,'last_name'=>$request->last_name ,'email'=>$request->email,'phone'=>$request->phone ,'date_of_birth'=>$request->date_of_birth]))
+    {
+
+//$this->updateAdreese($request->adreese_id, $request->adree)
+
+return response()->json(['success'=>false,
+'count'=>$email]
+);}
+//->update(['name'=>$request->name ,'last_name'=>$request->last_name ,'email'=>$request->email,'phone'=>$request->phone ,'date_of_birth'=>$request->date_of_birth]))
+
+        }
+        else
+
+return response()->json(['success'=>false]);
+
+
+
+}
+else
+{$user= DB::table('users')->where('id',$request->id)->update(['name'=>$request->name ,'last_name'=>$request->last_name ,'phone'=>$request->phone ,'date_of_birth'=>$request->date_of_birth]);
+return response()->json(['success'=>true,
+'count'=>$email, 'user' =>$user]);}
 }
 }

@@ -7,14 +7,19 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Vet;
 use App\Http\Controllers\APIController;
+use App\Providers\VetService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class VetController extends  APIController
-{
+{ protected $VetService;
+    public function __construct()
+	{
+		$this->VetService = new VetService();}
 
  public function register(Request $request)
     {
+
        $user=new User();
        $user->email=$request->email ;
        $user->name=$request->name ;
@@ -45,38 +50,23 @@ class VetController extends  APIController
     public function loginVet(Request $request)
     {$input = $request->only('email', 'password');
         $token = null;
-
-        $user=DB::table('users')->where('email',$request->email)->first();
-
-if($user)
-{
-    $vet=DB::table('vets')->where('user_id',$user->id)->first();
-   if ($vet)
-{
-
-
-    if (!$token = JWTAuth::attempt($input)) {
-        return response()->json(['error' => 'Email or password invalid'], 401);
-    }
-
-
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-        ]);
-    }
-    else
-    {
-        return response()->json(['error' => 'Not Vet'], 401);
-
-   }   }
-else
-{
-    return response()->json(['error' => 'User Undefined'], 401);
-
-}
-
-
+                if($res=$this->VetService->login($request))
+                        {
+                        if($this->VetService->Status($res->id)===true)
+                        { if (!$token = JWTAuth::attempt($input)) {
+                      return response()->json(['error' => 'Email or password invalid'], 401);
+                                                                 }
+                        return response()->json([
+                                    'access_token' => $token,
+                                         'token_type' => 'bearer',
+                                                ]);
+                         }
+                 else
+                        return response()->json(['error' => 'desactive account '], 401);
+                        }
+             else
+          { return response()->json(['error' => 'Not Vet'], 401);
+          }
     }
 
  public function index()
@@ -99,6 +89,22 @@ public function showw($id)
     $user = DB::table('users')->where('id',$id)->get();
     return $user;
 }
+public function ChangeStatus($id)
+{
+ $user = DB::table('users')->where('id',$id)->get()->first();
+$users = new User();
+$users=$user;
+    if ($users->status=="active")
+    {
+        $user= DB::table('users')->where('id',$id)->update(['status'=>'desactive']);
+    }
+else
+$user= DB::table('users')->where('id',$id)->update(['status'=>'active']);
+if($user)
+    return response()->json(['ok'=>'ok']);
+ else
+ return response()->json(['ok'=>'niok']);
 
+}
  }
 
