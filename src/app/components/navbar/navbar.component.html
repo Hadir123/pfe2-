@@ -1,65 +1,4 @@
-<!--<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand">Navbar</a>
-  <div>
-  <a class="navbar-brand" routerLink="login" *ngIf="!loggedIn">login</a>
-  <a class="navbar-brand" href="#" (click)="logout($event)" *ngIf="loggedIn">logout</a>
 
-  <a class="navbar-brand" routerLink="singnup">Singn up</a>
-  <div class="btn-group">
-    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-      Action
-      <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-
-<li> <a class="navbar-brand" href="#" (click)="logout($event)" *ngIf="loggedIn">logout</a> </li>
-
-    </ul>
-  </div>
-</div>
-
-</nav>-->
-<!--<div id="navbar">
-  <div class="navigation-example"
-  >
-    <nav class="navbar navbar-expand-lg bg-primary">
-      <div class="container">
-        <div class="navbar-translate">
-          <a class="navbar-brand" href="#pablo">Primary color</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#example-navbar-primary" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar bar1"></span>
-            <span class="navbar-toggler-bar bar2"></span>
-            <span class="navbar-toggler-bar bar3"></span>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse" id="example-navbar-primary">
-          <ul class="navbar-nav ml-auto">
-            <div class="btn-group">
-
-
-            </div>
-            <li class="nav-item">
-              <a class="nav-link navbar-brand" href="#">
-                <i class="now-ui-icons users_circle-08 "></i>
-                <p>Profile</p>
-
-              </a>
-              <ul class="dropdown-menu">
-
-                <li> <a class="navbar-brand" href="#" (click)="logout($event)" *ngIf="loggedIn">logout</a> </li>
-
-                    </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#pablo">
-                <i class="now-ui-icons ui-1_settings-gear-63"></i>
-                <p>Settings</p>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>-->
     <nav class="mb-4 navbar navbar-expand-lg navbar-dark indigo " style="background-color:#01094E; background-size: cover;">
       <img src="assets/img/navbar1.png" style="height: 60px;"/>
       <a class="navbar-brand font-bold" href="#"></a>
@@ -72,12 +11,11 @@
             <a class="navbar-brand font-bold" href="#"><small>do you need help!!<small>5563585</small></small></a>   <!--  </a>  <span class="badge badge-info" style="background-color :red;">11</span>
              <i class="fa fa-bell"></i>-->
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white"> <i class="fa fa-bell" style="color:white"> </i>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" (click)='notif()'aria-haspopup="true" aria-expanded="false" style="color:white"> <i class="fa fa-bell" style="color:white"> </i>
                       <span class="badge badge-info" style="background-color :red;">11</span>  </a>
 
                     <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item" href="#">test 1 </a>
-                        <a class="dropdown-item"  href="#">test2 </a>
+                        <a class="dropdown-item" href="#"*ngFor="let notif of noti ">{{notif}} </a>
                     </div>
 
                 </li>

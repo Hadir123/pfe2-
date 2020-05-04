@@ -36,4 +36,15 @@ public token;
     this.token=this.tokenn.get();
     return this.http.get('http://backend2.test:8800/api/PetOwnerChangeStatus/'+$id+'?token='+this.token)
   }
+  PetOwner($id)
+  {
+    this.token=this.tokenn.get();
+    return this.http.get('http://backend2.test:8800/api/PetOwner/'+$id+'?token='+this.token)
+  }
+  Update(data)
+  {
+
+    this.token =this.tokenn.get() ;
+    return this.http.post('http://backend2.test:8800/api/PetOwnerUpdate?token='+this.token,data ) ;
+  }
 }

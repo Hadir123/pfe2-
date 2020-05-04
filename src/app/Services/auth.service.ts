@@ -14,4 +14,6 @@ authStatus=this.loggenInd.asObservable() ;
   {
     this.loggenInd.next(value);
   }
+
+
 }

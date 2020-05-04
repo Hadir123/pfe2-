@@ -1,8 +1,8 @@
 
 
-<a routerLink="/HomePage"> <- Dashbord</a>
+<span class="fa fa-arrow-left" style="color: #01094E;"></span><a routerLink="/HomePage"> Dashbord</a>
 <br>
-<a routerLink="/PetOwners" style="font-size: medium;"> <- PetOwner List </a>
+<span class="fa fa-arrow-left" style="color: #01094E;"></span><a routerLink="/PetOwners" >PetOwner List </a>
 <h2 style="color:#01094E"> Add New Pet Owner</h2>
 <form>
 
@@ -19,7 +19,7 @@
     <div class="form-row">
       <label for="inputAddress">Email Address<i style="color:red">*</i></label>
       <input type="text" name="email" class="form-control" id="inputAddress" placeholder=""[(ngModel)]="form.email">
-    <!--<span class="error text-danger"[hidden]="!err.email"></span>-->
+    <span class="error text-danger"[hidden]="!err.email">{{err.email}}</span>
     </div>
     <div class="row">
     <div class="col">

@@ -6,6 +6,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {FormControl} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pet-owners',
@@ -15,7 +16,7 @@ import {FormControl} from '@angular/forms';
 export class PetOwnersComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = ['Delhi', 'Mumbai', 'Banglore'];
-  constructor(private petowner:PetOwnerService) { }
+  constructor(private petowner:PetOwnerService , private route:Router,) { }
  public user=[];
  public test=[];
 
@@ -84,5 +85,9 @@ else
 }*/
 this.petowner.ChangeStatsu($id).subscribe(data=>console.log,
   err=>console.log(err));
+}
+edit($id)
+{
+ this.route.navigateByUrl('/PetOwnerProfil/'+$id);
 }
 }

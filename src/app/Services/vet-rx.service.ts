@@ -18,4 +18,14 @@ export class VetRxService {
   {
     return this.http.get('http://backend2.test:8800/api/pet/'+id+'?token='+this.token);
   }
+  Vets()
+  {
+    this.token= this.tokenn.get() ;
+    return this.http.get('http://backend2.test:8800/api/Vets?token='+this.token)//.pipe(map(response =>JSON.stringify(response)));
+  }
+  ChangeStatsu($id)
+  {
+    this.token=this.tokenn.get();
+    return this.http.get('http://backend2.test:8800/api/VetChangeStatus/'+$id+'?token='+this.token)
+  }
 }

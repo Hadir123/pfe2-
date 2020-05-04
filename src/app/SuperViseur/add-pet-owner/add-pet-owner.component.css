@@ -50,10 +50,10 @@ label{
   color:#01094E;
 }
 a{
-  font-size: small;
-  color: darkblue;
+  font-size: 13px;
+  color:#01094E;
 
-    text-decoration: darkred underline;
+    text-decoration:underline;
 }
 button{
   background-color: #01094E;

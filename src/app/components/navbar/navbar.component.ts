@@ -10,7 +10,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-public loggedIn :boolean
+public loggedIn :boolean;
+public noti=[];
+public test ;
   constructor(private auth :AuthService, private route:Router, private Token :TokenService ,private http: HttpClient)  { }
 token =this.Token.get();
   ngOnInit(): void {
@@ -25,5 +27,24 @@ token =this.Token.get();
 
 this.route.navigateByUrl('/login');
   }
+
+  notif()
+  {
+    this.token=this.Token.get();
+    this.http.get('http://backend2.test:8800/api/Notif'+'?token='+this.token).subscribe(
+      data=>{console.log(data);
+        this.test=data
+        for(var i = 0 ; i<5;i++)
+       { this.noti[i]=this.test[i].data
+        console.log(this.test[i].data)}
+      /*  for( var i=0; i<this.test.length;i++)
+    {
+    this.noti[i]=this.test[i][0].data;
+    }
+
+  console.log(this.noti)*/}
+      ,
+      err=> console.log(err));
+    }
 
 }

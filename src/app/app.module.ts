@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { ProfilComponent } from './components/profil/profil.component';
+//import { ProfilComponent } from './components/profil/profil.component';
 import { PasswordComponent } from './components/password/password.component';
 import { RequestComponent } from './components/password/request/request.component';
 import { ResponseComponent } from './components/password/response/response.component';
@@ -26,12 +26,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { NgSelectModule } from '@ng-select/ng-select';
 
-
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AddPetOwnerComponent } from './SuperViseur/add-pet-owner/add-pet-owner.component';
 import { PetOwnersComponent } from './SuperViseur/pet-owners/pet-owners.component';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ProfilPetOwnerComponent } from './SuperViseur/pet-owners/profil-pet-owner/profil-pet-owner.component';
+import { VetsComponent } from './SuperViseur/vets/vets.component';
+import { AddNewVEtComponent } from './SuperViseur/vets/add-new-vet/add-new-vet.component';
+import { ProfilVetComponent } from './SuperViseur/vets/profil-vet/profil-vet.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     NavbarComponent,
     LoginComponent,
     SignUpComponent,
-    ProfilComponent,
+   // ProfilComponent,
     PasswordComponent,
     RequestComponent,
     ResponseComponent,
@@ -48,6 +51,10 @@ MenuBarComponent,
 NewRXComponent,
 AddPetOwnerComponent,
 PetOwnersComponent,
+ProfilPetOwnerComponent,
+VetsComponent,
+AddNewVEtComponent,
+ProfilVetComponent,
 
 
 

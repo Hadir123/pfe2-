@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AuthService } from './Services/auth.service';
 import { Router } from '@angular/router';
 import { TokenService } from './Services/token.service';
+import { Compiler } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
@@ -12,26 +14,30 @@ import { TokenService } from './Services/token.service';
 export class AppComponent {
   title = 'Login3';
   public loggedIn = false ;
+  visible: boolean;
 
-  constructor(private auth :AuthService, private route:Router, private Token :TokenService ) { }
+  constructor(private auth :AuthService, private route:Router, private Token :TokenService ,private _compiler: Compiler) { this.loggedIn =false;
+}
 
   ngOnInit(): void {
-    this.auth.authStatus.subscribe(value=>this.loggedIn=value);
+    this._compiler.clearCache();
+
+   // this.visible =false ;
+  this.auth.authStatus.subscribe(value=>this.loggedIn=value)
+
+
+
+
   }
   logout(event :MouseEvent)
   {
     event.preventDefault();
+    this.visible = false;
     this.auth.changeAuthStatus(false);
     this.Token.remove() ;
 
 this.route.navigateByUrl('/login');
   }
-  nav()
-  {
-    if(this.Token.get()===null)
-    return false ;
-    else
-    return true ;
-  }
+
 
 }

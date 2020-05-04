@@ -3,8 +3,8 @@
   <head>
    </head>
    <body>
-    <app-navbar *ngIf="nav()"></app-navbar>
-<app-menu-bar *ngIf="nav()" style="margin-top: 0cm;"></app-menu-bar>
+    <app-navbar *ngIf="loggedIn"></app-navbar>
+<app-menu-bar *ngIf="loggedIn" style="margin-top: 0cm;"></app-menu-bar>
     <!--<app-navbar ></app-navbar>-->
 
 <notifier-container></notifier-container>

@@ -6,7 +6,7 @@
 {
   float: right;
   margin-bottom: 10px;
-  background-color: #01094E;
+  background-color: darkred;
   width: 300px;
 }
 a{
@@ -63,7 +63,7 @@ a{
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: darkred;
 }
 
 input:focus + .slider {
