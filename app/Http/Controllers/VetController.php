@@ -7,19 +7,22 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Vet;
 use App\Http\Controllers\APIController;
+use App\Http\Requests\RegistrationFormRequest;
 use App\Providers\VetService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class VetController extends  APIController
 { protected $VetService;
+    protected $userController ;
     public function __construct()
 	{
-		$this->VetService = new VetService();}
+        $this->VetService = new VetService();
+    $this->userController= new UserController() ;}
 
- public function register(Request $request)
-    {
-
+ public function register(RegistrationFormRequest $request)
+    {return $this->VetService->create($request);
+/*
        $user=new User();
        $user->email=$request->email ;
        $user->name=$request->name ;
@@ -45,7 +48,7 @@ class VetController extends  APIController
                     else
                           return response()->json(['helo'=>'no']);
 
-
+*/
     }
     public function loginVet(Request $request)
     {$input = $request->only('email', 'password');
@@ -69,42 +72,43 @@ class VetController extends  APIController
           }
     }
 
- public function index()
- {$vets= new Vet();
-$vet=null ;
-    $vets= DB::table('vets')->get();
-
-$i=0;
-$user=[];
-foreach($vets as $vet)
-{
-    $user[$i]=$this->showw($vet->user_id);
-    $i++;
-}
-return $user ;
-
-}
-public function showw($id)
-{
-    $user = DB::table('users')->where('id',$id)->get();
-    return $user;
-}
-public function ChangeStatus($id)
-{
- $user = DB::table('users')->where('id',$id)->get()->first();
-$users = new User();
-$users=$user;
-    if ($users->status=="active")
+    public function index()
     {
-        $user= DB::table('users')->where('id',$id)->update(['status'=>'desactive']);
+    return $this->VetService->index() ;
     }
-else
-$user= DB::table('users')->where('id',$id)->update(['status'=>'active']);
-if($user)
-    return response()->json(['ok'=>'ok']);
- else
- return response()->json(['ok'=>'niok']);
+public function show($id)
+{
+   $vet= $this->VetService->showVet($id);
+   $user=$this->userController->show($id);
+
+  $adress = new AdresseController() ;
+  $res=$adress->findById($user->adresse_id);
+   return response()->json(['user'=>$user,'vet'=>$vet,'adrrese'=>$res]);
 
 }
+public function Update(Request $request)
+{
+if ($this->VetService->Update($request))
+{$vet=$this->VetService->showVEt($request->id);
+        return response()->json(['success'=>true,
+ 'user' =>$vet]);}
+ else
+        return response()->json(['success'=>false,
+]);
+}
+public function attachPetOwner(Request $request)
+{
+if ($this->VetService->attachPetOwner($request))
+return response()->json(['ok'=>'ok']);
+else
+return response()->json(['ok'=>'Not Ok']);
+
+}
+public function carfulTeam($id)
+{
+    return $this->VetService->Careful($id) ;
+
+}
+
  }
 

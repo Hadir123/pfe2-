@@ -9,21 +9,17 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Facades\JWTAuth;
-
+use App\Http\Controllers\AdresseController;
 class UserController extends Controller
 {    protected $user;
     public function __construct()
 	{
 		$this->user = new UserService()
 ;	}
- public function index()
- {
-    $user= DB::table('users')->get(['email','id'])->toArray();
-return $user ;
- }
+
  public function show($id)
 {
-    $task =DB::table('pets')->where('pet_owner_id',$id)->get()->toArray();
+  /*  $task =DB::table('pets')->where('pet_owner_id',$id)->get()->toArray();
 
     if (!$task) {
         return response()->json([
@@ -32,17 +28,17 @@ return $user ;
         ], 400);
     }
 
-    return $task;
+    return $task;*/
+
+    return $this->user->show($id);
 }
 public function Notif()
-{$user =Auth::user();
-    $notif = DB::table('notifications')->where('notifiable_id',$user->id)->get()->toArray();
-return $notif;
+{
+return $this->user->Notif();
 }
 public function create(RegistrationFormRequest $req)
 {try
-    {
-        if($this->user->create($req))
+    { if($this->user->create($req))
  return response()->json([
     'success' => true,]);
     else
@@ -51,10 +47,22 @@ return response()->json([
     'success' => false,]);
        } catch (Exception $e) {
            return response()->json(['error' => $e->getMessage()], 500);
-
-
-
-
 }
+}
+function ChangeStatus ($id)
+{
+if($this->user->changeStatus($id))
+    return response()->json(['ok'=>'ok']);
+ else
+ return response()->json(['ok'=>'niok']);
+}
+public function Update(Request $request)
+{
+if ($user=$this->user->update($request))
+        return response()->json(['success'=>true,
+ 'user' =>$user]);
+ else
+        return response()->json(['success'=>false,
+]);
 }
 }

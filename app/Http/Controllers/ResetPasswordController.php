@@ -40,7 +40,7 @@ Mail::to($email)->send(new ResetPasswordMail($this->token->token));
 
 }
 public function createToken($email)
-{$oldToken=DB::table('reset_password')->where('email',$email)->first();
+{$oldToken=DB::table('reset_password')->where('email',$email)->get('token')->first();
 if($oldToken)
 {
     return $oldToken;

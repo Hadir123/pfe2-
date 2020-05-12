@@ -8,7 +8,7 @@ class Vet extends Model
 {  public  $table='Vets';
 
     protected $fillable = [
-        'user_id', 'is_superviseur','speciality','hospital_id',
+        'user_id', 'is_superviseur','speciality','fax','directLine'
 
 
     ];

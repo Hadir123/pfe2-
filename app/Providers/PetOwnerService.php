@@ -3,10 +3,17 @@
 namespace App\Providers;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegistrationFormRequest;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PetownerMail;
 use App\PetOwner;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Redis;
+use Illuminate\Notifications\Notifiable;
 use App\Repositories\PetOwnerRepository;
-use Error;
+use App\Notifications\MyFirstNotification;
+
+use Illuminate\Contracts\Mail\Mailer;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
 class PetOwnerService extends ServiceProvider
@@ -44,12 +51,64 @@ class PetOwnerService extends ServiceProvider
 $res =$user->create($request);
 $attributes=[];
         $request2->replace(['user_id' => $res->id,
-        'hospital_id'=>'1',
+
         ]);
        $attributes=$request2->all();
        $this->user->create($attributes);
+       $this->user1->sendEmail($res->email);
     return $res;
 }
 else return false ;
+}
+
+public function sendNotif()
+{    //$user = DB::table('users')->where('id',$id)->get()->first();
+    $details = [
+
+        'greeting' => 'Hi Artisan',
+
+        'body' => 'This is my first notification from ItSolutionStuff.com',
+
+        'thanks' => 'Thank you for using ItSolutionStuff.com tuto!',
+
+        'actionText' => 'View My Site',
+
+        'actionURL' => url('/'),
+        'order_id'=>'hi'
+
+
+    ];
+    Notification::send(Auth::user(), new MyFirstNotification($details));
+return response()->json(['user'=>Auth::user()]);
+}
+public function attachVet(Request $request)
+{
+if ($this->user->attachVet($request->id_petOwner,$request->id_vet))
+return true ;
+else
+return false ;
+}
+public function index()
+{$petOwners=$this->user->all();
+
+    $i=0;
+    $user=[];
+    foreach($petOwners as $petOwner)
+    {
+       $user[$i]=$this->user1->show($petOwner->user_id);
+       $i++;
+    }
+    return $user ;
+
+}
+public function showPetOwner($id)
+{
+   return $this->user1->show($id);
+
+}
+public function Update(Request $request)
+{if($user= $this->user1->update($request))
+    return $user ;
+    else return false ;
 }
 }

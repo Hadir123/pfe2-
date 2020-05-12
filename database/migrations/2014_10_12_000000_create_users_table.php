@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->enum('status',['active','desactive']);
 
             $table->date('date_of_birth');
-            $table->double('age');
+
             $table->string('gender');
             $table->unsignedBigInteger('adresse_id');
             $table->rememberToken();

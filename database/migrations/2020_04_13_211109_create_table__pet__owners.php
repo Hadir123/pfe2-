@@ -18,10 +18,8 @@ class CreateTablePetOwners extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')
             ->onUpdate('cascade');
-            $table->unsignedBigInteger('hospital_id');
-            $table->foreign('hospital_id')->references('id')->on('table__hospitals')->onDelete('cascade')
-            ->onUpdate('cascade');
-            $table->primary(['user_id', 'hospital_id']);  // note, this is a *primary* key
+            $table->primary('user_id');  // note, this is a *primary* key
+
 
             $table->timestamps();
         });

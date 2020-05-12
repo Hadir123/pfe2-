@@ -28,5 +28,9 @@ function find ($city,$street,$code,$adress)
 
    return $this->model->where(['city'=>$city,'street'=>$street,'postal_code'=>$code,'adresse'=>$adress])->first();
 }
+function findById($id)
+{
+    return $this->model->where('id',$id)->first();
+}
 
 }

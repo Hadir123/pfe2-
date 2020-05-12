@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CearteResetPasswordTable extends Migration
+class Species extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CearteResetPasswordTable extends Migration
      */
     public function up()
     {
-        Schema::create('reset_password', function (Blueprint $table) {
+        //
+        Schema::create('species', function (Blueprint $table) {
             $table->id();
+            $table->string('species');
 
-            $table->string('email');
-            $table->timestamp('email_verified_at')->nullable();
-$table->string('token')->nullable();
-            $table->rememberToken();
-            $table->timestamps();
         });
     }
 
@@ -32,5 +29,6 @@ $table->string('token')->nullable();
     public function down()
     {
         //
+        Schema::dropIfExists('species');
     }
 }

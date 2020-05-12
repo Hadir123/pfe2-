@@ -14,11 +14,11 @@ class AdresseService extends ServiceProvider
      *
      * @return void
      */
-    protected $user ;
+    protected $address ;
 
     public function __construct()
     {
-    $this->user=new \App\Repositories\AdresseRepository(new Adresse());
+    $this->address=new \App\Repositories\AdresseRepository(new Adresse());
     }
     public function register()
     {
@@ -37,12 +37,12 @@ class AdresseService extends ServiceProvider
 function all ()
 {
 //$attributes=$request->all();
- return $this->user->all();
+ return $this->address->all();
 }
     function create(Request $request)
 {
     $attributes=$request->all() ;
-return $this->user->create($attributes);
+return $this->address->create($attributes);
 }
 function find (Request $request)
 {
@@ -50,7 +50,25 @@ function find (Request $request)
     $street=$request->street;
    $code= $request->postal_code;
     $adresse=$request->adresse;
-     return $this->user->find($city,$street,$code,$adresse);
+     return $this->address->find($city,$street,$code,$adresse);
 
 }
+function findById($id)
+{
+return $this->address->findById($id);
+}
+function update(Request $request)
+{
+
+if($res=$this->find($request))
+
+return $res->id ;
+else
+
+  {$res=$this->create($request);
+   return $res->id ;
+
+  }
+}
+
 }
