@@ -7,6 +7,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
+import { OrderPipe } from 'ngx-order-pipe';
+import{TitleCasePipe}from'@angular/common';
+//import {Pipe, PipeTransform} from '@angular/core';
 
 @Component({
   selector: 'app-pet-owners',
@@ -14,11 +17,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./pet-owners.component.css']
 })
 export class PetOwnersComponent implements OnInit {
-  myControl = new FormControl();
-  options: string[] = ['Delhi', 'Mumbai', 'Banglore'];
-  constructor(private petowner:PetOwnerService , private route:Router,) { }
+  order: string = 'name'
+
+  constructor(private petowner:PetOwnerService , private route:Router,) { this.config = {
+    itemsPerPage: 7,
+    currentPage: 1,
+    totalItems: this.user.length
+  };}
  public user=[];
  public test=[];
+ config: any;
 
 public j=0;
  public users =null;
@@ -36,15 +44,16 @@ this.petowner.PetOwners().subscribe(data=>
     this.users=data
     console.log(this.users)
     for( var i=0; i<this.users.length;i++)
-{
-this.user[i]=this.users[i][0];
+{this.users[i].name= this.users[i].name[0].toUpperCase() + this.users[i].name.substr(1).toLowerCase();
+this.user[i]=this.users[i];
+
 }
 
 console.log(this.user)}
   ,
   err=> console.log(err));}
   }
-find ()
+/*find ()
 {this.petowner.PetOwners().subscribe(data=>
   {
     this.users=data
@@ -71,18 +80,9 @@ for (var i=0; i<this.user.length; i++)
 this.user=this.test;
 this.j=0;
 console.log(this.test);
-}
-hi($id)
-{/*console.log(this.statue);
-  for (var i=0; i<this.user.length; i++)
-if(this.user[i].status==='active')
-{ console.log(this.user[i].id)
-  this.statue='desactive'
-}
-else
-{
-  this.statue='active'
 }*/
+hi($id)
+{
 this.petowner.ChangeStatsu($id).subscribe(data=>console.log,
   err=>console.log(err));
 }
@@ -90,4 +90,11 @@ edit($id)
 {
  this.route.navigateByUrl('/PetOwnerProfil/'+$id);
 }
+
+pageChanged(event){
+  this.config.currentPage = event;
+}
+/*titleCaseWord(word: string) {
+  if (!word) return word;
+  return word[0].toUpperCase() + word.substr(1).toLowerCase();}*/
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VetRxService } from 'src/app/Services/vet-rx.service';
-
+import { Router } from '@angular/router';
+import { OrderPipe } from 'ngx-order-pipe';
 @Component({
   selector: 'app-vets',
   templateUrl: './vets.component.html',
@@ -15,7 +16,12 @@ export class VetsComponent implements OnInit {
   public search =null ;
   public hadir=false ;
   public statue='active' ;
-  constructor(private vets: VetRxService) { }
+  order: string = 'name'; config: any;
+  constructor(private vets: VetRxService ,private route:Router) { this.config = {
+    itemsPerPage: 7,
+    currentPage: 1,
+    totalItems: this.user.length
+  } }
 
   ngOnInit(): void {
     if (this.statue==='active')
@@ -27,8 +33,8 @@ this.vets.Vets().subscribe(data=>
     this.users=data
     console.log(this.users)
     for( var i=0; i<this.users.length;i++)
-{
-this.user[i]=this.users[i][0];
+{this.users[i].name= this.users[i].name[0].toUpperCase() + this.users[i].name.substr(1).toLowerCase();
+this.user[i]=this.users[i];
 }
 
 console.log(this.user)}
@@ -42,7 +48,7 @@ this.vets.ChangeStatsu($id).subscribe(data=>console.log(data),
 }
 edit($id)
 {
- //this.route.navigateByUrl('/PetOwnerProfil/'+$id);
+this.route.navigateByUrl('/VetProfil/'+$id);
 }
 find ()
 {/*this.petowner.PetOwners().subscribe(data=>
@@ -71,5 +77,8 @@ for (var i=0; i<this.user.length; i++)
 this.user=this.test;
 this.j=0;
 console.log(this.test);*/
+}
+pageChanged(event){
+  this.config.currentPage = event;
 }
 }

@@ -26,24 +26,26 @@ $(document).ready(function () {
 
   <option  value="null"></option>
     <option *ngFor="let user of user" >
-      {{ user.email}} </option>
+    {{ user.email}} </option>
 </select>-->
 <ng-select class="custom"[items]="user"
 bindLabel="email"
 placeholder="Select PetOwner"
 [(ngModel)]="form.PetOwner"(change)="Petowner()" >
+
 </ng-select>
 
 <p style ="color:#01094E; padding-top: 20px;">Patient (Pet) Name*</p>
 <ng-select class="custom"[items]="pet"
 bindLabel="animal_name"
 placeholder="Select Pet"
-[(ngModel)]="form.Pet"(change)="peet()"   [disabled]="!formvalide">
+[(ngModel)]="form.Pet"(change)="peet()" [disabled]="!formvalide">
+
 </ng-select>
 <span class="text-danger"[hidden]="!error">
   Select a Pet Owner Please !
 </span>
-<p style ="color:#01094E; ">Need to add a new patient (pet)? &nbsp; &nbsp; <a style="text-align: left;color:cyan ;text-decoration: underline;">Click Here</a> </p>
+<p style ="color:#01094E; ">Need to add a new patient (pet)? &nbsp; &nbsp; <a   style="text-align: left;color:cyan ;text-decoration: underline;" *ngIf="formvalide"[routerLink]="['/NewPet/',user.id]" >Click Here</a> </p>
 </div>
 </div>
 <h4 style ="color:#01094E; margin-left: 20px; padding-top: 15px;">Step 2: Select Order Content</h4>
@@ -66,15 +68,15 @@ placeholder="Select Pet"
   <div class="">
 <small>Rx Start Date</small>
 <br>
-
- <!-- <input class="form-control" placeholder="MM/DD/YYYY" bsDatepicker #dp="bsDatepicker"
-[isDisabled]="isDisabled" name="form.date" style="color:#01094E" for="date"   style="display: inline;"[(ngModel)]="form.date">
-<span class="fa fa-calendar"  id="date" style="display: inline;"></span>-->
-<input class="form-control" placeholder="MM-DD-YYYY" type="date" [(ngModel)]="form.date"  name="form.date">
+<!--[isDisabled]="isDisabled"-->
+  <input class="form-control" placeholder="MM/DD/YYYY" bsDatepicker #dp="bsDatepicker"
+ name="form.date" style="color:#01094E" for="date"   style="display: inline;"[(ngModel)]="form.date">
+<span class="fa fa-calendar"  id="date" style="display: inline; margin-left: 5px;"></span>
+<!--<input class="form-control" placeholder="MM-DD-YYYY" type="date" [(ngModel)]="form.date"  name="form.date">-->
 
 
   </div>
-  <small>DD-MM-YYYY</small>
+  <small>MM-DD-YYYY</small>
 <br>
 </div>
 <br>

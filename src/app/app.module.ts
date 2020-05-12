@@ -36,11 +36,17 @@ import { VetsComponent } from './SuperViseur/vets/vets.component';
 import { AddNewVEtComponent } from './SuperViseur/vets/add-new-vet/add-new-vet.component';
 import { ProfilVetComponent } from './SuperViseur/vets/profil-vet/profil-vet.component';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+import { OrderModule } from 'ngx-order-pipe';
+import { PetComponent } from './Vet/pet/pet.component';
+import { PetOwnerInfoComponent } from './Vet/pet/PetOwnerInfor/pet-owner-info/pet-owner-info.component';
+import { PetOfPetwonerComponent } from './Vet/pet/PetOwnerInfor/PetOfPetowner/pet-of-petwoner/pet-of-petwoner.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginComponent,
+   LoginComponent,
     SignUpComponent,
    // ProfilComponent,
     PasswordComponent,
@@ -55,6 +61,9 @@ ProfilPetOwnerComponent,
 VetsComponent,
 AddNewVEtComponent,
 ProfilVetComponent,
+PetComponent,
+PetOwnerInfoComponent,
+PetOfPetwonerComponent,
 
 
 
@@ -71,7 +80,11 @@ ProfilVetComponent,
     BrowserAnimationsModule,// ToastrModule added,
  BsDatepickerModule.forRoot(),
  MatDatepickerModule,NgSelectModule,
- Ng2SearchPipeModule
+ Ng2SearchPipeModule,
+    NgxPaginationModule,
+ OrderModule,
+
+
   ],
   providers: [JarwisService,
   TokenService, AuthService,

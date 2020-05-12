@@ -1,0 +1,15 @@
+.all{
+  border-color:lightgray;
+  border-style: solid;
+  border-width: 0.5px;
+background-color: rgb(238, 235, 235);
+margin-right: 10px;
+
+
+}
+#form{
+  margin-top:08px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+}

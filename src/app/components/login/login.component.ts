@@ -3,8 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JarwisService } from 'src/app/Services/jarwis.service';
 import{TokenService} from 'src/app/Services/token.service';
-import { Router } from '@angular/router';
+
 import { AuthService } from 'src/app/Services/auth.service';
+import { NgModule } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-login',

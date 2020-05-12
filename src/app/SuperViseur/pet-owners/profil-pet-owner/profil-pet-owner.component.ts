@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PetOwnerService } from 'src/app/Services/pet-owner.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-profil-pet-owner',
@@ -9,15 +10,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProfilPetOwnerComponent implements OnInit {
 
-  constructor(private petowner:PetOwnerService ,private router:Router,  private route: ActivatedRoute) { }
+  constructor(private petowner:PetOwnerService ,private router:Router,  private route: ActivatedRoute ,private notifier:NotifierService) { }
 public edite:boolean;
 public test=null;
 public user=null;
-public form={
-  name:null ,
-  last_name:null,
-  email:null ,
-};
 public $id=null ;
 public adresse=null;
   ngOnInit(): void {
@@ -27,7 +23,7 @@ console.log(this.$id)
    this.test=data;
    this.user=this.test.user ;
    console.log(this.user);
-this.adresse=this.test.adresse[0];
+this.adresse=this.test.adresse;
 //console.log(this.user.user);
 console.log(this.adresse);
    this.edite=false
@@ -41,8 +37,33 @@ edit()
 }
 save(){
 console.log(this.user);
-this.petowner.Update(this.user).subscribe(data=>console.log(data),
-err=>console.log(err));
+this.petowner.UpdateAddress(this.adresse).subscribe(data=>{console.log(data);
+  this.test=data
+this.user.adresse_id=this.test.adresse_id ;
+
+  this.petowner.Update(this.user).subscribe(data=>{console.log(data)
+    this.test=data ;
+    this.user=this.test.user ;
+    console.log(this.user)
+    this.notifier.notify("success", "  Done , User successfully modified. ");
+    },
+    err=>{console.log(err)
+      this.petowner.PetOwner(this.$id).subscribe(data=>{
+        this.test=data;
+        this.user=this.test.user ;
+        console.log(this.user);
+     this.adresse=this.test.adresse;
+     console.log(this.adresse);});
+     this.notifier.show({
+      type: "error",
+      message: "Whoops, something went wrong. Probably.",
+
+    });
+
+    });
+
+},err=>console.log(err));
+
 console.log(this.adresse);
 this.edite=false ;
 }

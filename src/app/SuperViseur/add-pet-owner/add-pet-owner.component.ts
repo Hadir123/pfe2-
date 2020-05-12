@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { ThrowStmt } from '@angular/compiler';
 import { NotifierService } from 'angular-notifier';
 import { Router } from '@angular/router';
+import { VetRxService } from 'src/app/Services/vet-rx.service';
 
 
 
@@ -19,7 +20,8 @@ export class AddPetOwnerComponent implements OnInit {
 public num:-1;
 public token;
 public err=null ;
-public vets=null;
+public vets=[];
+users=null ;
 petowner=null
 public relation ={
   id_petOwner:null ,
@@ -41,7 +43,7 @@ public form=
   id:null ,
 };
 vet2=[] ;
-  constructor(private newOne : PetOwnerService , private router :Router,private tokenn : TokenService ,private notifier:NotifierService) { }
+  constructor(private newOne : PetOwnerService ,private vet :VetRxService, private router :Router,private tokenn : TokenService ,private notifier:NotifierService) { }
 
   ngOnInit(): void {
   }
@@ -66,7 +68,7 @@ else
   /**************/
   Save()
   {
-
+this.form.name= this.form.name[0].toUpperCase() + this.form.name.substr(1).toLowerCase();
 this.newOne.onSubmit(this.form).subscribe(
   data=>{
 
@@ -110,35 +112,53 @@ console.log(this.petowner)
 this.notifier.notify("success", "Done!,Pet Owner added ");
 this.router.navigateByUrl('/PetOwners');
 }
-Vets()
+Vetss()
 {
-  this.newOne.Vets().subscribe(data=>{
-  //console.log(this.vets[0][0].id)
-  this.vets=data ;
-for( var i=0; i<this.vets.length;i++)
-{
-this.vets[i]=this.vets[i][0];
-}
-console.log(this.vets)},
-  err=>console.log(err));
-}
-
-onChange(id: number, isChecked: boolean) {
-
-  if (isChecked) {
-    var i=0;
-    while ((i<this.vet2.length )&& (this.vet2[i]!=id))
+  this.vet.Vets().subscribe(data=>
     {
-     i++;
-      }
-if(i===this.vet2.length)
-  { this.vet2[this.vet2.length]=id
-  //  console.log(this.vet2)
-
+      this.users=data
+      console.log(this.users)
+      for( var i=0; i<this.users.length;i++)
+  {
+  this.vets[i]=this.users[i];
   }
-  //console.log(this.vet2)
-}
-}
+
+  console.log(this.vets)}
+    ,
+    err=> console.log(err));}
+
+
+
+    onChange(id: number, isChecked: boolean) {
+
+      if (isChecked) {
+        var i=0;
+        while ((i<this.vet2.length )&& (this.vet2[i]!=id))
+        {
+         i++;
+          }
+    if(i===this.vet2.length)
+      { this.vet2[this.vet2.length]=id
+      //  console.log(this.vet2)
+
+      }
+
+    console.log(this.vet2)
+
+    }
+    else
+    {
+        var i=0;
+        while ((i<this.vet2.length )&& (this.vet2[i]!=id))
+        {
+         i++;
+          }
+          this.vet2.splice(i,1);
+    }
+  console.log(this.vet2);
+
+    }
+
  saveVet()
  {
 console.log(this.vet2);

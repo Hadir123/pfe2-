@@ -16,11 +16,11 @@ public token;
   { this.token =this.tokenn.get() ;
   return this.http.post('http://backend2.test:8800/api/addPetOwner?token='+this.token,data) ;
   }
-  Vets()
+  /*Vets()
   {
     this.token= this.tokenn.get() ;
     return this.http.get('http://backend2.test:8800/api/Vets?token='+this.token)//.pipe(map(response =>JSON.stringify(response)));
-  }
+  }*/
   vetsAdd(data)
   {
     this.token =this.tokenn.get() ;
@@ -46,5 +46,11 @@ public token;
 
     this.token =this.tokenn.get() ;
     return this.http.post('http://backend2.test:8800/api/PetOwnerUpdate?token='+this.token,data ) ;
+  }
+  UpdateAddress(data)
+  {
+
+    this.token =this.tokenn.get() ;
+    return this.http.post('http://backend2.test:8800/api/AdressUpdate?token='+this.token,data ) ;
   }
 }

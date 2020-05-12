@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NotifierService } from 'angular-notifier';
 import { TokenService } from 'src/app/Services/token.service';
 import { Router } from '@angular/router';
+import { ThrowStmt } from '@angular/compiler';
+import { VetRxService } from 'src/app/Services/vet-rx.service';
 
 @Component({
   selector: 'app-add-new-vet',
@@ -21,21 +23,23 @@ public relation ={
 };
 public form=
 { name:null,
-  date_of_birth:null ,
   last_name:null ,
+  date_of_birth:null ,
+  gender:null,
   email:null ,
   phone:null ,
-  gender:null,
-  age:null ,
+  directLine:null ,
+  fax:null ,
+  speciality:null,
   adresse:null ,
   street:null ,
   postal_code:null ,
   city:null ,
   Hospital:"Haygard",
-  id:null ,
+  is_superviseur:0 ,
 };
 vet2=[] ;
-  constructor(private router :Router,private tokenn : TokenService ,private notifier:NotifierService) { }
+  constructor(private router :Router,private tokenn : TokenService ,private notifier:NotifierService, private vet :VetRxService) { }
 
   ngOnInit(): void {
   }
@@ -60,26 +64,12 @@ else
   /**************/
   Save()
   {
+console.log(this.form);
 
-/*this.newOne.onSubmit(this.form).subscribe(
-  data=>{
-
-this.handleData(data);
-  },
-  err=>{
-    this.handelErro(err);
-    if (this.err.gender)
-    {
-      this.err.gender="check the sexe please"
-    }
-    if (this.err.street)
-    {
-      this.err.street="The State is required"
-    }
-  }
-);
-    console.log(this.form);
-*/
+this.vet.AddVet(this.form).subscribe(data=>{console.log(data)
+this.handleData(data)},
+err=>{console.log(err)
+this.handelErro(err)});
   }
   handelErro(err)
   {
@@ -87,56 +77,25 @@ this.handleData(data);
   }
 handleData(data)
 {
-this.petowner=data.user
-console.log(this.petowner)
-  console.log(this.petowner.id)
-  if(this.petowner.id!= null )
- {var id = this.petowner.id ;
-   for (var i=0;i<this.vet2.length;i++)
-{this.relation.id_petOwner=id ;
-  console.log(id);
-  this.relation.id_vet=this.vet2[i];
-  console.log(this.vet2[i]);
-  console.log(this.relation);
-    //   this.newOne.vetsAdd(this.relation).subscribe( data=>{console.log(data);},
-    //    err=>console.log(err));
-}}
-this.notifier.notify("success", "Done!,Pet Owner added ");
-this.router.navigateByUrl('/PetOwners');
-}
-Vets()
-{
- /*// this.newOne.Vets().subscribe(data=>{
-  //console.log(this.vets[0][0].id)
-  //this.vets=data ;
-for( var i=0; i<this.vets.length;i++)
-{
-this.vets[i]=this.vets[i][0];
-}
-console.log(this.vets)},
- // err=>console.log(err));*/
+
+this.notifier.notify("success", "Done!,Vet added ");
+this.router.navigateByUrl('/Vets');
 }
 
-onChange(id: number, isChecked: boolean) {
+
+onChange(isChecked: boolean) {
 
   if (isChecked) {
-    var i=0;
-    while ((i<this.vet2.length )&& (this.vet2[i]!=id))
-    {
-     i++;
-      }
-if(i===this.vet2.length)
-  { this.vet2[this.vet2.length]=id
-  //  console.log(this.vet2)
+   console.log('cheked');
+   this.form.is_superviseur=1 ;
+   console.log( this.form.is_superviseur);
+} else
+{console.log('not cheked');
+this.form.is_superviseur=0 ;
+console.log( this.form.is_superviseur);
+}
+}
 
-  }
-  //console.log(this.vet2)
-}
-}
- saveVet()
- {
-console.log(this.vet2);
- }
 
 
 }

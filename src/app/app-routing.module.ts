@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+
 import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from './components/login/login.component';
 import {SignUpComponent} from './components/sign-up/sign-up.component';
@@ -16,13 +17,15 @@ import { ProfilPetOwnerComponent } from './SuperViseur/pet-owners/profil-pet-own
 import { VetsComponent } from './SuperViseur/vets/vets.component';
 import { AddNewVEtComponent } from './SuperViseur/vets/add-new-vet/add-new-vet.component';
 import { ProfilVetComponent } from './SuperViseur/vets/profil-vet/profil-vet.component';
-
+import {PetComponent} from'./Vet/pet/pet.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch:'full' ,
    },
   {
      path: 'login', component: LoginComponent ,
  },
+ { path:'request-password', component: RequestComponent },
+ { path:'response-password', component: ResponseComponent },
   { path: 'singnup', component: SignUpComponent ,canActivate:[BeforeLoginService] },
   { path:'profil', component: ProfilComponent ,
 canActivate: [AfterLoginService] },
@@ -30,12 +33,13 @@ canActivate: [AfterLoginService] },
 canActivate: [AfterLoginService] },
 { path:'HomePage', component: HomePageComponent ,
 canActivate: [AfterLoginService] },
-  { path:'request-password', component: RequestComponent ,canActivate: [BeforeLoginService]},
-  { path:'response-password', component: ResponseComponent,canActivate: [BeforeLoginService] },
+
   { path:'PetOwners', component: PetOwnersComponent,canActivate: [AfterLoginService] },
   { path:'addPetOwner', component: AddPetOwnerComponent,canActivate: [AfterLoginService] },
   { path:'PetOwnerProfil/:id', component:ProfilPetOwnerComponent  ,canActivate: [AfterLoginService],
  },
+ { path:'NewPet/:id', component:PetComponent  ,canActivate: [AfterLoginService],
+},
  { path:'Vets', component: VetsComponent,canActivate: [AfterLoginService] },
  { path:'addVet', component: AddNewVEtComponent,canActivate: [AfterLoginService] },
  { path:'VetProfil/:id', component: ProfilVetComponent,canActivate: [AfterLoginService] },
@@ -45,5 +49,6 @@ canActivate: [AfterLoginService] },
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
+
 })
 export class AppRoutingModule { }

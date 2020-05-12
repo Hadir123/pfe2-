@@ -6,7 +6,7 @@
   <input type="text" id='search' class="form-control" [(ngModel)]='search' placeholder="Search by Name">
   <div class="input-group-append">
 
-  <button type="button" class="btn btn-primary" (click)="find()" style="display: inline; background-color: green;margin-left:5px;" >Find </button>
+  <button type="button" class="btn btn-primary"  style="display: inline; background-color: green;margin-left:5px;" >Find </button>
   </div>
 </div>
 <br>
@@ -25,8 +25,8 @@
   </thead>
   <tbody>
 
-      <tr *ngFor="let users of user| filter:search">
-       <td>{{users.name }}  </td>
+      <tr *ngFor="let users of user|filter:search|orderBy: order|paginate: config">
+       <td>{{users.name | titlecase }}  </td>
         <td>{{users.last_name}}</td>
         <td>{{users.email}}</td>
         <td>{{users.phone}}</td>
@@ -40,3 +40,4 @@
     </tr>
 </tbody>
 </table>
+<pagination-controls style="text-align: center;" (pageChange)="pageChanged($event)"></pagination-controls>
