@@ -1,11 +1,11 @@
 
-<span class="fa fa-arrow-left" style="color: #01094E;"></span><a routerLink="/HomePage"> Dashbord</a>
+<span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="/HomePage"> Dashbord</a>
 <br>
-<span class="fa fa-arrow-left" style="color: #01094E;"></span><a routerLink="/Vets" >Vets List </a>
+<span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="/Vets" >Vets List </a>
 
 <div class="all2"*ngIf="!edite">
-  <form id='form'*ngIf="!edite" style="color:#01094E" >
-    <h3 style="color: #01094E;margin-bottom: 20px;">Vet Profil </h3>
+  <form id='form'*ngIf="!edite" style="color:#123C69" >
+    <h3 style="color: #123C69;margin-bottom: 20px;">Vet Profil </h3>
 
     <div class="form-row">
       <label for="inputName" id='labelInput' >First Name :</label> &nbsp;&nbsp;<label >{{user.name}}</label>
@@ -37,7 +37,7 @@
       &nbsp;{{ adresse.street}}<br>{{ adresse.postal_code}} </label>
   </div>
 <br>
-  <button type="submit" class="btn btn-primary " id="edit"(click)='edit()'style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 100px;"> <span class="fa fa-pencil">Edit </span></button>
+  <button type="submit" class="btn btn-primary " id="edit"(click)='edit()'style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 100px;"> <span class="fas fa-pencil-alt">Edit </span></button>
 <br>
 <br>
 </form>
@@ -45,8 +45,8 @@
 </div>
 
 <div class="all" *ngIf="edite">
-  <h3 style="color: #01094E;margin-bottom: 20px; margin-left: 10px;">Vet</h3>
-  <form id='form2' style="color: #01094E;">
+  <h3 style="color: #123C69;margin-bottom: 20px; margin-left: 10px;">Vet</h3>
+  <form id='form2' style="color: #123C69;">
      <div class="form-row"*ngIf="edite">
         <label for="inputName">First Name <i style="color:red">*</i></label>
         <input type="text"   [(ngModel)]='user.name'name="name"class="form-control" id="inputName" value="{{user.name}}">
@@ -101,7 +101,7 @@
       </div>
       </div>
  <!-- Button trigger modal -->
- <button type="button" class="btn btn-primary" style ="background-color: #01094E;"data-toggle="modal"  data-target="#exampleModalCenter" (click)='AttachPetowner()' style="width: 400px;">
+ <button type="button" class="btn btn-primary" style ="background-color: #4056A1;"data-toggle="modal"  data-target="#exampleModalCenter" (click)='AttachPetowner()' style="width: 400px;">
   <h6 style="float:left;">Attach a PetOwner </h6>
 </button>
 
@@ -118,7 +118,7 @@
 <div class="modal-body">
 
     <input type="text" class="form-control" name='search'[(ngModel)]='search'style="display: inline; width:300px;margin-right: 15px;" placeholder="Search by Name">
-    <button type="button" class="btn btn-primary" style="display: inline; background-color: green;">Find </button>
+    <button type="button" class="btn btn-primary" style="display: inline; background-color: #D79922;">Find </button>
     <button style="display: inline; background-color:darkred;margin-left: 10px;"type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
     <table class="table table-striped">
       <thead>
@@ -146,14 +146,14 @@
     </table>
 </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-primary" style="display: inline; background-color:#01094E;margin-left: 15px;"(click)="saveRelation()" data-dismiss="modal">Submit </button>
+    <button type="button" class="btn btn-primary" style="display: inline; background-color:#4056A1;margin-left: 15px;"(click)="saveRelation()" data-dismiss="modal">Submit </button>
   </div>
   </div>
 </div>
 </div>
         <br>
         <br>
-       <button type="submit" class="btn btn-primary "(click)='save()'style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 200px; background-color:darkred"> <span class="fa fa-save"  style="margin-right:15px"> Save </span></button>
+       <button type="submit" class="btn btn-primary "(click)='save()'style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 200px; background-color:#F13c20"> <span class="fa fa-save"  style="margin-right:15px"> Save </span></button>
          <br>
           <br>
  </form>

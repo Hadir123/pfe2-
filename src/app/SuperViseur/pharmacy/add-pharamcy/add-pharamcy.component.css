@@ -1,0 +1,18 @@
+a{
+  font-size: 13px;
+  color:#123C69;
+
+    text-decoration:underline;
+}
+label{
+  color:#123C69;
+}
+.containt
+{ border-color: #123C69;
+  background-color: #F4F4F4;
+
+}
+form{
+  margin-left: 25px;
+  margin-right: 25px;
+}

@@ -25,7 +25,7 @@ input[type="date"]:after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f073";
-  color: #01094E;
+  color: #123C69;
   padding: 0 5px;
 }
 
@@ -47,16 +47,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: transparent;
 }
 label{
-  color:#01094E;
+  color:#123C69;
 }
 a{
   font-size: 13px;
-  color:#01094E;
+  color:#123C69;
 
     text-decoration:underline;
 }
 button{
-  background-color: #01094E;
+  background-color: #4056A1;
 }
 input[checkbox]
 {
@@ -69,4 +69,8 @@ width: 10px;
   height: 400px;
   width: 500px;
   overflow-y: auto;
+}
+a:hover{
+  padding-left: 0.5px;
+  left: 0;
 }

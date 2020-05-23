@@ -1,0 +1,41 @@
+
+<div class="containt">
+  <span class="fa fa-arrow-left" style="color: #123C69"></span><a routerLink="/HomePage"> Dashbord</a>
+  <br>
+  <span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="" >Pharmcies List </a>
+  <h2 style="color:#123C69"> Add Pharmacy Admin</h2>
+  <form>
+
+     <div class="form-row">
+        <label for="inputName">Pharmcy Name  <i style="color:red">*</i></label>
+        <input type="text" name="phamacyName"class="form-control" id="inputName" placeholder="Pharmacy Name ..">
+
+      </div>
+      <div class="form-row">
+        <label for="inputName">Email <i style="color:red">*</i></label>
+        <input type="text" name="name"class="form-control" id="inputName" placeholder="exemple@......">
+
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="inputDirectNumber">Phone <i style="color:red">*</i></label>
+          <input type="text"  id="phone"name="phone"class="form-control" placeholder="7236.....">
+
+     </div>
+     <div class="col">
+      <label for="inputeMobile">Fax <i style="color:red">*</i></label>
+      <input type="text" id="inputeMobile" name="fax"class="form-control" placeholder="00....."[(ngModel)]="form.fax">
+
+      </div>
+      </div>
+
+
+        <button type="submit" class="btn btn-primary "  style="float:right; margin-bottom :20px ;font-size:large;width: 200px; background-color:darkred"> Next <span class="fa fa-arrow-right" style="margin-right:15px"></span></button>
+
+          <br>
+         <br>
+</form>
+
+
+
+</div>

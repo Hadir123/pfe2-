@@ -1,5 +1,6 @@
 body{
   padding: 0px, 0px;
+  color:#123C69;
 }
 button{
   color:black ;
@@ -14,14 +15,14 @@ button{
 {
 
   width: 150px;
-  background-color: darkred;
+  background-color: #F13c20;
   color: white;
 
 }
 .select_bar
 {margin-top:10px;
 
-  background-color: #E8E8EE;
+  background-color:#F4F4F4;
   margin-left: 00px;
 }
 .select_bar h4{
@@ -57,7 +58,7 @@ margin-top: 0px;
 .input-item #first{
 width:150px;
 display: inline-block;
-background-color: #01094E;
+background-color:#4056A1;
 color :white;
 font-style: oblique;
 font-size: large;
@@ -84,7 +85,7 @@ input[type="date"]:after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f073";
-  color: #01094E;
+  color: #123C69;
   padding: 0 5px;
 }
 

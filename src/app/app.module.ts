@@ -41,7 +41,10 @@ import { OrderModule } from 'ngx-order-pipe';
 import { PetComponent } from './Vet/pet/pet.component';
 import { PetOwnerInfoComponent } from './Vet/pet/PetOwnerInfor/pet-owner-info/pet-owner-info.component';
 import { PetOfPetwonerComponent } from './Vet/pet/PetOwnerInfor/PetOfPetowner/pet-of-petwoner/pet-of-petwoner.component';
-
+import { MenubarComponent } from './components/menubar/menubar.component';
+import { PharmacyComponent } from 'src/app/SuperViseur/pharmacy/pharmacy.component';
+import { AddPharamcyComponent } from 'src/app/SuperViseur/pharmacy/add-pharamcy/add-pharamcy.component';
+import { AddPharamcistComponent } from 'src/app/SuperViseur/pharmacy/add-pharamcist/add-pharamcist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,8 +67,9 @@ ProfilVetComponent,
 PetComponent,
 PetOwnerInfoComponent,
 PetOfPetwonerComponent,
-
-
+MenubarComponent,    PharmacyComponent,
+AddPharamcyComponent,
+AddPharamcistComponent,
 
   ],
   imports: [
@@ -83,6 +87,7 @@ PetOfPetwonerComponent,
  Ng2SearchPipeModule,
     NgxPaginationModule,
  OrderModule,
+// PharmacyModule
 
 
   ],

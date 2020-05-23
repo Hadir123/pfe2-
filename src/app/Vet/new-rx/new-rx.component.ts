@@ -18,7 +18,7 @@ import { PetService } from 'src/app/Services/pet.service';
 export class NewRXComponent implements OnInit {
 public user;
 
-public pet;
+public petss;
   constructor(private router:Router , private Vet:VetRxService ,private config: NgSelectConfig, private petowenr :PetOwnerService ,private pets:PetService) {
   this.config.notFoundText = 'Not found';
     this.config.appendTo = 'body';
@@ -33,14 +33,14 @@ form=
 
      PetOwner:null,
 
-      Pet:this.pet,
+      Pet:this.petss,
       date:null,
 
 };
 
   ngOnInit(): void {
    this.user=this.petowenr.PetOwners().subscribe(data=>this.user=data) ;
-this.pet=null ;
+
 
   }
 
@@ -49,8 +49,6 @@ Petowner()
   if (this.form.PetOwner===null)
   {   this.Invalide();
      console.log("hye ikteb haja ")
-
-
   }
    else
   {     this.valide();
@@ -58,11 +56,18 @@ Petowner()
       console.log(this.form.PetOwner.email)
       console.log(this.form.PetOwner.id)
       console.log(this.formvalide)
-      this.pet=null;
+
 
       this.form.Pet=null ;
-      this.Pets(this.form.PetOwner.id);
-      this.form.Pet=this.pet
+      this.pets.Pets(this.form.PetOwner.id).subscribe(data=>
+        {
+        this.petss=data
+        console.log(data)
+        },
+        err=>console.log(err.error.message));
+      //this.Petss(this.form.PetOwner.id);
+      console.log(this.petss);
+      this.form.Pet=this.petss;
           if (this.form.date===null)
               {   var now = new Date();
                   var annee   = now.getFullYear();
@@ -93,7 +98,7 @@ Exit()
   text: "Any changes will not be saved!",
   icon: 'warning',
   showCancelButton: true,
-  confirmButtonColor: '#01094E',
+  confirmButtonColor: '#4056A1',
   cancelButtonColor: '#d33',
   confirmButtonText: 'Continue'
           }).then((result) => {
@@ -104,11 +109,11 @@ Exit()
                               }
                   )
 }
-Pets(id)
+Petss(id)
 {
     this.pets.Pets(id).subscribe(data=>
     {
-    this.pet=data
+    this.petss=data
     console.log(data)
     },
     err=>console.log(err.error.message));

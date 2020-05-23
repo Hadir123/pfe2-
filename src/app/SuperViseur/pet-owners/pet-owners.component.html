@@ -1,19 +1,20 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-<span class="fa fa-arrow-left" style="color: #01094E;"></span><a routerLink="/HomePage"> Dashbord</a>
-<h2 style="color:#01094E"> PetOwners List </h2>
+<span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="/HomePage"> Dashbord</a>
+<h2 style="color:#123C69;"> PetOwners List </h2>
 <button routerLink="/addPetOwner"type="button" class="btn btn-secondary" id="add2">  <span class="fa fa-plus" style="margin-right: 15px;"></span>Add New PetOwner</button>
 <div class="input-group">
   <input type="text" id='search' class="form-control" [(ngModel)]='search' placeholder="Search by Name">
   <div class="input-group-append">
 
-  <button type="button" class="btn btn-primary"  style="display: inline; background-color: green;margin-left:5px;" >Find </button>
+  <button type="button" class="btn btn-primary"  style="display: inline; background-color: #D79922;margin-left:5px;" >Find </button>
   </div>
 </div>
 <br>
 
 <table class="table" >
 <thead>
-    <tr style="color :midnightblue; background-color: #DEDEDE; height: 60px;">
+    <tr style="color :#123C69;; background-color: #DEDEDE; height: 60px;">
 
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
@@ -36,8 +37,8 @@
             <span class="slider round"></span>
           </label>
         </td>
-        <td><button type="button"  id ="edit"(click)='edit(users.id)' class="btn btn-primary"> <span class="fa fa-pencil"></span>Edit</button></td>
+        <td><button type="button"  id ="edit"(click)='edit(users.id)' class="btn btn-primary"> Edit <span class="fas fa-pencil-alt"></span></button></td>
     </tr>
 </tbody>
 </table>
-<pagination-controls style="text-align: center;" (pageChange)="pageChanged($event)"></pagination-controls>
+<pagination-controls style="text-align: center;color: #123C69;;" (pageChange)="pageChanged($event)"></pagination-controls>

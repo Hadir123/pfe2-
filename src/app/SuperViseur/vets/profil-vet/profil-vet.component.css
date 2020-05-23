@@ -34,15 +34,15 @@ margin-bottom: 25px;
 #edit
 {
   background-color: aliceblue;
-  color: #01094E;
-  border-color: #01094E;
+  color: #4056A1;
+  border-color:#4056A1;
 float: right;
 margin-bottom: 10px;
 
 }
 a{
   font-size: 13px;
-  color:#01094E;
+  color:#123C69;
 
     text-decoration:underline;
 }
@@ -60,5 +60,9 @@ a{
   overflow-y: auto;
 }
 button{
-  background-color: #01094E;
+  background-color: #4056A1;
+}
+a:hover{
+  padding-left: 0.5px;
+  left: 0;
 }

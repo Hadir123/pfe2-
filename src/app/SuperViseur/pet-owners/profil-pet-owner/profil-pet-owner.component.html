@@ -1,10 +1,10 @@
-<span class="fa fa-arrow-left" style="color: #01094E;"></span><a routerLink="/HomePage"> Dashbord</a>
+<span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="/HomePage"> Dashbord</a>
 <br>
-<span class="fa fa-arrow-left" style="color: #01094E;"></span><a routerLink="/PetOwners" >PetOwner List </a>
+<span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="/PetOwners" >PetOwner List </a>
 
 <div class="all2"*ngIf="!edite">
-  <form id='form'*ngIf="!edite" style="color:#01094E" >
-    <h3 style="color: #01094E;margin-bottom: 20px;">PetOwner </h3>
+  <form id='form'*ngIf="!edite" style="color:#123C69" >
+    <h3 style="color:#123C69;margin-bottom: 20px;">PetOwner </h3>
 
     <div class="form-row">
       <label for="inputName" id='labelInput' >First Name :</label> &nbsp;&nbsp;<label >{{user.name}}</label>
@@ -30,7 +30,7 @@
       &nbsp;{{ adresse.street}}<br>{{ adresse.postal_code}} </label>
   </div>
 <br>
-  <button type="submit" class="btn btn-primary " id="edit"(click)='edit()'style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 100px;"> <span class="fa fa-pencil">Edit </span></button>
+  <button type="submit" class="btn btn-primary " id="edit"(click)='edit()'style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 100px;"> <span class="fas fa-pencil-alt">Edit </span></button>
 <br>
 <br>
 </form>
@@ -38,8 +38,8 @@
 </div>
 
 <div class="all" *ngIf="edite">
-  <h3 style="color: #01094E;margin-bottom: 20px; margin-left: 10px;">PetOwner </h3>
-  <form id='form2' style="color: #01094E;">
+  <h3 style="color: #123C69;margin-bottom: 20px; margin-left: 10px;">PetOwner </h3>
+  <form id='form2' style="color: #123C69;">
      <div class="form-row"*ngIf="edite">
         <label for="inputName">First Name <i style="color:red">*</i></label>
         <input type="text"   [(ngModel)]='user.name'name="name"class="form-control" id="inputName" value="{{user.name}}">
@@ -58,7 +58,7 @@
          <input type="text" name="phone"  [(ngModel)]='user.phone'class="form-control"value="{{user.phone}}">
      </div>
      </div>
-           <h3 style="color:#01094E">Shipping Address</h3>
+           <h3 style="color:#123C69">Shipping Address</h3>
      <div class="form-group">
           <label for="inputAddress">Address <i style="color:red">*</i></label>
           <input type="text" name="adresse"  [(ngModel)]='adresse.adresse'class="form-control" id="inputAddress" value="{{adresse.adresse}}">
@@ -84,7 +84,7 @@
 
         <br>
         <br>
-       <button type="submit" class="btn btn-primary "(click)='save()'style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 200px; background-color:darkred"> <span class="fa fa-save"  style="margin-right:15px"> Save </span></button>
+       <button type="submit" class="btn btn-primary "(click)='save()'style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 200px; background-color:#F13c20"> <span class="fa fa-save"  style="margin-right:15px"> Save </span></button>
          <br>
           <br>
  </form>

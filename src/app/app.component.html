@@ -3,12 +3,14 @@
   <head>
    </head>
    <body>
-    <app-navbar *ngIf="loggedIn"></app-navbar>
-<app-menu-bar *ngIf="loggedIn" style="margin-top: 0cm;"></app-menu-bar>
+   <app-navbar [hidden]="!loggedIn"></app-navbar>
+<!--<app-menu-bar [hidden]="!loggedIn" style="margin-top: 0cm;"></app-menu-bar>-->
+<app-menubar [hidden]="!loggedIn"></app-menubar>
     <!--<app-navbar ></app-navbar>-->
 
 <notifier-container></notifier-container>
 <div class="container">
+
 <router-outlet></router-outlet>
 </div>
    </body>

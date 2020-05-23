@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PetService } from 'src/app/Services/pet.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pet-of-petwoner',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PetOfPetwonerComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private pet:PetService ,private route:ActivatedRoute) { }
+public $id :null ;
+public pets;
+public visible=false ;
   ngOnInit(): void {
+    this.$id =this.route.snapshot.params['id'];
+    console.log(this.$id)
+    this.pet.Pets(this.$id).subscribe(
+      data=>{this.pets=data;
+        if(this.pets.length>0)
+        {this.visible=true ;}},);
   }
 
 }

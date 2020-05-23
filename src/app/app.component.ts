@@ -22,10 +22,15 @@ export class AppComponent {
   ngOnInit(): void {
     this._compiler.clearCache();
 
-   // this.visible =false ;
-  this.auth.authStatus.subscribe(value=>this.loggedIn=value)
 
+  this.auth.authStatus.subscribe(value=>{
+    this.loggedIn=value
+  this.visible=true;})
+  if(this.Token.get()===null)
+{
+  this.route.navigateByUrl('/login');
 
+}
 
 
   }

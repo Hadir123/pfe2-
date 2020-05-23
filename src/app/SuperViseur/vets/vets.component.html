@@ -1,6 +1,6 @@
 
-<span class="fa fa-arrow-left" style="color: #01094E;"></span><a routerLink="/HomePage"> Dashbord</a>
-<h2 style="color:#01094E">Vets List </h2>
+<span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="/HomePage"> Dashbord</a>
+<h2 style="color:#123C69">Vets List </h2>
 <button routerLink="/addVet"type="button" class="btn btn-secondary" id="add2">  <span class="fa fa-plus" style="margin-right: 15px;"></span>Add New Vet</button>
 <div class="input-group">
   <input type="text" id='search' class="form-control" [(ngModel)]='search' placeholder="Search by Name">
@@ -13,7 +13,7 @@
 
 <table class="table" >
 <thead>
-    <tr style="color :midnightblue; background-color: #DEDEDE; height: 60px;">
+    <tr style="color :#123C69; background-color: #DEDEDE; height: 60px;">
 
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
@@ -36,7 +36,7 @@
             <span class="slider round"></span>
           </label>
         </td>
-        <td><button type="button"  id ="edit"(click)='edit(users.id)' class="btn btn-primary"> <span class="fa fa-pencil"></span>Edit</button></td>
+        <td><button type="button"  id ="edit"(click)='edit(users.id)' class="btn btn-primary">Edit<i class="fas fa-pencil-alt" style="margin-right: 5px;"></i></button></td>
     </tr>
 </tbody>
 </table>

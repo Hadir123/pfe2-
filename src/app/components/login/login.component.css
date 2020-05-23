@@ -23,7 +23,7 @@ body{
     }
 
   .card-header h3{
-  color:#080045;
+  color:#4056A1;
   size: large;
 
   text-align: center;
@@ -43,4 +43,9 @@ text-align: right;
 margin-left:500px;
 padding: 0px;
 display: inline;
+}
+#hi
+{
+margin-left: 250px;
+
 }

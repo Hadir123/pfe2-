@@ -25,7 +25,7 @@ input[type="date"]:after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f073";
-  color: #01094E;
+  color: #123C69;
   padding: 0 5px;
 }
 
@@ -47,11 +47,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background: transparent;
 }
 label{
-  color:#01094E;
+  color:#123C69;
 }
 a{
   font-size: 13px;
-  color:#01094E;
+  color:#123C69;
 
     text-decoration:underline;
 }
@@ -64,7 +64,7 @@ width: 10px;
 }
 #exampleCheck1
 {
-  border-color: #01094E;
+  border-color: #123C69;
   width: 20px;
 }
 /* Customize the label (the container) */
@@ -99,7 +99,7 @@ width: 10px;
   left: 0;
   height: 25px;
   width: 25px;
-  border: 1px solid #01094E ;
+  border: 1px solid #123C69 ;
 
   background-color: #eee;
 }
@@ -111,7 +111,7 @@ width: 10px;
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #01094E;
+  background-color: #123C69;
 
 
 }
@@ -121,7 +121,7 @@ width: 10px;
   content: "";
   position: absolute;
   display: none;
-  border: 1px solid #01094E ;
+  border: 1px solid #123C69;
 
 }
 
@@ -143,4 +143,8 @@ width: 10px;
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 
+}
+a:hover{
+  padding-left: 0.5px;
+  left: 0;
 }

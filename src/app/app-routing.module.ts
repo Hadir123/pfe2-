@@ -18,8 +18,11 @@ import { VetsComponent } from './SuperViseur/vets/vets.component';
 import { AddNewVEtComponent } from './SuperViseur/vets/add-new-vet/add-new-vet.component';
 import { ProfilVetComponent } from './SuperViseur/vets/profil-vet/profil-vet.component';
 import {PetComponent} from'./Vet/pet/pet.component';
+import { AddPharamcyComponent } from './SuperViseur/pharmacy/add-pharamcy/add-pharamcy.component';
+import { AddPharamcistComponent } from './SuperViseur/pharmacy/add-pharamcist/add-pharamcist.component';
+import { PharmacyComponent } from './SuperViseur/pharmacy/pharmacy.component';
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch:'full' ,
+  { path: '', redirectTo: 'HomePage', pathMatch:'full' ,
    },
   {
      path: 'login', component: LoginComponent ,
@@ -43,6 +46,14 @@ canActivate: [AfterLoginService] },
  { path:'Vets', component: VetsComponent,canActivate: [AfterLoginService] },
  { path:'addVet', component: AddNewVEtComponent,canActivate: [AfterLoginService] },
  { path:'VetProfil/:id', component: ProfilVetComponent,canActivate: [AfterLoginService] },
+
+{path: 'addPharmacy',
+component:AddPharamcyComponent,canActivate: [AfterLoginService]}
+,{ path: 'addPharmacist/:id1/:id2', component:AddPharamcistComponent,canActivate: [AfterLoginService]
+ },
+
+  {path: '**', redirectTo: 'HomePage'}
+
 
 ];
 

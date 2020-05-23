@@ -1,5 +1,5 @@
-<div class='pets'>
-<p style="font: bold 13px Sans-Serif ; text-align: center; color:#01094E ; ">Patients :<span class="badge badge-light" style="font: bold 12px Sans-Serif ; margin-left: 2px;">Light</span>
+<div class='pets'*ngIf='visible'>
+<p style="font: bold 13px Sans-Serif ; text-align: center; color:#01094E ; ">Patients :<span class="badge badge-light" style="font: bold 12px Sans-Serif ; margin-left: 2px;" *ngFor="let pets of pets">{{pets.animal_name}}</span>
  </p>
 
 </div>

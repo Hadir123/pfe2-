@@ -12,18 +12,12 @@
    </div>
    <div class="row">
     <div class="col" style="display: inline;">
-      <label for="exampleFormControlSelect1">Species</label>
+      <label for="exampleFormControlSelect">Species</label>
 
-      <select class="form-control" id="exampleFormControlSelect1"  style="display: inline-block;" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+      <select class="form-control" id="exampleFormControlSelect"  style="display: inline-block;" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
         <option selected>Choose...</option>
-        <option  [(ngModel)]="form.species" name="species">1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+        <option  *ngFor="let species of species"(click)="selectSpecies(species.id)">{{species.species}}</option>
+
       </select>
 
 
@@ -61,10 +55,8 @@
     <select class="form-control" id="exampleFormControlSelect1"onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
       <option selected>Choose...</option>
 
-      <option value="form.breed">2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+      <option  *ngFor="let breeds of breeds"(click)="selectBreed(breeds.id)">{{breeds.breed}}</option>
+
     </select>
 
 
@@ -75,10 +67,10 @@
 
    <div class="row">
     <div class="col" style="display: inline;">
-      <label for="inputName">Gender<i style="color:red">*</i></label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option selected [(ngModel)]="form.Gender">Male</option>
-        <option>Women</option>
+      <label for="inputSexe">Gender<i style="color:red">*</i></label>
+      <select class="form-control" id="inputSexe" (change)="genderrr($event.target.value)">
+        <option name="gender" selected value=1>Male</option>
+        <option name="gender"value=2>Female</option>
       </select>
 
     </div>
@@ -90,15 +82,15 @@
    <div class="row">
     <div class="col" style="display: inline;">
 
-      <label for="inputGender">Weight<i style="color:red">*</i></label>
-      <input type="text"   name="weight"class="form-control" id="inputGender" placeholder=""[(ngModel)]="form.weight">
+      <label for="inputwie">Weight<i style="color:red">*</i></label>
+      <input type="text"   name="current_weight"class="form-control" id="inputWie" placeholder=""[(ngModel)]="form.current_weight">
     </div>
     <div class="col">
 
-      <label for="inputName">Weight Unit<i style="color:red">*</i></label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option selected value="form.weight_Unit">kg</option>
-        <option>Women</option>
+      <label for="exampleFormControlSelec">Weight Unit<i style="color:red">*</i></label>
+      <select class="form-control" id="exampleFormControlSelec"(change)="weight($event.target.value)">
+        <option selected value=1>kg</option>
+        <option value=2>Pounds</option>
       </select>
     </div>
    </div>
@@ -106,7 +98,7 @@
     <div class="col" style="display: inline;">
 
       <label for="inputColor">Color<i style="color:red">*</i></label>
-      <input type="text"  [(ngModel)]="form.color" name="color"class="form-control" id="inputColor" placeholder="">
+      <input type="text"  [(ngModel)]="form.color" name="color"class="form-control" id="inputColor" placeholder="white">
     </div>
 
       <div class="col">

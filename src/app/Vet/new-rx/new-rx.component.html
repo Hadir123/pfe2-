@@ -10,17 +10,17 @@ $(document).ready(function () {
 
 
 <body>
-<h3 style ="color:#01094E;"> Create New Rx Order</h3>
+<h3 style ="color:#123C69;"> Create New Rx Order</h3>
 <br>
 <div class ="buttongroupe">
 <button type="button" class="btn btn-secondary"  [disabled]="!formvalide" (click)="write()"> <span class="fa fa-save"style="font-size:20px ;color:black"></span> &nbsp; Save and Exist  </button>
 <button type="button" class="btn btn-secondary" id="cancel" (click)="Exit()" > <span class="fa fa-ban"style="font-size:20px ;color:white"></span> &nbsp; Cancel  </button>
 </div>
 <div class ="select_bar" style="padding-bottom: 20px;">
-  <h4 style ="color:#01094E; margin-left: 20px;">Step 1: Select Pet Owner & Patient  </h4>
+  <h4 style ="color:#123C69; margin-left: 20px;">Step 1: Select Pet Owner & Patient  </h4>
     <br>
     <div class="input_bar">
-      <p style ="color:#01094E;">Pet Owner Name*</p>
+      <p style ="color:#123C69;">Pet Owner Name*</p>
 <!--<select class="custom-select custom-select-lg mb-3" type ="checkbox" name="form.PetOwner"
 [(ngModel)]="form.PetOwner" (change)="Petowner()"  data-show-subtext="true" data-live-search="true">
 
@@ -35,8 +35,8 @@ placeholder="Select PetOwner"
 
 </ng-select>
 
-<p style ="color:#01094E; padding-top: 20px;">Patient (Pet) Name*</p>
-<ng-select class="custom"[items]="pet"
+<p style ="color:#123C69; padding-top: 20px;">Patient (Pet) Name*</p>
+<ng-select class="custom"[items]="petss"
 bindLabel="animal_name"
 placeholder="Select Pet"
 [(ngModel)]="form.Pet"(change)="peet()" [disabled]="!formvalide">
@@ -45,10 +45,13 @@ placeholder="Select Pet"
 <span class="text-danger"[hidden]="!error">
   Select a Pet Owner Please !
 </span>
-<p style ="color:#01094E; ">Need to add a new patient (pet)? &nbsp; &nbsp; <a   style="text-align: left;color:cyan ;text-decoration: underline;" *ngIf="formvalide"[routerLink]="['/NewPet/',user.id]" >Click Here</a> </p>
+
+<p style ="color:#123C69; ">Need to add a new patient (pet)? &nbsp; &nbsp; <a   style="text-align: left;color:cyan ;text-decoration: underline;" *ngIf="formvalide"[routerLink]="['/NewPet/',user.id]" >Click Here</a> </p>
+
 </div>
 </div>
-<h4 style ="color:#01094E; margin-left: 20px; padding-top: 15px;">Step 2: Select Order Content</h4>
+
+<h4 style ="color:#123C69; margin-left: 20px; padding-top: 15px;">Step 2: Select Order Content</h4>
 <div  class="input-item">
 
 <select class="custom-select custom-select-lg mb-3" required [disabled]="!formvalide" >
@@ -70,7 +73,7 @@ placeholder="Select Pet"
 <br>
 <!--[isDisabled]="isDisabled"-->
   <input class="form-control" placeholder="MM/DD/YYYY" bsDatepicker #dp="bsDatepicker"
- name="form.date" style="color:#01094E" for="date"   style="display: inline;"[(ngModel)]="form.date">
+ name="form.date" style="color:#123C69" for="date"   style="display: inline;"[(ngModel)]="form.date">
 <span class="fa fa-calendar"  id="date" style="display: inline; margin-left: 5px;"></span>
 <!--<input class="form-control" placeholder="MM-DD-YYYY" type="date" [(ngModel)]="form.date"  name="form.date">-->
 
@@ -81,7 +84,7 @@ placeholder="Select Pet"
 </div>
 <br>
 <br>
-<table class="table" style="color:#01094E">
+<table class="table" style="color:#123C69">
   <thead class="table-active">
     <tr style="font-size:small; font-style:normal">
       <th scope="col" style="width:16%;">Product</th>
