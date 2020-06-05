@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { TokenService } from 'src/app/Services/token.service';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -46,5 +47,12 @@ this.route.navigateByUrl('/login');
       ,
       err=> console.log(err));
     }
+    show()
+    {this.token =this.Token.get();
+
+     this.http.get('http://backend2.test:8800/api/Profil?token='+this.token).subscribe(data=>console.log(data),
+      err=>console.log(err)) ;
+    }
+
 
 }

@@ -5,37 +5,61 @@
   <span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="" >Pharmcies List </a>
   <h2 style="color:#123C69"> Add Pharmacy Admin</h2>
   <form>
-
-     <div class="form-row">
-        <label for="inputName">Pharmcy Name  <i style="color:red">*</i></label>
-        <input type="text" name="phamacyName"class="form-control" id="inputName" placeholder="Pharmacy Name ..">
-
-      </div>
-      <div class="form-row">
-        <label for="inputName">Email <i style="color:red">*</i></label>
-        <input type="text" name="name"class="form-control" id="inputName" placeholder="exemple@......">
+    <div class="row">
+      <div class="col">
+        <label for="inputName">First  Name  <i style="color:red">*</i></label>
+        <input type="text" name="phamacyName"class="form-control" id="inputName" placeholder="Johen .."[(ngModel)]="form.name">
 
       </div>
+
+        <div class="col">
+
+        <label for="inputlast">Last Name <i style="color:red">*</i></label>
+        <input type="text" name="last_name"class="form-control" id="inputlast" placeholder="Smith."[(ngModel)]="form.last_name">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="example-date-input">Date of Birth <i style="color:red">*</i></label>
+          <input class="form-control" type="date" value="2011-08-19" name='date_of_birth' id="example-date-input"[(ngModel)]="form.date_of_birth">
+
+      </div>
+      <div class="col">
+          <label for="inputsexe" id="sexe">Gender<i style="color:red">*</i></label>
+          <div class="sexe">
+            <div class="form-check">
+               <label class="form-check-label">
+                <input type="radio" class="form-check-input" (click)="chekrbdclick(0)"  name="gender" >Male
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                <input type="radio" class="form-check-input" (click)="chekrbdclick(1)"  name="gender" >Female
+                 </label>
+            </div>
+            </div>
+          <!-- <span class="error text-danger" [hidden]="!err.gender">{{err.gender}}</span>-->
+        </div>
+        </div>
+    <div class="form-row">
+      <label for="inputemail">Email <i style="color:red">*</i></label>
+      <input type="text" name="email"class="form-control"id="inputemail" placeholder="exemple@......"[(ngModel)]="form.email">
+
+    </div>
       <div class="row">
         <div class="col">
           <label for="inputDirectNumber">Phone <i style="color:red">*</i></label>
-          <input type="text"  id="phone"name="phone"class="form-control" placeholder="7236.....">
+          <input type="text"  id="inputDirectNumber"name="phone"class="form-control" [(ngModel)]="form.phone"placeholder="7236....." >
 
      </div>
-     <div class="col">
-      <label for="inputeMobile">Fax <i style="color:red">*</i></label>
-      <input type="text" id="inputeMobile" name="fax"class="form-control" placeholder="00....."[(ngModel)]="form.fax">
 
       </div>
-      </div>
-
-
-        <button type="submit" class="btn btn-primary "  style="float:right; margin-bottom :20px ;font-size:large;width: 200px; background-color:darkred"> Next <span class="fa fa-arrow-right" style="margin-right:15px"></span></button>
+      <br>
+      <br>
+        <button type="submit" class="btn btn-primary " (click)='save()' style="float:right; margin-bottom :20px ;font-size:large;width: 200px; background-color:darkred"><span class="fa fa-save"  style="margin-right:15px"> &nbsp; Save </span></button>
 
           <br>
          <br>
 </form>
 
-
-
-</div>

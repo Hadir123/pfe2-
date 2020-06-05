@@ -15,5 +15,10 @@ public Token ;
     this.Token =this.token.get() ;
     return this.Http.post('http://backend2.test:8800/api/AddPharmacy?token='+this.Token,data) ;
   }
+  addPharmacistAdmin(data)
+  {   this.Token =this.token.get() ;
+    return this.Http.post('http://backend2.test:8800/api/AddPharmacien?token='+this.Token,data) ;
+
+  }
 }
 

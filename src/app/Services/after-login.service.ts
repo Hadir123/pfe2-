@@ -9,9 +9,13 @@ import { AuthService } from './auth.service';
 export class AfterLoginService implements CanActivate {
   authenticationService: any;
 
-  constructor(private Token:TokenService, private route:Router) { }
+  constructor(private Token:TokenService, private route:Router , private authService:AuthService) { }
   canActivate(route: import("@angular/router").ActivatedRouteSnapshot, state: import("@angular/router").RouterStateSnapshot): boolean | import("@angular/router").UrlTree | import("rxjs").Observable<boolean | import("@angular/router").UrlTree> | Promise<boolean | import("@angular/router").UrlTree> {
-   return this.Token.loggedIn() ;
+    if (this.Token.loggedIn()) {
+     return this.Token.loggedIn() ;
+    }
+else
+    return !this.Token.loggedIn() ;
   }
 
 }

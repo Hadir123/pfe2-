@@ -22,9 +22,11 @@ export class ProfilVetComponent implements OnInit {
   public petowners=[] ;
   public relation=[];
   public teste2=null ;
+  petownersd:boolean=false ;
   public idvet=null ; public idpetowner=[] ;
 
     ngOnInit(): void {
+      this.relation=[];
      this.$id =this.route.snapshot.params['id'];
   console.log(this.$id)
    this.vet.VetProfil(this.$id).subscribe(data=>{
@@ -113,7 +115,10 @@ i++;
     }
     console.log(this.petowners[i]);
 //    k++;
-this.petowners.splice(i,1);
+
+//this.petowners.splice(i,1);
+this.petownersd=true ;
+//this.onChange(i,true);
 
   }
 

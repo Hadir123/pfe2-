@@ -1,0 +1,65 @@
+.input-group input{
+  margin-left: 10px;
+  width: 200px;
+}
+#find :hover
+{
+  background-color: lightgray;
+
+}
+#find
+{
+  border-color: #D79922;
+}
+label{
+  color :#123C69;
+  margin-top: 30px;
+  margin-left: 100px;
+}
+.input-group{
+
+  margin-top: 05px;
+  margin-left: 100px;
+padding-right: 100px;
+}
+
+#edit
+{
+  background-color: #4056A1;
+  color: white;
+  border-color:#4056A1;
+}
+#edit2{
+
+margin-top: 5px;
+  background-color: aliceblue;
+  color: #4056A1;
+  border-color:#4056A1;
+  margin-left: 10px;
+
+}
+
+
+
+a{
+  font-size: 13px;
+  color:#123C69;
+
+    text-decoration:underline;
+}
+table
+{
+  width: 100%;
+}
+
+
+
+
+
+pagination-controls{
+  background-color: #4056A1;
+}
+a:hover{
+  padding-left: 0.5px;
+  left: 0;
+}

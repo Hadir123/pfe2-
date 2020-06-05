@@ -1,0 +1,58 @@
+
+<h3 style="color:#123C69 ; text-align:left;margin-left:05px; "> Formulary</h3>
+<label for="exampleFormControlSelec">Search By</label>
+
+<div class="input-group"  style="margin-bottom: 10px;">
+  <select class="form-control" id="exampleFormControlSelec" #searchHi (change)="change($event.target.value)">
+
+    <option selected value=0>Search By ....</option>
+    <option value=1>Product Name</option>
+    <option value=2>Trade Name</option>
+  </select>
+  <input type="text"  id='search' class="form-control"  name="search"  [(ngModel)]="search" autocomplete="off" style="margin-left: 10px; "  #searchInput placeholder={{newPlaceHolder}}>
+  <div class="input-group-append">
+
+  <button type="button" id ='find'class="btn btn-primary" (click)="find()"style="display: inline; background-color: #D79922;;margin-left:5px;" ><i class="fa	fa-search" style="margin-right: 2px;"></i>Find </button>
+  <button type="button" class="btn btn-secondary" id="cancel" (click)="Exit()"  style="margin-left: 10px;"> <i class="fa fa-ban"style="font-size:20px ;color:white"></i> Cancel  </button>
+
+</div>
+</div>
+<table class="table"  >
+  <thead>
+      <tr style="color :#123C69; background-color: #DEDEDE;">
+          <th scope="col" >Name</th>
+          <th scope="col" >Trade Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Form</th>
+          <th scope="col">Strength</th>
+          <th scope="col" >Size</th>
+          <th scope="col"> Price</th>
+          <th scope="col"> Vet Price </th>
+          <td scope="col"> <button type="button"  id ="edit"class="btn btn-primary">Edit All Price<i class="fas fa-pencil-alt" style="margin-right: 5px;"></i></button></td>
+        </tr>
+
+    </thead>
+    <tbody >
+
+        <tr *ngFor="let users of benifTest|paginate: config"  >
+         <td>{{users.name |titlecase }}  </td>
+         <td>{{users.tradeName }}  </td>
+         <td>{{users.tradeName }}  </td>
+
+         <td>{{users.tradeName }}  </td>
+         <td>{{users.tradeName }}  </td>
+         <td>{{users.tradeName }}  </td>
+
+         <td>{{users.tradeName }}  </td>
+         <td>{{users.tradeName }}  </td>
+         <button type="button"  id ="edit2"class="btn btn-primary">Edit Price<i class="fas fa-pencil-alt" style="margin-right: 5px;"></i></button>
+
+
+      </tr>
+  </tbody>
+  </table>
+
+
+  <pagination-controls style="text-align: center;" (pageChange)="pageChanged($event)"></pagination-controls>
+
+

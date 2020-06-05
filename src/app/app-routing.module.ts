@@ -21,9 +21,12 @@ import {PetComponent} from'./Vet/pet/pet.component';
 import { AddPharamcyComponent } from './SuperViseur/pharmacy/add-pharamcy/add-pharamcy.component';
 import { AddPharamcistComponent } from './SuperViseur/pharmacy/add-pharamcist/add-pharamcist.component';
 import { PharmacyComponent } from './SuperViseur/pharmacy/pharmacy.component';
+import {NewTreatmentComponent } from './Vet/Treatment/new-treatment/new-treatment.component';
+import { FormularyComponent } from './Vet/formulary/formulary.component';
+
 const routes: Routes = [
-  { path: '', redirectTo: 'HomePage', pathMatch:'full' ,
-   },
+  { path: '', redirectTo: 'login', pathMatch:'full' ,
+  },
   {
      path: 'login', component: LoginComponent ,
  },
@@ -33,7 +36,8 @@ const routes: Routes = [
   { path:'profil', component: ProfilComponent ,
 canActivate: [AfterLoginService] },
 { path:'NewRX', component: NewRXComponent ,
-canActivate: [AfterLoginService] },
+//canActivate: [AfterLoginService]
+ },
 { path:'HomePage', component: HomePageComponent ,
 canActivate: [AfterLoginService] },
 
@@ -43,17 +47,24 @@ canActivate: [AfterLoginService] },
  },
  { path:'NewPet/:id', component:PetComponent  ,canActivate: [AfterLoginService],
 },
- { path:'Vets', component: VetsComponent,canActivate: [AfterLoginService] },
- { path:'addVet', component: AddNewVEtComponent,canActivate: [AfterLoginService] },
- { path:'VetProfil/:id', component: ProfilVetComponent,canActivate: [AfterLoginService] },
+ { path:'Vets', component: VetsComponent,//canActivate: [AfterLoginService]
+},
+ { path:'addVet', component: AddNewVEtComponent,//canActivate: [AfterLoginService]
+},
+ { path:'VetProfil/:id', component: ProfilVetComponent,//canActivate: [AfterLoginService]
+},
 
 {path: 'addPharmacy',
 component:AddPharamcyComponent,canActivate: [AfterLoginService]}
 ,{ path: 'addPharmacist/:id1/:id2', component:AddPharamcistComponent,canActivate: [AfterLoginService]
  },
-
-  {path: '**', redirectTo: 'HomePage'}
-
+ {path: 'addTreatment',
+ component:NewTreatmentComponent,//canActivate: [AfterLoginService]
+},
+ {path: 'formulary',
+ component:FormularyComponent,//canActivate: [AfterLoginService]
+},
+  {path: '**', redirectTo: 'HomePage'},
 
 ];
 

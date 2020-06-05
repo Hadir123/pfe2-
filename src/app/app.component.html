@@ -3,16 +3,34 @@
   <head>
    </head>
    <body>
-   <app-navbar [hidden]="!loggedIn"></app-navbar>
-<!--<app-menu-bar [hidden]="!loggedIn" style="margin-top: 0cm;"></app-menu-bar>-->
-<app-menubar [hidden]="!loggedIn"></app-menubar>
-    <!--<app-navbar ></app-navbar>-->
+   <!--  <div class='sidenavContent' [ngClass]="{'show': show} ">
+
+     </div>
+     <div class='mainContent' [ngClass]="{'sideNavOpen' : show }">
+
+<div class='topNavContent'>
+  <span >-->
+  <!--  <img  src="https://i.ya-webdesign.com/images/hamburger-menu-icon-png-white-12.png
+" (click)="changeStatus()"  class="sideNavControl"  > </span> -->
+
+ <!--<img  src="src/assets/img/logo2.PNG
+" (click)="changeStatus()"  class="sideNavControl"  >-->
+
+<!--<app-menu-bar  [hidden]="!loggedIn"></app-menu-bar>-->
+
+    <!--<app-navbar ></app-navbar>
+    </div>--> <app-navbar [hidden]="!loggedIn"></app-navbar>
+    <app-menubar [hidden]="!loggedIn"   ></app-menubar>
 
 <notifier-container></notifier-container>
+
 <div class="container">
 
 <router-outlet></router-outlet>
+<!--</div>-->
 </div>
    </body>
+
+
 
 </html>

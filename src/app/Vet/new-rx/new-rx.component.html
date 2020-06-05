@@ -72,19 +72,22 @@ placeholder="Select Pet"
 <small>Rx Start Date</small>
 <br>
 <!--[isDisabled]="isDisabled"-->
-  <input class="form-control" placeholder="MM/DD/YYYY" bsDatepicker #dp="bsDatepicker"
+  <!--<input class="form-control" placeholder="MM/DD/YYYY" bsDatepicker #dp="bsDatepicker"
  name="form.date" style="color:#123C69" for="date"   style="display: inline;"[(ngModel)]="form.date">
-<span class="fa fa-calendar"  id="date" style="display: inline; margin-left: 5px;"></span>
+<span class="fa fa-calendar"  id="date" style="display: inline; margin-left: 5px;"></span>-->
+<input class="form-control" placeholder="MM-DD-YYYY" id="inputDate"  [disabled]="!formvalide" type="date"[(ngModel)]="form.date"name="date">
+ <small>DD-MM-YYYY</small>
+  <br>
 <!--<input class="form-control" placeholder="MM-DD-YYYY" type="date" [(ngModel)]="form.date"  name="form.date">-->
 
 
   </div>
-  <small>MM-DD-YYYY</small>
+
 <br>
 </div>
 <br>
 <br>
-<table class="table" style="color:#123C69">
+<table class="table" style="color:#123C69"  >
   <thead class="table-active">
     <tr style="font-size:small; font-style:normal">
       <th scope="col" style="width:16%;">Product</th>

@@ -80,11 +80,11 @@ label #btn{
     left :0px;
     top: 00px;
 
-  font-size: 44px;
+  font-size: 43px;
   color: white;
   padding:6px 12px;
   background-color: #4056A1;
-  border: 0.5px solid #ccc;
+  border: 0.2px solid #ccc;
 
 }
 label #btn:hover .sidenav{

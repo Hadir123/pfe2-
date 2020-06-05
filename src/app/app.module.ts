@@ -45,6 +45,9 @@ import { MenubarComponent } from './components/menubar/menubar.component';
 import { PharmacyComponent } from 'src/app/SuperViseur/pharmacy/pharmacy.component';
 import { AddPharamcyComponent } from 'src/app/SuperViseur/pharmacy/add-pharamcy/add-pharamcy.component';
 import { AddPharamcistComponent } from 'src/app/SuperViseur/pharmacy/add-pharamcist/add-pharamcist.component';
+import { TableTreatmentComponent } from './Vet/new-rx/table-treatment/table-treatment.component';
+import {NewTreatmentComponent } from './Vet/Treatment/new-treatment/new-treatment.component';
+import { FormularyComponent } from './Vet/formulary/formulary.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +73,9 @@ PetOfPetwonerComponent,
 MenubarComponent,    PharmacyComponent,
 AddPharamcyComponent,
 AddPharamcistComponent,
+TableTreatmentComponent,
+NewTreatmentComponent,
+FormularyComponent
 
   ],
   imports: [

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-menubar',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menubar.component.css']
 })
 export class MenubarComponent implements OnInit {
+ @ViewChild('searchHi') searchHi: ElementRef;
 
   constructor() { }
 
@@ -23,8 +25,9 @@ export class MenubarComponent implements OnInit {
    }
    init()
    {
-
      this.test=false;
      this.cred=false;
    }
+
+
 }

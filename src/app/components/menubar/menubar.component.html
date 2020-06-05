@@ -2,10 +2,9 @@
 
 <input type="checkbox" id="check"  >
 <label for="check">
-<i class="fas fa-bars" id="btn" (click)="init()"style='margin-left:-5px'></i>
+<i class="fas fa-bars" id="btn" (click)="init()"  mode="push" #searchHi style='margin-left:-5px'></i>
 <i class="fas fa-times" id="cancel"style='margin-left:60px'></i>
 </label>
-
 
 <div class="sidenav" style="width: 300px; border-right: 1px solid rgba(255,255,255,.1);
 ">
@@ -27,10 +26,10 @@
 
     </li>
     <li class="nav-item">
-      <a class="nav-link active"routerLink="#"><span class="fa fa-clipboard-list" style="color:white E;font-size:25px "></span>&nbsp; Treatment Plans</a>
+      <a class="nav-link active"routerLink="/addTreatment"><span class="fa fa-clipboard-list" style="color:white E;font-size:25px "></span>&nbsp; Treatment Plans</a>
     </li>
     <li class="nav-item" >
-      <a class="nav-link active"routerLink="#"><span class=" fa fa-hand-holding-usd"style="color:white E;font-size:25px "></span>&nbsp;Formulary </a>
+      <a class="nav-link active"routerLink="/formulary"><span class=" fa fa-hand-holding-usd"style="color:white E;font-size:25px "></span>&nbsp;Formulary </a>
     </li>
     <li class="nav-item">
       <a class="nav-link active"routerLink="#"><span class="fa fa-comment-medical"style="color:white E;font-size:25px "></span>&nbsp;Patient Feedback </a>
@@ -42,7 +41,7 @@
       <a class="nav-link active"routerLink="/Vets"><span class="fa fa-user-md"style="color:white E;font-size:25px "></span>&nbsp;Manage Vets</a>
     </li>
     <li>
-      <a class="nav-link active"routerLink="#"><span class="fa fa-capsules"style="color:white E;font-size:25px "></span>&nbsp;Pharmacy </a>
+      <a class="nav-link active"routerLink="/addPharmacy"><span class="fa fa-capsules"style="color:white E;font-size:25px "></span>&nbsp;Pharmacy </a>
     </li>
   </ul>
 
