@@ -30,17 +30,6 @@ function update($id,$speciality,$directLine,$fax)
 {
    return $this->model->where('user_id',$id)->update(['speciality'=>$speciality,'directLine'=>$directLine ,'fax'=>$fax]);
 }
-public function attachPetOwer($petowner ,$vet)
-{
-    $res=DB::table('vet_pet_careful')->insert([ 'id_petOwner'=>$petowner ,
-    'id_vet'=>$vet
-    ]);
-    return $res ;
-}
-function CarfulTeam($id)
-{
 
-    $res=DB::table('vet_pet_careful')->where('id_vet',$id)->get() ;
-    return $res ;
-}
+
 }

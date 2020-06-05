@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('addVet', 'VetController@register');
+
 
 Route::post('login', 'ApiController@login');
 Route::post('loginVet', 'VetController@loginVet');
@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::get('CarefulTeam/{id}','VetController@carfulTeam');
     Route::post('VetUpdate','VetController@Update');
     Route::post('attaPetowner', 'VetController@attachPetOwner');
-
+    Route::post('addVet', 'VetController@register');
 
 
 
@@ -47,12 +47,20 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::get('Notif','UserController@Notif');
     Route::post('UserUpdate','UserController@Update');
 
-    Route::get('pet/{id}','UserController@show');
+   // Route::get('pet/{id}','PetController@ShowPetOwner');
 //Adrresse
    Route::post('AdressUpdate','AdresseController@Update');
+Route ::post('AddPet','PetController@create');
+   Route::get('BreedAndSpecies','PetController@breedAndSpecies');
 
-    Route::post('tasks', 'TaskController@store');
-    Route::put('tasks/{id}', 'TaskController@update');
-    Route::delete('tasks/{id}', 'TaskController@destroy');
+   Route::get('pet/{id}','PetController@showPetOwnr');
+//pharmacy
 
+Route ::post('AddPharmacy','PharmacyController@register');
+Route ::post('AddPharmacien','PharmacistController@createAdmin');
+
+
+/// Profil Profil
+Route::get('Profil','UserController@Profil');
+Route::post('tof','UserController@Tof');
 });

@@ -164,7 +164,9 @@ return [
 App\Providers\AdresseService::class,
 App\Providers\UserService::class,
 App\Providers\PetOwnerService::class,
-        /*
+App\Providers\PharmacyService::class,
+App\Providers\PharmacistService::class,
+/*
          * Package Service Providers...
          */
 

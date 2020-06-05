@@ -153,5 +153,11 @@ public function sendNotif()
     Notification::send(Auth::user(), new MyFirstNotification($details));
 return response()->json(['user'=>Auth::user()]);
 }
+function createPharmacyAdmin(Request $request)
+{
+    $attributes=$request->all();
+    $res= $this->user->create($attributes);
 
+       return $res;
+}
 }

@@ -1,7 +1,11 @@
 <?php
+use Illuminate\Support\Facades\Storage;
 
 namespace App\Http\Controllers;
 use Exception;
+use Illuminate\Support\Str;
+//use Intervention\Image\Facades\Image;
+use Image ;
 use App\Http\Requests\RegistrationFormRequest;
 use App\Providers\UserService;
 use Illuminate\Support\Facades\Auth;
@@ -19,19 +23,23 @@ class UserController extends Controller
 
  public function show($id)
 {
-  /*  $task =DB::table('pets')->where('pet_owner_id',$id)->get()->toArray();
-
-    if (!$task) {
-        return response()->json([
-            'success' => false,
-            'message' => 'Sorry, task with id ' . $id . ' cannot be found.'
-        ], 400);
-    }
-
-    return $task;*/
-
     return $this->user->show($id);
 }
+public function Profil()
+{
+
+
+    $user1 =Auth::user();
+    $adress = new AdresseController() ;
+    $res=$adress->findById($user1->adresse_id);
+
+ $user1=$this->show($user1->id);
+ return response()->json([
+    'user'=>$user1,
+   'adresse'=>$res
+    ]);
+}
+
 public function Notif()
 {
 return $this->user->Notif();
@@ -65,4 +73,33 @@ if ($user=$this->user->update($request))
         return response()->json(['success'=>false,
 ]);
 }
+public function Tof (Request $request)
+{$this->validate($request, array(
+
+    'image' => 'image|mimes:jpeg,png,jpg,gif,svg,PNG,JPG',
+  ));
+  //save the data to the database
+
+  $usere =Auth::user();
+
+    if($request->hasFile('image')){
+      $image = $request->file('image');
+           $fileNam=$usere->id.$image->getClientOriginalName();
+$path=$request->file('image')->move(public_path('/'),$fileNam);
+$photourl=url('/'.$fileNam);
+
+  $usere =Auth::user();
+$u = new  User();
+$u->where('id',$usere->id)->update(['image_url'=>$photourl]);
+    // $usere->image_url=$image ;
+//$usere->Update() ;
+              return response()->json(['url'=>$photourl]);
+    }else
+    return response()->json([
+
+        'user'=>'no'
+    ]);
+
+}
+
 }

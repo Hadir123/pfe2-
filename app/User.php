@@ -18,8 +18,8 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $table='users';
     protected $fillable = [
-        'name', 'email', 'password','gender','last_name','adresse_id', 'phone','date_of_birth','age','status'
-
+        'name', 'email', 'password','gender','last_name','adresse_id', 'phone','date_of_birth','age','status',
+        //'image_url', 'password',
 
     ];
 
@@ -29,7 +29,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token','image_url',
+        'remember_token',
     ];
 
     /**
@@ -54,11 +54,8 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
-    public function pets()
-{
-    return $this->hasMany(Pet::class);
-}
-public function adrese()
+
+public function adresse()
 {
     return $this->hasOne(Adresse::class);
 

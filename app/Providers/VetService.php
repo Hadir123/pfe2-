@@ -104,10 +104,11 @@ public function Update(Request $request)
 }
 public function attachPetOwner(Request $request)
 {$add=[];
+    $careful=new  PetOwnerVetService() ;
    $add= $request->id_petOwner;
      $i=0;
 while($i<count($add))
-{if($this->vet->attachPetOwer($add[$i],$request->id_vet))
+{if($careful->create($add[$i],$request->id_vet))
     $i++;
     else
     $i++;
@@ -119,7 +120,7 @@ else
 return false ;
 }
 function Careful($id)
-{
-    return $this->vet->CarfulTeam($id);
+{   $careful=new  PetOwnerVetService() ;
+    return $careful->Careful($id);
 }
 }
