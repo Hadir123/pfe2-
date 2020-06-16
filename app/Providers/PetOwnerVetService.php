@@ -48,4 +48,13 @@ function Careful($id)
 {
     return $this->vetPetOnwer->CarfulTeam($id);
 }
+function Delete($id1 , $id2)
+{
+    if($this->vetPetOnwer->delete($id1,$id2) )
+
+return true ;
+else
+return false ;
+
+}
 }

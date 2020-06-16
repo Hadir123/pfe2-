@@ -12,6 +12,13 @@ class Adresse extends Model
     'city', 'street', 'postal_code','adresse'
 ];
 
+public function user()
+{
+return $this->hasMany(User::class);
+}
+public function vet()
+{
+    return $this->belongsTo(Vet::class);
 
-
+}
 }

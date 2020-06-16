@@ -16,17 +16,20 @@ protected $model ;
 {
     return $this->model->create($attribue);
 }
-/*function all ()
+function all ()
 {
-    return $this->model->all();
+    return $this->model->paginate(5);
 }
-function find ($city,$street,$code,$adress)
+/*function find ($city,$street,$code,$adress)
 {
     return $this->model->where(['city'=>$city,'street'=>$street,'postal_code'=>$code,'adresse'=>$adress])->first();
-}
+}*/
 function findById($id)
 {
     return $this->model->where('id',$id)->first();
 }
-*/
+function update($id,$name,$email,$phone,$fax,$adr)
+{
+   return $this->model->where('id',$id)->update(['pharmacyName'=>$name  ,'email'=>$email,'phone'=>$phone ,'fax'=>$fax,'adresse_id'=>$adr]);
+}
 }

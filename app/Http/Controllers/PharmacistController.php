@@ -30,4 +30,8 @@ else
        ],Response::HTTP_UNPROCESSABLE_ENTITY);
 
 }
+public function FindByIdPharmacy ($id)
+{
+return $this->pharmacistService->findByIdPharmacy($id);
+}
 }

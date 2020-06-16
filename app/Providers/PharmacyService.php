@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Http\Resources\PharmacyRessource;
 use App\Pharmacie;
+use App\Pharmacist;
 use App\Repositories\PharmacyRepositroy;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
@@ -76,22 +78,34 @@ return $this->pharmacy->create($attributes);
     $adresse=$request->adresse;
      return $this->pharmacy->find($city,$street,$code,$adresse);
 
-}
-/*function findById($id)
+}**/
+function findById($id)
 {
 return $this->pharmacy->findById($id);
 }
 function update(Request $request)
-{
+{    $addr = new AdresseService();
 
-if($res=$this->find($request))
+    $validatedData = $request->validate([
+        'email' => 'required|email|unique:pharmacies',
+        'pharmacyName'=>'required|string',
+        'phone'=>'required|max:10',
 
-return $res->id ;
+    ]);
+   if ($validatedData)
+   {
+     if($this->pharmacy->update($request->id , $request->pharmacyName,$request->email,$request->phone ,$request->fax,$request->adresse_id))
+
+return $this->findById($request->id) ;
 else
+return false;
+   }
+else
+return false ;
+}
+public function index()
+{
+   return PharmacyRessource::collection($this->pharmacy->all());
 
-  {$res=$this->create($request);
-   return $res->id ;
-
-  }
-}*/
+}
 }

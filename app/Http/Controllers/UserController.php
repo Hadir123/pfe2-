@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use Exception;
 use Illuminate\Support\Str;
 //use Intervention\Image\Facades\Image;
-use Image ;
+use Illuminate\Support\Facades\Crypt;
+
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Support\Facades\Hash;
+
 use App\Http\Requests\RegistrationFormRequest;
 use App\Providers\UserService;
 use Illuminate\Support\Facades\Auth;
@@ -27,8 +32,6 @@ class UserController extends Controller
 }
 public function Profil()
 {
-
-
     $user1 =Auth::user();
     $adress = new AdresseController() ;
     $res=$adress->findById($user1->adresse_id);
@@ -79,26 +82,18 @@ public function Tof (Request $request)
     'image' => 'image|mimes:jpeg,png,jpg,gif,svg,PNG,JPG',
   ));
   //save the data to the database
+return $this->user->updatePhoto($request);
 
-  $usere =Auth::user();
+}
+public function  ProfilUpdate(Request $request)
+{
+   if ($this->user->ProfilUpdate($request))
+    return response()->json(['success'=>true,
+]);
+else
+    return response()->json(['success'=>false,
+]);
 
-    if($request->hasFile('image')){
-      $image = $request->file('image');
-           $fileNam=$usere->id.$image->getClientOriginalName();
-$path=$request->file('image')->move(public_path('/'),$fileNam);
-$photourl=url('/'.$fileNam);
-
-  $usere =Auth::user();
-$u = new  User();
-$u->where('id',$usere->id)->update(['image_url'=>$photourl]);
-    // $usere->image_url=$image ;
-//$usere->Update() ;
-              return response()->json(['url'=>$photourl]);
-    }else
-    return response()->json([
-
-        'user'=>'no'
-    ]);
 
 }
 

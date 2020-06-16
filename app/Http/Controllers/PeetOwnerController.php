@@ -85,7 +85,10 @@ public function index()
 {
 return $this->petownerservice->index() ;
 }
-
+public function all()
+{
+    return $this->petownerservice->index2();
+}
 public function show($id)
 {
   $petOwner =$this->petownerservice->showPetOwner($id);

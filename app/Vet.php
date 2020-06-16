@@ -16,4 +16,13 @@ class Vet extends Model
     {
         return $this->hasMany(PetOwner::class);
     }
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function adresse()
+    {
+        return $this->hasOne(Adresse::class);
+
+    }
 }

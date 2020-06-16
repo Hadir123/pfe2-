@@ -16,4 +16,13 @@ protected $model ;
 {
     return $this->model->create($attribue);
 }
+function findByIdPharmcy($id)
+{
+    return $this->model->where('pharmacy_id',$id)->first();
+}
+function all()
+{
+    return $this->model->paginate(1);
+}
+
 }

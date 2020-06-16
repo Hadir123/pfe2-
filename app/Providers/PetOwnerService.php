@@ -3,6 +3,7 @@
 namespace App\Providers;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegistrationFormRequest;
+use App\Http\Resources\PetOwenrRessource;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PetownerMail;
 use App\PetOwner;
@@ -89,8 +90,8 @@ else
 return false ;
 }
 public function index()
-{$petOwners=$this->user->all();
-
+{/*$petOwners=$this->user->all();
+$this->pharmacy->all();
     $i=0;
     $user=[];
     foreach($petOwners as $petOwner)
@@ -99,7 +100,8 @@ public function index()
        $i++;
     }
     return $user ;
-
+*/
+return PetOwenrRessource::collection($this->user->allWithPaginate());
 }
 public function showPetOwner($id)
 {
@@ -111,4 +113,17 @@ public function Update(Request $request)
     return $user ;
     else return false ;
 }
+public function index2()
+ {
+$petOwners=$this->user->all();
+
+    $i=0;
+    $user=[];
+    foreach($petOwners as $petOwner)
+    {
+       $user[$i]=$this->user1->show($petOwner->user_id);
+       $i++;
+    }
+    return $user ;
+ }
 }

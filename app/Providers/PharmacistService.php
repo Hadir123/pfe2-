@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Providers;
+
+use App\Http\Resources\PharmacistRessource;
 use Illuminate\Support\Str;
 
 use App\Pharmacist;
@@ -69,5 +71,18 @@ return $this->pharmacy->create($attributes);
    }
    else return false;
 }
+public function findByIdPharmacy($id)
+{if($resulta = $this->pharmacy->findByIdPharmcy($id))
+   { $u=new UserService() ;
+    $res=$u->show($resulta->id_user);
+    return $res;
+   }
+   else return false ;
 
+}
+public function index()
+{//return $this->pharmacy->all();
+   // $vets=$this->vet->all();
+    return PharmacistRessource::collection($this->pharmacy->all());
+}
 }

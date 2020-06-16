@@ -73,8 +73,11 @@ class VetController extends  APIController
     }
 
     public function index()
-    {
-    return $this->VetService->index() ;
+    {return $res =$this->VetService->index() ;
+     /*   $res2=$this->VetService->all() ;
+
+    return response()->json(['user'=>$res,
+    'info'=>$res2]);*/
     }
 public function show($id)
 {
@@ -108,6 +111,13 @@ public function carfulTeam($id)
 {
     return $this->VetService->Careful($id) ;
 
+}
+public function DeletePetOwner(Request $request)
+{
+    if($this->VetService->DeletePetOwner($request))
+    return response()->json((['ok'=>'ok']));
+    else
+    return response()->json(['ok'=>'Not Ok']);
 }
 
  }

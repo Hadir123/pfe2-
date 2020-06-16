@@ -14,8 +14,8 @@ class CreateTableElementPrescription extends Migration
     public function up()
     {
         Schema::create('element_prescription', function (Blueprint $table) {
-            $table->integer('gpCode');
-         $table->primary ('gpCode');  // note, this is a *primary* key
+            $table->Integer('gpCode')->autoIncrement();
+        //$table->primary ('gpCode');  // note, this is a *primary* key
          $table->unsignedBigInteger('drug_id');
          $table->foreign('drug_id')->references('id')->on('drugs')->onDelete('cascade')
          ->onUpdate('cascade');

@@ -6,6 +6,7 @@ use App\Repositories\VetRepository;
 use App\Vet;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegistrationFormRequest;
+use App\Http\Resources\VetRessource;
 use Illuminate\Support\ServiceProvider;
 
 use function GuzzleHttp\Promise\all;
@@ -68,16 +69,22 @@ public function Status ($id)
     }
     public function index()
 {$vets=$this->vet->all();
-
-    $i=0;
+    return VetRessource::collection($this->vet->all());
+//return $vets ;
+   /* $i=0;
     $user=[];
     foreach($vets as $vet)
     {
-       $user[$i]=$this->user->show($vet->user_id);
+       $user[$i]=$this->user->show($vet->user_id) ;
        $i++;
     }
-    return $user ;
 
+    return $user ;*/
+
+}
+function all ()
+{
+    $vets=$this->vet->all();
 }
 function create(RegistrationFormRequest  $request)
 {if( $request->validated())
@@ -122,5 +129,23 @@ return false ;
 function Careful($id)
 {   $careful=new  PetOwnerVetService() ;
     return $careful->Careful($id);
+}
+public function DeletePetOwner(Request $request)
+{
+    $add=[];
+    $careful=new  PetOwnerVetService() ;
+   $add= $request->id_petOwner;
+     $i=0;
+while($i<count($add))
+{if($careful->Delete($add[$i],$request->id_vet))
+    $i++;
+    else
+    $i++;
+
+}
+if($i===count($add))
+return true ;
+else
+return false ;
 }
 }

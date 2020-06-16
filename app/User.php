@@ -60,4 +60,18 @@ public function adresse()
     return $this->hasOne(Adresse::class);
 
 }
+public function Vet()
+{
+    return $this->hasOne(Vet::class);
+}
+
+public function pharmacist()
+{
+    return $this->hasMany(Pharmacist::class);
+}
+
+public function PetOwner()
+{
+    return $this->hasOne(PetOwner::class);
+}
 }

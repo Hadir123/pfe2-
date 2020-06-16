@@ -19,7 +19,7 @@ protected $model ;
 }
 function all ()
 {
-    return $this->model->all();
+    return $this->model->paginate(5);
 }
 function  findByEmail($email)
 {
@@ -54,6 +54,10 @@ public function Notification($id)
 {
     $notif = DB::table('notifications')->where('notifiable_id',$id)->get()->toArray();
 return $notif;
+}
+public function updateMotDePasse($id , $passe)
+{
+    $user=$this->model->where('id',$id)->update(['password'=>$passe]);
 }
 }
 

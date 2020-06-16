@@ -7,19 +7,30 @@ use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\UserRepositroy;
 use App\User;
+use Illuminate\Support\Facades\Crypt;
+
 use App\Mail\PetownerMail;
 use Illuminate\Support\Facades\Mail;
 use App\Repositories\PetOwnerRepository;
 use App\Notifications\MyFirstNotification;
+use Illuminate\Support\Facades\Hash;
+use Validator;
 
+use Dingo\Api\Exception\ResourceException;
+use Illuminate\Foundation\Auth\ResetsPasswords;
+use Dingo\Api\Exception\StoreResourceFailedException;
 use Illuminate\Support\Facades\Notification;
 
+
+use Illuminate\Support\Facades\Password;
 
 use App\Http\Requests\RegistrationFormRequest;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 
 use App\Providers\AdresseService;
+use Illuminate\Contracts\Encryption\DecryptException;
+
 use Illuminate\Support\Facades\Redis;
 
 class UserService extends ServiceProvider
@@ -159,5 +170,72 @@ function createPharmacyAdmin(Request $request)
     $res= $this->user->create($attributes);
 
        return $res;
+}
+public function ProfilUpdate (Request $request)
+{
+$request->validate([
+    'name' => 'required|string',
+            'email' => 'required|email',
+           /*'password'=>'required|password',
+          'NewPassword' => 'required|string|min:6|max:10',*/
+            'last_name'=>'required|max:60',
+            'phone'=>'required|max:10',
+
+
+]);
+//$user->update((['password'=> bcrypt($request->password)]));
+
+//
+$usere=Auth::user();
+
+if($u=$this->update($request))
+{
+//$usere->Update() ;
+if($request->password!==null)
+{
+ if($this->passwordCorrect($request))
+{
+  if($this->user->updateMotDePasse($usere->id,bcrypt($request->newPassword)))
+   return true;
+}
+else
+return false ;
+}
+return $this->show($usere->id);
+}
+else
+return false ;
+}
+
+public function updatePhoto(Request $request)
+{
+
+  $usere =Auth::user();
+
+  if($request->hasFile('image')){
+    $image = $request->file('image');
+         $fileNam=$usere->id.$image->getClientOriginalName();
+$path=$request->file('image')->move(public_path('/'),$fileNam);
+$photourl=url('/'.$fileNam);
+
+$usere =Auth::user();
+$u = new  User();
+$u->where('id',$usere->id)->update(['image_url'=>$photourl]);
+  // $usere->image_url=$image ;
+//$usere->Update() ;
+            return response()->json(['url'=>$photourl]);
+  }else
+  return response()->json([
+
+      'user'=>'no'
+  ]);
+}
+private function passwordCorrect(Request $request)
+{$usere =Auth::user();
+    if (Hash::check($request->get('password'), Auth::user()->password)) {
+        return true;
+        //add logic here
+       }
+       else return false ;
 }
 }

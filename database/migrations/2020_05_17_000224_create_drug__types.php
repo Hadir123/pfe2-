@@ -16,6 +16,8 @@ class CreateDrugTypes extends Migration
         Schema::create('drug_types', function (Blueprint $table) {
             $table->id();
             $table->string('drugTypeName');
+            $table->float('margin');
+            $table->float('handling');
             $table->timestamps();
         });
     }

@@ -19,7 +19,11 @@ protected $model ;
 }
 function all ()
 {
-    return $this->model->all();
+    return $this->model->all() ;
+}
+function allWithPaginate()
+{
+    return $this->model->paginate(5);
 }
 public function attachVet($petowner ,$vet)
 {

@@ -13,6 +13,7 @@ class PetOwner extends Model
 
 
     ];
+
     public function Vets()
     {
         return $this->hasMany(Vet::class);
@@ -20,5 +21,9 @@ class PetOwner extends Model
     public function pets()
     {
         return $this->hasMany(Pet::class);
+    }
+    public function User()
+    {
+        return $this->belongsTo(User::class);
     }
 }

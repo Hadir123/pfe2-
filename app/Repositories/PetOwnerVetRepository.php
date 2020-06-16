@@ -35,4 +35,12 @@ function CarfulTeam($id)
     $res=DB::table('vet_pet_careful')->where('id_vet',$id)->get() ;
     return $res ;
 }
+public function Delete($petowner ,$vet)
+{
+    $res=DB::table('vet_pet_careful')->where([ 'id_petOwner'=>$petowner ,
+    'id_vet'=>$vet
+    ])->delete();
+
+    return $res ;
+}
 }

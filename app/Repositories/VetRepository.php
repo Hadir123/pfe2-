@@ -20,7 +20,7 @@ protected $model ;
 }
 function all ()
 {
-    return $this->model->all();
+    return $this->model->paginate(5);
 }
 function find($id)
 {$user=  $this->model->where('user_id',$id)->first();
