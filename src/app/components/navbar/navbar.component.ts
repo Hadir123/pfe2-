@@ -17,7 +17,8 @@ public test ;
   constructor(private auth :AuthService, private route:Router, private Token :TokenService ,private http: HttpClient)  { }
 token =this.Token.get();
   ngOnInit(): void {
-    this.auth.authStatus.subscribe(value=>this.loggedIn=value);
+  this.auth.authStatus.subscribe(value=>this.loggedIn=value);
+//    if(this.token,)
   }
   logout(event :MouseEvent)
   {this.http.get('http://backend2.test:8800/api/logout?token='+this.token).subscribe(data=>console.log(data),

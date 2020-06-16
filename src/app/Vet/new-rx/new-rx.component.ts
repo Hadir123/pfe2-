@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { Component, OnInit, ElementRef, ViewChild, Output, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { VetRxService } from 'src/app/Services/vet-rx.service';
@@ -9,23 +8,30 @@ import { NgSelectConfig } from '@ng-select/ng-select';
 import { from, Observable } from 'rxjs';
 import { PetOwnerService } from 'src/app/Services/pet-owner.service';
 import { PetService } from 'src/app/Services/pet.service';
+import { RxServiceService } from 'src/app/Services/rx-service.service';
+import { ModalOptionComponent } from './modal-option/modal-option.component';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-new-rx',
   templateUrl: './new-rx.component.html',
-  styleUrls: ['./new-rx.component.css']
+  styleUrls: ['./new-rx.component.css'],
+
 })
 export class NewRXComponent implements OnInit {
 public user;
-
+public drugs :any ;
 public petss;
-  constructor(private router:Router , private Vet:VetRxService ,private config: NgSelectConfig, private petowenr :PetOwnerService ,private pets:PetService) {
+
+@ViewChild('childModalOption1') childModalOption1 :ModalOptionComponent;
+
+  constructor(private router:Router , private modalService: NgbModal,private rx:RxServiceService,private Vet:VetRxService ,private config: NgSelectConfig, private petowenr :PetOwnerService ,private pets:PetService) {
   this.config.notFoundText = 'Not found';
     this.config.appendTo = 'body';
     this.config.bindValue = this.form.PetOwner;
   }
-
-
+show:boolean =false ;
+Drug :any ;
 public formvalide=false;
 public error;
 form=
@@ -35,11 +41,20 @@ form=
 
       Pet:this.petss,
       date:null,
-
+Drug : null ,
 };
 
+ table:any;
+Id:number ;
+
   ngOnInit(): void {
-   this.user=this.petowenr.PetOwners().subscribe(data=>this.user=data) ;
+   this.user=this.petowenr.Petowners2().subscribe(data=>this.user=data) ;
+this.rx.Drugs().subscribe(data=>{
+  this.drugs=data
+  console.log(data)
+  this.drugs.map((i) => { i.fullName = i.drugName + ' ( ' + i.DrugTradeName+' ) '; return i; });
+console.log(this.drugs)
+} );
 
 
   }
@@ -128,4 +143,26 @@ write()
 
   console.log(this.form.Pet);
 }
+
+drugChange()
+{
+//console.log(this.Drug) ;
+if(this.Drug===null)
+{
+  this.show=!this.show
+}
+this.form.Drug=this.Drug ;
+}
+
+openModal() {
+
+if(this.Drug!=null)
+this.show=!this.show;
+
+}
+Save()
+{
+  console.log(this.table)
+}
+
 }

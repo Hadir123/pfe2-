@@ -3,6 +3,7 @@ import { AuthService } from './Services/auth.service';
 import { Router } from '@angular/router';
 import { TokenService } from './Services/token.service';
 import { Compiler } from '@angular/core';
+import { LoginComponent } from './components/login/login.component';
 
 
 @Component({
@@ -13,27 +14,33 @@ import { Compiler } from '@angular/core';
 
 export class AppComponent {
   title = 'Login3';
-  public loggedIn = false ;
-  visible: boolean;
+  public loggedIn :boolean;
+  visible: boolean=false ;
+  token:any;
   show = false ;
+  //private login:LoginComponent
 
-  constructor(private auth :AuthService, private route:Router, private Token :TokenService ,private _compiler: Compiler) { this.loggedIn =false;
+  constructor(private auth :AuthService,private route:Router, private Token :TokenService ,private _compiler: Compiler) { this.loggedIn =false;
 
     this._compiler.clearCache();
     //this.Token.remove() ;
+this.loggedIn=false ;
 
-  this.loggedIn = false ;  }
+
+}
 
   ngOnInit(): void {
 
 
+//this.loggedIn=this.login.loggedIn;
+//if(this.loggedIn)
+  this.auth.authStatus.subscribe(value=>this.loggedIn=value);
+    this.token =localStorage.getItem("token");
+    console.log("Token ==>",this.token);
+    console.log("Token ==>",this.loggedIn);
 
-if(this.isAuthenticated)
-{
-  this.auth.authStatus.subscribe(value=>{
-    this.loggedIn=value
-  this.visible=true;})
-}
+
+
   }
   logout(event :MouseEvent)
   {
@@ -43,6 +50,7 @@ if(this.isAuthenticated)
     this.Token.remove() ;
 
 this.route.navigateByUrl('/login');
+
   }
   public isAuthenticated(): boolean {
 

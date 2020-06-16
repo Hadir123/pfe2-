@@ -75,8 +75,8 @@
                           </div>
                         </div>
 
-
-                          <form [hidden]="show" >
+<div [hidden]="show" >
+                          <form >
                             <div  class="AvatarForm" >
                                 <div>
                                     <img class="avatar" style="width: 100px;" src="{{user.image_url}}" >
@@ -96,7 +96,7 @@
                                     <label  class="control-label" style="color:#123C69;">First Name
                                           <span  style="color: tomato">*</span>
                                     </label>
-                                    <input  class="form-control form-control-sm ng-untouched ng-pristine ng-valid" name="first_name" placeholder="" required="" type="text"value="{{user.name}}">
+                                    <input type="text" class="form-control" name="name"  value="{{user.name}}"[(ngModel)]='user.name' >
 
                                   </div>
 
@@ -104,13 +104,13 @@
                                     <label  class="control-label" style="color:#123C69;text-align: left;">Last Name
                                           <span  style="color: tomato">*</span>
                                     </label>
-                                    <input class="form-control form-control-sm ng-untouched ng-pristine ng-valid" name="last_name" placeholder="" required="" type="text"value="{{user.last_name}}">
+                                    <input type="text" class="form-control " name="last_name"  [(ngModel)]='user.last_name'required value="{{user.last_name}}"  >
                                 </div>
                                 <div  class="form-group-lg col-lg-4">
                                     <label  class="control-label" style="color:#123C69;text-align: left;">Phone Number
                                           <span style="color: tomato">*</span>
                                     </label>
-                                    <input  appjustnumber="" class="form-control form-control-sm ng-untouched ng-pristine ng-valid" maxlength="14" name="phone"value="{{user.phone}}" pattern="[(]{1}[0-9]{3}[)]{1}[ ][0-9]{3}[-][0-9]{4}" placeholder="" required="" type="text">
+                                    <input  type="text"  class="form-control " maxlength="14" name="phone"value="{{user.phone}}"  required [(ngModel)]='user.phone'>
                                 </div>
                             </div>
 
@@ -119,7 +119,7 @@
                                 <div  class="row" style="text-align: left">
                                     <div  class="form-group-lg col-lg-1" >
                                         <label  class="control-label" style="color:#123C69;">Address</label>
-                                        <input  class="form-control form-control-sm ng-untouched ng-pristine ng-valid" name="adress2" placeholder="" type="text" style="width:285px" value="{{adresse.adresse}}">
+                                        <input  class="form-control" name="adresse" type="text" style="width:285px" [(ngModel)]='adresse.adresse'value="{{adresse.adresse}}">
                                     </div>
                                 </div>
                                 <div  class="row" style="text-align: left">
@@ -127,7 +127,7 @@
                                         <label  class="control-label" style="text-align: left;color:#123C69;">City
                                           <span  style="color: tomato">*</span>
                                         </label>
-                                        <input class="form-control form-control-sm ng-untouched ng-pristine ng-valid" name="city" placeholder="" required="" type="text" style="width:285px" value="{{adresse.city}}">
+                                        <input class="form-control" name="city" type="text"[(ngModel)]='adresse.city' style="width:285px" value="{{adresse.city}}">
                                     </div>
                                 </div>
                                 <div  class="row" style="text-align: left">
@@ -135,8 +135,8 @@
                                         <label  class="control-label" style="text-align: left;color:#123C69;">State
                                           <span  style="color: tomato">*</span>
                                         </label>
-                                            <select class="form-control form-control-sm ng-untouched ng-pristine ng-valid" name="state">
-                                            <!----><option  value="AL">
+                                            <select class="form-control " [(ngModel)]='adresse.street' name="street" value="{{adresse.street}}">
+                                            <!----><option  value="AL" nom="Alabama">
                                               Alabama
                                             </option><option  value="AK">
                                               Alaska
@@ -245,7 +245,7 @@
                                      <label  class="control-label" style="text-align: left;color:#123C69;">Zip Code
                                       <span  style="color: tomato">*</span>
                                     </label>
-                                        <input  class="form-control form-control-sm ng-untouched ng-pristine ng-valid" name="zipCode" placeholder="" required="" type="text"value="{{adresse.postal_code}}">
+                                        <input  class="form-control" name="postal_code" id="inputZip"[(ngModel)]='adresse.postal_code' placeholder="" required="" type="text">
                                     </div>
                                 </div>
                             </div>
@@ -256,7 +256,7 @@
                                   <label  class="control-label" style="text-align: left;color: #123C69;">Email Address
                                     <span  style="color: tomato">*</span>
                                   </label>
-                                  <input  class="form-control form-control-sm ng-untouched ng-pristine ng-valid" name="newMail" pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" placeholder="" required="" type="email" style="width:285px" value="{{user.email}}">
+                                  <input  class="form-control " name="email" [(ngModel)]='user.email' type="email" style="width:285px" value="{{user.email}}">
                               </div>
 
                           </div>
@@ -267,7 +267,7 @@
                                 <label  class="control-label" style="color: #123C69;text-align: left;">Current Password
                                 <span  style="color: tomato">*</span>
                                </label>
-                                <input class="form-control form-control-sm ng-untouched ng-pristine ng-invalid" name="Password" placeholder="***************" required="" type="password">
+                                <input class="form-control " name="Password" [(ngModel)]='password1' placeholder="**********" required="" type="password">
 
                             </div>
                         </div>
@@ -276,7 +276,7 @@
                                 <label class="control-label" style="color: #123C69;text-align: left;">New Password
                                   <span  style="color: tomato">*</span>
                                 </label>
-                                <input  class="form-control form-control-sm ng-untouched ng-pristine ng-invalid" minlength="8" name="NewPassword" placeholder="" required="" type="password" value="">
+                                <input  class="form-control " minlength="8" name="NewPassword" [(ngModel)]='password'placeholder="" required="" type="password" value="">
                                 <!---->
                                 <!---->
                             </div>
@@ -287,14 +287,25 @@
                                 <label class="control-label" style="color: #123C69;text-align: left;">Password Confirmation
                                   <span  style="color: tomato">*</span>
                                 </label>
-                                <input  class="form-control form-control-sm ng-untouched ng-pristine ng-invalid" minlength="8" name="ConfirmPassword" placeholder="" required="" type="password">
+                                <input  class="form-control" minlength="8" name="ConfirmPassword" [(ngModel)]='PasswordConfirmation'  ngplaceholder="" required="" type="password">
                                 <!---->
                                 <!---->
                             </div>
 
                         </div>
                             <!---->
+                            <div  class="Btns pull-right" [hidden]="show" >
+                              <div  class="d-flex flex-wrap" >
+                                  <button  class="btn btn-sm btn-primary btn-lg m-1" (click)='Save()'style="font-size:15px;width: 80px; height: 40px;" type="submit" >Save</button>
+
+                                  <button  class="btn btn-sm btn-default btn-lg m-1" style="background-color: lightgray;">
+                                    <i  aria-hidden="true" class="fa fa-ban float-left mr-1" style="font-size:15px; "></i>
+                                    Cancel
+                                  </button>
+                              </div>
+                          </div>
                         </form>
+                      </div>
                     </div>
 
                   </div>
@@ -309,16 +320,7 @@
                           </div>
                         </div>
 
-                          <div  class="Btns pull-right" [hidden]="show" >
-                              <div  class="d-flex flex-wrap" >
-                                  <button  class="btn btn-sm btn-primary btn-lg m-1" (click)='Save()'style="font-size:15px;width: 80px; height: 40px;" >Save</button>
 
-                                  <button  class="btn btn-sm btn-default btn-lg m-1" style="background-color: lightgray;">
-                                    <i  aria-hidden="true" class="fa fa-ban float-left mr-1" style="font-size:15px; "></i>
-                                    Cancel
-                                  </button>
-                              </div>
-                          </div>
 
 
 

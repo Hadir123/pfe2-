@@ -53,4 +53,9 @@ public token;
     this.token =this.tokenn.get() ;
     return this.http.post('http://backend2.test:8800/api/AdressUpdate?token='+this.token,data ) ;
   }
+  Petowners2()
+  {
+    this.token=this.tokenn.get();
+    return this.http.get('http://backend2.test:8800/api/PetOwners2?token='+this.token)
+  }
 }

@@ -19,8 +19,9 @@
 <!--<app-menu-bar  [hidden]="!loggedIn"></app-menu-bar>-->
 
     <!--<app-navbar ></app-navbar>
-    </div>--> <app-navbar [hidden]="!loggedIn"></app-navbar>
-    <app-menubar [hidden]="!loggedIn"   ></app-menubar>
+    </div>-->
+   <app-navbar  *ngIf="loggedIn&&token!=null"></app-navbar>
+    <app-menubar  *ngIf="loggedIn&&token!=null"  ></app-menubar>
 
 <notifier-container></notifier-container>
 
@@ -29,6 +30,8 @@
 <router-outlet></router-outlet>
 <!--</div>-->
 </div>
+
+
    </body>
 
 

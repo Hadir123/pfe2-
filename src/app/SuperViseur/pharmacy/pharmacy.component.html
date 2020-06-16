@@ -1,1 +1,143 @@
-<p>pharmacy works!</p>
+<body>
+<span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="/HomePage"> Dashbord</a>
+<br>
+<span class="fa fa-arrow-left" *ngIf='show' style="color: #123C69;"></span><a *ngIf='show' routerLink="/Pharmacies" >Pharmacies List </a>
+<br><!--
+<div class="all2"style="float:left">
+  <form id='form' style="color:#123C69" >
+    <h3 style="color: #123C69;margin-bottom: 20px;">Pharmacy</h3>
+
+    <div class="form-row">
+      <label for="inputName" id='labelInput' >Pharmacy Name :</label> &nbsp;&nbsp;<label >{{pharmacy.pharmacyName}}</label>
+    </div>
+    <div class="form-row">
+        <label for="inputAddress" id='labelInput'>Email Address :</label> &nbsp;&nbsp;<label >{{pharmacy.email}}</label>
+    </div>
+
+    <div class="form-row">
+          <label for="validationDefault03" id='labelInput'>Mobile Number :</label> &nbsp;&nbsp;<label >{{pharmacy.phone}}</label>
+    </div>
+
+
+    <div class="form-row">
+      <label for="inputAddress"id='labelInput'>Address :</label> &nbsp;&nbsp;<label >{{ adresse.adresse}} <br> {{ adresse.city}}
+      &nbsp;{{ adresse.street}}<br>{{ adresse.postal_code}} </label>
+
+  </div>
+  <br>
+  <br>
+
+    <button type="submit" class="btn btn-primary " id="edit"(click)='edit()'style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 100px;"> <span class="fas fa-pencil-alt">Edit </span></button>
+
+
+
+<br>
+
+  </form>
+</div>
+<div class="all2" style="float: right;">
+  <form id='form' style="color:#123C69" >
+    <h3 style="color: #123C69;margin-bottom: 20px;">Pharmacist Admin</h3>
+
+    <div class="form-row">
+      <label for="inputName" id='labelInput' > Name :</label> &nbsp;&nbsp;<label >{{pharamcienAdmin.name}}</label>
+    </div>
+
+    <div class="form-row">
+      <label for="inputName" id='labelInput' >last Name :</label> &nbsp;&nbsp;<label >{{pharamcienAdmin.last_name}}</label>
+    </div>
+    <div class="form-row">
+        <label for="inputAddress" id='labelInput'>Email Address :</label> &nbsp;&nbsp;<label >{{pharamcienAdmin.email}}</label>
+    </div>
+
+    <div class="form-row">
+          <label for="validationDefault03" id='labelInput'>Mobile Number :</label> &nbsp;&nbsp;<label > {{pharamcienAdmin.phone}}</label>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<button type="submit" class="btn btn-primary " (click)='edit2()'style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 100px;"> <span class="fas fa-pencil-alt">Edit </span></button>
+<br>
+<br>
+
+  </form>
+</div>
+
+</body>
+<div class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-body">Panel Content</div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-body" style="color: #123C69;">
+      <label for="validationDefault03" id='labelInput'>Mobile Number :</label> &nbsp;&nbsp;<label > {{pharamcienAdmin.phone}}</label>
+
+
+    </div>
+  </div>
+</div>
+<footer>
+<img src="src/assets/img/login2.png" />
+<p> hhhh</p>
+</footer>
+
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+
+<div class="d-flex justify-content-center" style="margin-top: 50px;" *ngIf='show'>
+<div class="card" style="width: 25rem;color: #123C69; display: inline-block; ">
+  <div class="card-header">
+    <h5 class="card-title">Pharmacy</h5>
+  </div>
+  <div class="card-body">
+    <label for="inputName" id='labelInput' >Pharmacy Name :</label> &nbsp;&nbsp;<label >{{pharmacy.pharmacyName}}</label>
+    <br>
+
+
+    <label for="inputAddress" id='labelInput'>Email Address :</label> &nbsp;&nbsp;<label >{{pharmacy.email}}</label>
+    <br>
+    <label for="validationDefault03" id='labelInput'>Phone :</label> &nbsp;&nbsp;<label >{{pharmacy.phone}}</label>
+    <br>
+
+    <label for="inputAddress"id='labelInput'>Address :</label>
+
+    <label >{{ adresse.adresse}}</label>
+      &nbsp;&nbsp; <br> <label>{{ adresse.city}}
+      &nbsp;{{ adresse.street}} {{ adresse.postal_code}} </label>  <br>
+
+      <a  class="btn btn-primary"  (click)='edit()'id="edit"style="float: right;margin-top: 30px;"><span class="fas fa-pencil-alt">Edit </span></a>
+      <br>
+  </div>
+</div>
+<div class="card" style="width: 25rem;color: #123C69; display: inline-block;margin-left: 60px;">
+  <div class="card-header">
+    <h5 class="card-title">Pharmacist Admin</h5>
+  </div>
+  <div class="card-body">
+    <label for="inputName" id='labelInput' > Name :</label> &nbsp;&nbsp;<label >{{pharamcienAdmin.name}}</label>
+    <br>
+
+
+    <label for="inputName" id='labelInput' >last Name :</label> &nbsp;&nbsp;<label >{{pharamcienAdmin.last_name}}</label>
+    <br>
+    <label for="inputAddress" id='labelInput'>Email Address :</label> &nbsp;&nbsp;<label >{{pharamcienAdmin.email}}</label>
+    <br>
+
+    <label for="validationDefault03" id='labelInput'>Mobile Number :</label> &nbsp;&nbsp;<label > {{pharamcienAdmin.phone}}</label>
+    <br>
+<br>
+
+    <a  class="btn btn-primary" (click)='edit2()'id="edit"style="float: right;margin-top: 40px;"><span class="fas fa-pencil-alt">Edit </span></a>
+    <br>
+  </div>
+</div>
+</div>
+<app-edit-pharmacy [pharmacy]='pharmacy' [adresse]='adresse'*ngIf='isOpen'></app-edit-pharmacy>
+<app-edit-pharmacist-admin  [user]='pharamcienAdmin'*ngIf='isOpen2'></app-edit-pharmacist-admin>
+<!--<p>hhhhhhh</p>
+<div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
+  <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+  </div>
+-->

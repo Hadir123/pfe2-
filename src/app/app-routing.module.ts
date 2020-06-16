@@ -20,15 +20,18 @@ import { ProfilVetComponent } from './SuperViseur/vets/profil-vet/profil-vet.com
 import {PetComponent} from'./Vet/pet/pet.component';
 import { AddPharamcyComponent } from './SuperViseur/pharmacy/add-pharamcy/add-pharamcy.component';
 import { AddPharamcistComponent } from './SuperViseur/pharmacy/add-pharamcist/add-pharamcist.component';
-import { PharmacyComponent } from './SuperViseur/pharmacy/pharmacy.component';
 import {NewTreatmentComponent } from './Vet/Treatment/new-treatment/new-treatment.component';
 import { FormularyComponent } from './Vet/formulary/formulary.component';
+import { PharmaciesComponent } from './SuperViseur/pharmacy/pharmacies/pharmacies.component';
+import { PharmacyComponent } from 'src/app/SuperViseur/pharmacy/pharmacy.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch:'full' ,
   },
   {
      path: 'login', component: LoginComponent ,
+ },
+ { path:'HomePage', component: HomePageComponent ,
  },
  { path:'request-password', component: RequestComponent },
  { path:'response-password', component: ResponseComponent },
@@ -38,8 +41,7 @@ canActivate: [AfterLoginService] },
 { path:'NewRX', component: NewRXComponent ,
 //canActivate: [AfterLoginService]
  },
-{ path:'HomePage', component: HomePageComponent ,
-canActivate: [AfterLoginService] },
+
 
   { path:'PetOwners', component: PetOwnersComponent,canActivate: [AfterLoginService] },
   { path:'addPetOwner', component: AddPetOwnerComponent,canActivate: [AfterLoginService] },
@@ -47,22 +49,26 @@ canActivate: [AfterLoginService] },
  },
  { path:'NewPet/:id', component:PetComponent  ,canActivate: [AfterLoginService],
 },
- { path:'Vets', component: VetsComponent,//canActivate: [AfterLoginService]
+ { path:'Vets', component: VetsComponent,canActivate: [AfterLoginService]
 },
- { path:'addVet', component: AddNewVEtComponent,//canActivate: [AfterLoginService]
+ { path:'addVet', component: AddNewVEtComponent,canActivate: [AfterLoginService]
 },
- { path:'VetProfil/:id', component: ProfilVetComponent,//canActivate: [AfterLoginService]
+ { path:'VetProfil/:id', component: ProfilVetComponent,canActivate: [AfterLoginService]
 },
-
+{path: 'Pharmacies',
+component:PharmaciesComponent,canActivate: [AfterLoginService]},
 {path: 'addPharmacy',
 component:AddPharamcyComponent,canActivate: [AfterLoginService]}
 ,{ path: 'addPharmacist/:id1/:id2', component:AddPharamcistComponent,canActivate: [AfterLoginService]
  },
  {path: 'addTreatment',
- component:NewTreatmentComponent,//canActivate: [AfterLoginService]
+ component:NewTreatmentComponent,canActivate: [AfterLoginService]
 },
  {path: 'formulary',
- component:FormularyComponent,//canActivate: [AfterLoginService]
+ component:FormularyComponent,canActivate: [AfterLoginService]
+},
+{path: 'pharmacies/pharmacy/:id',
+ component:PharmacyComponent,canActivate: [AfterLoginService]
 },
   {path: '**', redirectTo: 'HomePage'},
 

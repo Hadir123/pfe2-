@@ -33,29 +33,40 @@ button{
   width:500px;
   margin-left: 15px;
 }
+.input_bar2
+{
+  display: inline-block;
+}
+.input_bar2 ng-select{
+  width:500px;
+
+  margin-left: 15px;
+}
 .input_bar p{
   margin-left :5px;
 }
-.input-item select{
+.input-group select{
   width:500px;
   margin-left: 15px;
-margin-top: 15px;
-height:30px;
+margin-top: 10px;
+
 }
-.input-item{
+.input-group {
   display: inline-block;
 }
- .input_item button{
-margin-top: 0px;
+ .input-group  button{
+
+
+display: inline-block;
  }
- .input-item #deuxieme{
+ .input-group  #deuxieme{
   width:400px;
   display: inline-block;
   margin-left: 20px;
  font-style: oblique;
  font-size: large;
 }
-.input-item #first{
+.input-group #first{
 width:150px;
 display: inline-block;
 background-color:#4056A1;

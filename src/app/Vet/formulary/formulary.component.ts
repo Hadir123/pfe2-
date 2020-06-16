@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Pipe, PipeTransform } from '@angular/core';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-formulary',
@@ -28,7 +29,7 @@ public benifTest=[];
 
 newPlaceHolder: string = "Search By ....";
 config: any;
-  constructor() { this.config = {
+  constructor(private notifier:NotifierService) { this.config = {
     itemsPerPage: 7,
     currentPage: 1,
     totalItems: this.benif.length
@@ -100,33 +101,11 @@ this.change('0');
        this.searchInput.nativeElement.value = '';
 this.searchHi.nativeElement.value='0'
     this.newPlaceHolder= "Search by ";
-
+    this.notifier.notify("success", "Done!,Pharmacy added ");
     //document.getElementById('search');
 
 
   }
 
 
-  searchList(row: any) {
-    if (this.searchText) {
-      const propVal = row[this.searchText.toLowerCase()] + '';
-      if (propVal) {
-        return propVal.toUpperCase().indexOf(this.searchText.toUpperCase()) > -1;
-      } else {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  searchFilter() {
-    /* this.searchList = this.searchText; */
-    if (this.search!== '') {
-      this.benifTest = this.benifTest.filter(res => {
-        return res.name.toLowerCase().match(this.search.toLowerCase());
-      });
-    } else if (this.search === '') {
-      this.ngOnInit();
-    }
-  }
 }

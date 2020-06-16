@@ -60,7 +60,7 @@ save()
   this.pharmacy.addPharmacistAdmin(this.form).subscribe(data=>
     { console.log(data);
       this.notifier.notify("success", "Done!,Pharmacy added ");
-      this.router.navigateByUrl('/HomePage');
+      this.router.navigateByUrl('/Pharmacies');
   },
     err=>console.log(err));
 }

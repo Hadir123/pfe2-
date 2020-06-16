@@ -1,0 +1,58 @@
+/*body{
+  background-image: url('src/assets/img/login2.png');
+  background-repeat: repeat-y;
+}*/
+a{
+  font-size: 13px;
+  color:#123C69;
+
+    text-decoration:underline;
+}
+ body .all2{
+  border-color: darkgray;
+  border-style: solid;
+width: auto ;
+margin-top: 90px;
+margin-bottom: 25px;
+height: auto;
+
+
+
+}
+ body #form{
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 40px;
+}
+ body #labelInput
+{
+font-size: large;
+font-weight: 500
+}
+
+#edit
+{
+  background-color: aliceblue;
+  color: #4056A1;
+  border-color:#4056A1;
+float: right;
+margin-bottom: 10px;
+
+}
+.hi div {
+  transition: all linear 0.5s;
+  background-color: lightblue;
+  height: 100px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.hi .ng-hide {
+  height: 0;
+  width: 0;
+  background-color: transparent;
+  top:-200px;
+  left: 200px;
+}

@@ -41,15 +41,26 @@ export class VetRxService {
     this.token =this.tokenn.get() ;
     return this.http.post('http://backend2.test:8800/api/VetUpdate?token='+this.token,data ) ;
   }
-  PetOnwerAdd(data)
-  {
-    this.token =this.tokenn.get() ;
-    return this.http.post('http://backend2.test:8800/api/attaPetowner?token='+this.token,data ) ;
-  }
   CarfulTeam($id)
   {
 
       this.token =this.tokenn.get() ;
     return this.http.get('http://backend2.test:8800/api/CarefulTeam/'+$id+'?token='+this.token ) ;
   }
+
+  PetOnwerAdd(data)
+  {
+    this.token =this.tokenn.get() ;
+    return this.http.post('http://backend2.test:8800/api/attaPetowner?token='+this.token,data ) ;
+  }
+  PetownerDelete(data)
+  {this.token =this.tokenn.get() ;
+    return this.http.post('http://backend2.test:8800/api/DeletePetowner?token='+this.token,data ) ;
+
+  }
+  ProfilUpdate(data)
+  {this.token =this.tokenn.get() ;
+    return this.http.post('http://backend2.test:8800/api/ProfilUpdate?token='+this.token,data);
+  }
+
 }

@@ -52,23 +52,32 @@ placeholder="Select Pet"
 </div>
 
 <h4 style ="color:#123C69; margin-left: 20px; padding-top: 15px;">Step 2: Select Order Content</h4>
-<div  class="input-item">
+<div class="input-group mb-3" >
 
-<select class="custom-select custom-select-lg mb-3" required [disabled]="!formvalide" >
+  <!--<select class="custom-select" style='color:#123C69' data-live-search="true"  (click)="openModal($event.target.value)" [disabled]="!formvalide" >
 <option selected >
    </option>
-    <option  >
+    <option *ngFor='let drug of  drugs'  value="{{drug.id}}">
+      {{drug.drugName}} ({{drug.DrugTradeName}})
     </option>
   </select>
+-->
+<div class="input_bar2">
+<ng-select class="input_bar2" [items]="drugs"
+bindLabel="fullName"
+placeholder="Select Drug"
+(change)="drugChange()" [(ngModel)]="Drug" [disabled]="!formvalide">
 
-  <button type="button" id="first" class="btn"[disabled]="!formvalide" > <span class="fa fa-plus"style="font-size:20px ;color:white;float:left ; margin-top:5px"></span> &nbsp;Add </button>
+</ng-select>
+</div>
+  <button type="button" id="first" class="btn"[disabled]="!formvalide"data-toggle="modal" data-target="#childModalOption1"(click)="openModal()"> <span class="fa fa-plus"style="font-size:20px ;color:white;float:left ;  margin-left:10px"></span> &nbsp;Add </button>
 
-  <button type="button" id="deuxieme"class="btn"  [disabled]="!formvalide"> <span class="fa fa-list-ul"style="font-size:20px ;color:black ; float:right ; margin-top:5px"></span> &nbsp; Treatment Plans </button>
+  <button type="button" id="deuxieme"class="btn"  [disabled]="!formvalide"> <span class="fa fa-list-ul"style="font-size:20px ;color:black ; float:right ; ; margin-left:20px"></span> &nbsp; Treatment Plans </button>
 
 </div>
 
-<div class="row">
-  <div class="">
+<div class="row" style="float: right; margin-right: 15px;">
+
 <small>Rx Start Date</small>
 <br>
 <!--[isDisabled]="isDisabled"-->
@@ -81,60 +90,30 @@ placeholder="Select Pet"
 <!--<input class="form-control" placeholder="MM-DD-YYYY" type="date" [(ngModel)]="form.date"  name="form.date">-->
 
 
-  </div>
-
 <br>
 </div>
 <br>
 <br>
-<table class="table" style="color:#123C69"  >
-  <thead class="table-active">
-    <tr style="font-size:small; font-style:normal">
-      <th scope="col" style="width:16%;">Product</th>
-      <th scope="col" style="width:5%;">Qty</th>
-      <th scope="col">Type</th>
-      <th scope="col">Form</th>
-      <th scope="col">Strength</th>
-      <th scope="col">Size</th>
-      <th scope="col">Refills</th>
-      <th scope="col">Auto Refill</th>
-      <th scope="col">Days of Supply</th>
-      <th scope="col"> Unit Price</th>
-      <th scope="col"> </th>
-    </tr>
-  </thead>
-  <tbody>
+<app-table-treatment></app-table-treatment>
+<div class="modal" *ngIf='show'tabindex="-1" id='childModalOption1' role="dialog" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style='color:#123C69'>Element Prespection</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <app-modal-option  [Drug]='form.Drug'></app-modal-option>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"(click)='Save()'>Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <tr rowspan=2>
-      <th scope="row">2</th>
-      <td >Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>@fat</td>
-      <td>@fat</td>
-      <td>@fat</td>
-      <td>@fat</td>
-      <td>@fat</td>
-      <td>@fat</td>
-      <td>@fat</td></tr>
-<tr>
-
-
-      tr<td  colspan=3 style="align:center"><input class="form-control" style="display: inline-block;size: 500px;"></td>
-
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-  <tr>
-
-
-
-  </tr>
-</table>
 
 </body>

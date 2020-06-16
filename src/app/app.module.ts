@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-//import { ProfilComponent } from './components/profil/profil.component';
+import { ProfilComponent } from './components/profil/profil.component';
 import { PasswordComponent } from './components/password/password.component';
 import { RequestComponent } from './components/password/request/request.component';
 import { ResponseComponent } from './components/password/response/response.component';
@@ -48,13 +48,19 @@ import { AddPharamcistComponent } from 'src/app/SuperViseur/pharmacy/add-pharamc
 import { TableTreatmentComponent } from './Vet/new-rx/table-treatment/table-treatment.component';
 import {NewTreatmentComponent } from './Vet/Treatment/new-treatment/new-treatment.component';
 import { FormularyComponent } from './Vet/formulary/formulary.component';
+import { PharmaciesComponent } from './SuperViseur/pharmacy/pharmacies/pharmacies.component';
+import { EditPharmacyComponent } from './SuperViseur/pharmacy/edit-pharmacy/edit-pharmacy.component';
+import { EditPharmacistAdminComponent } from './SuperViseur/pharmacy/edit-pharmacist-admin/edit-pharmacist-admin.component';
+import { ModalOptionComponent } from './Vet/new-rx/modal-option/modal-option.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
    LoginComponent,
     SignUpComponent,
-   // ProfilComponent,
+   ProfilComponent,
     PasswordComponent,
     RequestComponent,
     ResponseComponent,
@@ -75,7 +81,12 @@ AddPharamcyComponent,
 AddPharamcistComponent,
 TableTreatmentComponent,
 NewTreatmentComponent,
-FormularyComponent
+FormularyComponent,
+PharmaciesComponent,
+EditPharmacyComponent,
+EditPharmacistAdminComponent,
+
+ModalOptionComponent
 
   ],
   imports: [
@@ -93,6 +104,8 @@ FormularyComponent
  Ng2SearchPipeModule,
     NgxPaginationModule,
  OrderModule,
+ NgbModule,
+
 // PharmacyModule
 
 
@@ -102,6 +115,7 @@ FormularyComponent
   {provide: 'SnotifyToastConfig', useValue: ToastDefaults},
   SnotifyService],
   bootstrap: [AppComponent]
+
 
 })
 export class AppModule { }
