@@ -66,10 +66,10 @@ else
 }
   }
   /**************/
-  Save()
+  addPetowner()
   {
 this.form.name= this.form.name[0].toUpperCase() + this.form.name.substr(1).toLowerCase();
-this.newOne.onSubmit(this.form).subscribe(
+this.newOne.addPetowner(this.form).subscribe(
   data=>{
 
 this.handleData(data);

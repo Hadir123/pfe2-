@@ -53,6 +53,9 @@ import { EditPharmacyComponent } from './SuperViseur/pharmacy/edit-pharmacy/edit
 import { EditPharmacistAdminComponent } from './SuperViseur/pharmacy/edit-pharmacist-admin/edit-pharmacist-admin.component';
 import { ModalOptionComponent } from './Vet/new-rx/modal-option/modal-option.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { Phase2NewRxComponent } from './Vet/new-rx/phase2-new-rx/phase2-new-rx.component';
+import { OrderReviewComponent } from './Vet/new-rx/order-review/order-review.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +89,12 @@ PharmaciesComponent,
 EditPharmacyComponent,
 EditPharmacistAdminComponent,
 
-ModalOptionComponent
+ModalOptionComponent,
+
+Phase2NewRxComponent,
+
+OrderReviewComponent,
+
 
   ],
   imports: [
@@ -104,7 +112,7 @@ ModalOptionComponent
  Ng2SearchPipeModule,
     NgxPaginationModule,
  OrderModule,
- NgbModule,
+ NgbModule,NgxSpinnerModule,
 
 // PharmacyModule
 

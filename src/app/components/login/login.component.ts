@@ -22,15 +22,17 @@ public loggedIn :boolean;
 public error= null ;
   constructor(private Jarwis:JarwisService,
     private tokeen:TokenService, private route :Router,private auth:AuthService) {
- this.loggedIn =false
+     // localStorage.clear();
     //this.auth.authStatus.subscribe(value=>this.loggedIn=value);
 
 
-     localStorage.clear();
 
      }
 
   ngOnInit(): void {
+
+
+    this.loggedIn =false
   }
 
   onSubmit()

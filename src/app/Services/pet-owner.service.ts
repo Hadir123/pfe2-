@@ -12,7 +12,7 @@ export class PetOwnerService {
 
   }
 public token;
-  onSubmit(data)
+  addPetowner(data)
   { this.token =this.tokenn.get() ;
   return this.http.post('http://backend2.test:8800/api/addPetOwner?token='+this.token,data) ;
   }

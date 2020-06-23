@@ -42,9 +42,10 @@ pharmacies ()
     this.Token=this.token.get() ;
     return this.Http.post('http://backend2.test:8800/api/UpdatePharmacy?token='+this.Token ,data);
   }
-UpdatePharmacistAdmin(data)
-{
+Pharmacies2(){
 
+  this.Token =this.token.get() ;
+  return this.Http.get('http://backend2.test:8800/api/pharmaciess?token='+this.Token) ;
 }
 }
 

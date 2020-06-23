@@ -12,12 +12,13 @@ $(document).ready(function () {
 <body>
 <h3 style ="color:#123C69;"> Create New Rx Order</h3>
 <br>
-<div class ="buttongroupe">
+<div class ="buttongroupe" style="float:right;">
 <button type="button" class="btn btn-secondary"  [disabled]="!formvalide" (click)="write()"> <span class="fa fa-save"style="font-size:20px ;color:black"></span> &nbsp; Save and Exist  </button>
 <button type="button" class="btn btn-secondary" id="cancel" (click)="Exit()" > <span class="fa fa-ban"style="font-size:20px ;color:white"></span> &nbsp; Cancel  </button>
 </div>
-<div class ="select_bar" style="padding-bottom: 20px;">
-  <h4 style ="color:#123C69; margin-left: 20px;">Step 1: Select Pet Owner & Patient  </h4>
+
+<div class ="select_bar" style="padding-bottom: 20px; margin-top: 50px;">
+  <h4 style ="color:#123C69; margin-left: 20px;">Step 1: Select Petowner & Patient  </h4>
     <br>
     <div class="input_bar">
       <p style ="color:#123C69;">Pet Owner Name*</p>
@@ -84,8 +85,13 @@ placeholder="Select Drug"
   <!--<input class="form-control" placeholder="MM/DD/YYYY" bsDatepicker #dp="bsDatepicker"
  name="form.date" style="color:#123C69" for="date"   style="display: inline;"[(ngModel)]="form.date">
 <span class="fa fa-calendar"  id="date" style="display: inline; margin-left: 5px;"></span>-->
-<input class="form-control" placeholder="MM-DD-YYYY" id="inputDate"  [disabled]="!formvalide" type="date"[(ngModel)]="form.date"name="date">
- <small>DD-MM-YYYY</small>
+<div _ngcontent-c7="" class="input-group">
+
+  <input class="form-control" required placeholder="MM-DD-YYYY"  style="width: 400px;" id="inputDate"  [disabled]="!formvalide" type="date"[(ngModel)]="form.date"name="date">
+  <small>DD-MM-YYYY</small>
+
+</div>
+
   <br>
 <!--<input class="form-control" placeholder="MM-DD-YYYY" type="date" [(ngModel)]="form.date"  name="form.date">-->
 
@@ -94,8 +100,9 @@ placeholder="Select Drug"
 </div>
 <br>
 <br>
-<app-table-treatment></app-table-treatment>
-<div class="modal" *ngIf='show'tabindex="-1" id='childModalOption1' role="dialog" >
+
+<app-table-treatment *ngIf='able'[table]='elem'[date]='form.date'[order]='order'></app-table-treatment>
+<div class="modal" *ngIf='show' tabindex="-1" id='childModalOption1' role="dialog" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -105,10 +112,10 @@ placeholder="Select Drug"
         </button>
       </div>
       <div class="modal-body">
-      <app-modal-option  [Drug]='form.Drug'></app-modal-option>
+      <app-modal-option  [Drug]='form.Drug'(event)='hi($event)'(event2)='Clear($event)'></app-modal-option>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary"(click)='Save()'>Save changes</button>
+        <button type="button" class="btn btn-primary"(click)='Save()' data-dismiss="modal">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -117,3 +124,4 @@ placeholder="Select Drug"
 
 
 </body>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

@@ -14,12 +14,15 @@ export class NavbarComponent implements OnInit {
 public loggedIn :boolean;
 public noti=[];
 public test ;
+public countNotif=0 ;
   constructor(private auth :AuthService, private route:Router, private Token :TokenService ,private http: HttpClient)  { }
 token =this.Token.get();
   ngOnInit(): void {
   this.auth.authStatus.subscribe(value=>this.loggedIn=value);
 //    if(this.token,)
+this.notif();
   }
+
   logout(event :MouseEvent)
   {this.http.get('http://backend2.test:8800/api/logout?token='+this.token).subscribe(data=>console.log(data),
   err=>console.log(err));
@@ -36,9 +39,22 @@ this.route.navigateByUrl('/login');
     this.http.get('http://backend2.test:8800/api/Notif'+'?token='+this.token).subscribe(
       data=>{console.log(data);
         this.test=data
-        for(var i = 0 ; i<5;i++)
-       { this.noti[i]=this.test[i].data
-        console.log(this.test[i].data)}
+this.countNotif=this.test.count;
+console.log(this.countNotif);
+console.log(this.test.notification)
+this.noti=this.test.notification ;
+//ar index: number = this.noti[0].data.indexOf('content');
+//var indexe: number = this.noti[0].data.indexOf('date');
+//console.log(this.noti[0].data);
+
+
+      for(var i = 0 ; i<this.noti.length;i++)
+       {this.noti[i]=this.noti[i].order;
+        if(this.noti[i].statusName==='created')
+        {this.noti[i].statusName='You Have a new Order'
+
+        }
+        console.log(this.noti[i])}
       /*  for( var i=0; i<this.test.length;i++)
     {
     this.noti[i]=this.test[i][0].data;

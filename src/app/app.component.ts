@@ -24,7 +24,7 @@ export class AppComponent {
 
     this._compiler.clearCache();
     //this.Token.remove() ;
-this.loggedIn=false ;
+this.loggedIn=true ;
 
 
 }
@@ -34,10 +34,10 @@ this.loggedIn=false ;
 
 //this.loggedIn=this.login.loggedIn;
 //if(this.loggedIn)
-  this.auth.authStatus.subscribe(value=>this.loggedIn=value);
     this.token =localStorage.getItem("token");
     console.log("Token ==>",this.token);
     console.log("Token ==>",this.loggedIn);
+  //  this.auth.authStatus.subscribe(value=>this.loggedIn=value);
 
 
 

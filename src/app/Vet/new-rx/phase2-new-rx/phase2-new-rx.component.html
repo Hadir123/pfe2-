@@ -1,0 +1,204 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+$(document).ready(function () {
+  $('select').selectize({
+      sortField: 'text'
+  });
+});</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
+
+<body>
+<h3 style ="color:#123C69;"> Payment & Shipping
+</h3>
+<br>
+<div class ="buttongroupe" style="float:right;">
+<button type="button" class="btn btn-secondary" (click)="write()"> <span class="fa fa-save"style="font-size:20px ;color:black"></span> &nbsp; Save and Exist  </button>
+<button type="button" class="btn btn-secondary" id="cancel" (click)="Exit()" > <span class="fa fa-ban"style="font-size:20px ;color:white"></span> &nbsp; Cancel  </button>
+</div>
+
+
+
+<div class="card" style="width: 25rem;color: #123C69; display: inline-block;padding-bottom: 20px; margin-top: 50px; ">
+  <div class="card-header">
+    <h5 class="card-title">Petowner Information </h5>
+  </div>
+  <div class="card-body">
+    <label for="inputName" id='labelInput' style='font-weight: bold;' >Petowner  :</label>{{Petower.name}}&nbsp;&nbsp;{{Petower.last_name}}<label ></label>
+    <br>
+
+
+    <label for="inputAddress" id='labelInput'style='font-weight: bold;'>Email Address :</label>{{Petower.email}} &nbsp;&nbsp;<label ></label>
+    <br>
+    <label for="validationDefault03" id='labelInput'style='font-weight: bold;'>Phone :</label>{{Petower.phone}} &nbsp;&nbsp;<label ></label>
+    <br>
+
+    <label for="inputAddress"id='labelInput'style='font-weight: bold;'>Address :</label>
+
+    <label >{{ adresse.adresse}}</label>
+    &nbsp;&nbsp; <br> <label>{{ adresse.city}}
+    &nbsp;{{ adresse.street}} {{ adresse.postal_code}}</label>
+      <br>
+  </div>
+</div>
+<div _ngcontent-c14="" class="sub-form" style="margin-top: 60px; color: #123C69;">
+  <h4 _ngcontent-c14="" style="color:#123C69;" > Shipping &amp; Pharmacy Options </h4>
+  <div _ngcontent-c14="" class="row">
+      <div _ngcontent-c14="" class="col-md-6">
+          <!----><div _ngcontent-c14="" class="form-group-lg ng-pristine ng-valid ng-touched" formarrayname="shipping_methods">
+              <div _ngcontent-c14="" class="ng-pristine ng-valid ng-touched">
+                  <label _ngcontent-c14="" class="control-label"> Pharmacy</label>
+                  <input _ngcontent-c14="" formcontrolname="pharmacy_id" hidden="" class="ng-untouched ng-pristine ng-valid">
+                  <ng-select class="custom"[items]="pharmcies"
+bindLabel="pharmacyName"
+placeholder="Select Pharmacy"
+(change)="Pharmacy()" [(ngModel)]='Pharmaci'>
+
+</ng-select>
+                  <input _ngcontent-c14="" formcontrolname="shipping_amount" hidden="" class="ng-untouched ng-pristine ng-valid">
+                  <!---->
+              </div>
+
+          </div>
+      </div>
+      <div _ngcontent-c14="" class="col-md-6 card" >
+          <div _ngcontent-c14="" class="form-group-lg card-body" style="padding: 1%;margin-top:2% ; margin-left: 3%;">
+
+              <div _ngcontent-c14="" class="row" style="border-bottom: 1px dashed;">
+                  <div _ngcontent-c14="" class="col-md-6">
+                      Initial Price:
+                  </div>
+                  <div _ngcontent-c14="" class="col-md-6">
+                     <span>$</span> {{order.subTotalPrice}}
+                  </div>
+              </div>
+
+              <!----><div _ngcontent-c14="" class="row" style="border-bottom: 1px dashed; margin-top: 15px;">
+                  <div _ngcontent-c14="" class="col-md-6">
+                      Shipping Amount:
+                  </div>
+                  <div _ngcontent-c14="" class="col-md-6">
+                      $10.00
+                  </div>
+              </div>
+
+
+
+
+          </div>
+      </div>
+
+
+  </div>
+</div>
+<br>
+<br>
+<div _ngcontent-c13="" class="sub-form step-1" style="background-color:white;margin-bottom:5%; margin-top: 5%!important; color: #123C69; margin-left: 5px;">
+  <h4 _ngcontent-c13="">Payment Method</h4>
+  <div _ngcontent-c13="" style="display: inline-block;">
+      <input _ngcontent-c13=""  id="idPayNow" name="payment"(change)="onItemChange($event.target.value)" value="1" type="radio">
+
+          <label _ngcontent-c13="" style="margin-left: 6px;">Pay Now</label>
+
+
+  <div class="container" *ngIf="show">
+    <div class="row">
+        <div class="col-xs-12 col-md-4 offset-md-4">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="row">
+                        <h3 class="text-xs-center">Payment Details</h3>
+                        <img class="img-fluid cc-img" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+                    </div>
+                </div>
+                <div class="card-block">
+                    <form style="margin-left: 5px;">
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label>CARD NUMBER</label>
+                                    <div class="input-group">
+                                        <input type="tel" class="form-control" placeholder="Valid Card Number" />
+                                        <span class="input-group-addon">&nbsp;<span class="fa fa-credit-card"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+                                    <input type="tel" class="form-control" placeholder="MM / YY" />
+                                </div>
+                            </div>
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label>CV CODE</label>
+                                    <input type="tel" class="form-control" placeholder="CVC" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label>CARD OWNER</label>
+                                    <input type="text" class="form-control" placeholder="Card Owner Names" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button class="btn btn-warning btn-lg btn-block">Process payment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <style>
+    .cc-img {
+        margin: 0 auto;
+    }
+  </style>
+  </div>
+  <br _ngcontent-c13="">
+  <div _ngcontent-c13=""style="display: inline-block;" >
+      <input _ngcontent-c13="" id="idPayPet" name="payment" (change)="onItemChange($event.target.value)" value="2" type="radio">
+
+          <label _ngcontent-c13="" style="margin-left: 6px;">Make payment by pet owner</label>
+
+  </div>
+  <br _ngcontent-c13="">
+  <div _ngcontent-c13=""  style="display: inline-block;">
+      <input _ngcontent-c13="" id="idPayPharmacy" value='3'(change)="onItemChange($event.target.value)"name="payment" type="radio">
+
+          <label _ngcontent-c13=""  style="margin-left: 6px;">Make payment at pharmacy</label>
+      </div>
+  </div>
+
+  <div _ngcontent-c13="" class="row ">
+    <div _ngcontent-c13="" class="col-md-8 ">
+    </div>
+    <div _ngcontent-c13="" class="col-md-4 ">
+        <div _ngcontent-c13="" class="row ">
+            <div _ngcontent-c13="" class="col-md-6 ">
+                <a _ngcontent-c13="" class="btn btn-sm btn-default btn-lg btn-block" style="background-color: lightgray">Previous</a>
+            </div>
+            <div _ngcontent-c13="" class="col-md-6 ">
+
+
+                <input _ngcontent-c13="" class="btn btn-sm btn-primary btn-lg btn-block"(click)='Next()' style="color: white ; background-color: darkred; border-color: darkred;" type="submit" value="Continue">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<br>
+<br>
+

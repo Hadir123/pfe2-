@@ -24,6 +24,8 @@ import {NewTreatmentComponent } from './Vet/Treatment/new-treatment/new-treatmen
 import { FormularyComponent } from './Vet/formulary/formulary.component';
 import { PharmaciesComponent } from './SuperViseur/pharmacy/pharmacies/pharmacies.component';
 import { PharmacyComponent } from 'src/app/SuperViseur/pharmacy/pharmacy.component';
+import { Phase2NewRxComponent } from './Vet/new-rx/phase2-new-rx/phase2-new-rx.component';
+import { OrderReviewComponent } from './Vet/new-rx/order-review/order-review.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch:'full' ,
@@ -31,7 +33,7 @@ const routes: Routes = [
   {
      path: 'login', component: LoginComponent ,
  },
- { path:'HomePage', component: HomePageComponent ,
+ { path:'HomePage', component: HomePageComponent ,canActivate: [AfterLoginService]
  },
  { path:'request-password', component: RequestComponent },
  { path:'response-password', component: ResponseComponent },
@@ -39,9 +41,13 @@ const routes: Routes = [
   { path:'profil', component: ProfilComponent ,
 canActivate: [AfterLoginService] },
 { path:'NewRX', component: NewRXComponent ,
-//canActivate: [AfterLoginService]
+canActivate: [AfterLoginService]
  },
-
+ { path:'NewRX/payment', component:  Phase2NewRxComponent,
+ canActivate: [AfterLoginService]
+  },
+  {path:'orderReview',component:OrderReviewComponent}
+,
 
   { path:'PetOwners', component: PetOwnersComponent,canActivate: [AfterLoginService] },
   { path:'addPetOwner', component: AddPetOwnerComponent,canActivate: [AfterLoginService] },
@@ -71,7 +77,6 @@ component:AddPharamcyComponent,canActivate: [AfterLoginService]}
  component:PharmacyComponent,canActivate: [AfterLoginService]
 },
   {path: '**', redirectTo: 'HomePage'},
-
 ];
 
 @NgModule({
