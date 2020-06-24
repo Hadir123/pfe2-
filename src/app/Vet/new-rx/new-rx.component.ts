@@ -84,6 +84,7 @@ Petowner()
       console.log(this.form.PetOwner.email)
       console.log(this.form.PetOwner.id)
       console.log(this.formvalide)
+      this.user=this.form.PetOwner;
 this.rx.setPetOwner(this.form.PetOwner.id);
       this.order.adresse_id=this.form.PetOwner.adresse_id ;
       this.spinner.show();

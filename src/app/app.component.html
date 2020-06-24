@@ -1,39 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
-   </head>
-   <body>
-   <!--  <div class='sidenavContent' [ngClass]="{'show': show} ">
+  </head>
+  <body>
+  <div class="top-nav-bar">
+    <app-navbar  *ngIf="loggedIn"></app-navbar>
+  </div>
+  <div class="left-nav-bar ">
+    <app-menubar  *ngIf="loggedIn"  ></app-menubar>
+  </div>
+  <notifier-container></notifier-container>
+  <div class="container">
+  <router-outlet></router-outlet>
+  </div>
 
-     </div>
-     <div class='mainContent' [ngClass]="{'sideNavOpen' : show }">
-
-<div class='topNavContent'>
-  <span >-->
-  <!--  <img  src="https://i.ya-webdesign.com/images/hamburger-menu-icon-png-white-12.png
-" (click)="changeStatus()"  class="sideNavControl"  > </span> -->
-
- <!--<img  src="src/assets/img/logo2.PNG
-" (click)="changeStatus()"  class="sideNavControl"  >-->
-
-<!--<app-menu-bar  [hidden]="!loggedIn"></app-menu-bar>-->
-
-    <!--<app-navbar ></app-navbar>
-    </div>-->
-   <app-navbar  *ngIf="loggedIn&&token!=null"></app-navbar>
-    <app-menubar  *ngIf="loggedIn&&token!=null"  ></app-menubar>
-
-<notifier-container></notifier-container>
-
-<div class="container">
-
-<router-outlet></router-outlet>
-<!--</div>-->
-</div>
-
-
-   </body>
-
-
-
+</body>
 </html>

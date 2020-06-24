@@ -26,6 +26,7 @@ import { PharmaciesComponent } from './SuperViseur/pharmacy/pharmacies/pharmacie
 import { PharmacyComponent } from 'src/app/SuperViseur/pharmacy/pharmacy.component';
 import { Phase2NewRxComponent } from './Vet/new-rx/phase2-new-rx/phase2-new-rx.component';
 import { OrderReviewComponent } from './Vet/new-rx/order-review/order-review.component';
+import { RxHistoryComponent } from './Vet/rx-history/rx-history.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch:'full' ,
@@ -33,7 +34,7 @@ const routes: Routes = [
   {
      path: 'login', component: LoginComponent ,
  },
- { path:'HomePage', component: HomePageComponent ,canActivate: [AfterLoginService]
+ { path:'HomePage', component: HomePageComponent ,canActivate: []
  },
  { path:'request-password', component: RequestComponent },
  { path:'response-password', component: ResponseComponent },
@@ -46,8 +47,9 @@ canActivate: [AfterLoginService]
  { path:'NewRX/payment', component:  Phase2NewRxComponent,
  canActivate: [AfterLoginService]
   },
-  {path:'orderReview',component:OrderReviewComponent}
+  {path:'orderReview',component:OrderReviewComponent,canActivate: [AfterLoginService]}
 ,
+{path:'orderHistory',component:RxHistoryComponent,canActivate: [AfterLoginService]},
 
   { path:'PetOwners', component: PetOwnersComponent,canActivate: [AfterLoginService] },
   { path:'addPetOwner', component: AddPetOwnerComponent,canActivate: [AfterLoginService] },

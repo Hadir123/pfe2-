@@ -9,11 +9,13 @@
 .darken-grey-text {
     color: #e3eeff;
 }
-
+.navbar .dropdown-menu
+{overflow: auto;
+  height: 200px;}
 .navbar .dropdown-menu a:hover {
     color: #3778C2 !important;
+background-color: #e3eeff;
 }
 .darken-grey-text {
     color: #3778C2;
 }
-

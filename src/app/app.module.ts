@@ -56,6 +56,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { Phase2NewRxComponent } from './Vet/new-rx/phase2-new-rx/phase2-new-rx.component';
 import { OrderReviewComponent } from './Vet/new-rx/order-review/order-review.component';
+import { RxHistoryComponent } from './Vet/rx-history/rx-history.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,8 @@ ModalOptionComponent,
 Phase2NewRxComponent,
 
 OrderReviewComponent,
+
+RxHistoryComponent,
 
 
   ],

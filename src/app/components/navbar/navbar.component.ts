@@ -3,8 +3,16 @@ import { AuthService } from 'src/app/Services/auth.service';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/Services/token.service';
 import { HttpClient } from '@angular/common/http';
+import Pusher from 'pusher-js'
+;/*import  Echo from 'laravel-echo';
+*/
+import { JarwisService } from 'src/app/Services/jarwis.service';
+let echo = new Pusher(
+
+'e92d996a81c7f660c657',
 
 
+);
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -15,12 +23,23 @@ public loggedIn :boolean;
 public noti=[];
 public test ;
 public countNotif=0 ;
-  constructor(private auth :AuthService, private route:Router, private Token :TokenService ,private http: HttpClient)  { }
+  constructor(private auth :AuthService, private route:Router, private Token :TokenService ,private http: HttpClient, private jarwis :JarwisService)  { }
 token =this.Token.get();
   ngOnInit(): void {
   this.auth.authStatus.subscribe(value=>this.loggedIn=value);
 //    if(this.token,)
 this.notif();
+Pusher.logToConsole = true;
+
+    var pusher = new Pusher('e92d996a81c7f660c657', {
+      cluster: 'mt1'
+    });
+
+    var channel = pusher.subscribe('order');
+    channel.bind('my-event', function(data) {
+      alert(JSON.stringify(data));
+//this.countNotif=this.countNotif+1;
+    });
   }
 
   logout(event :MouseEvent)
@@ -28,7 +47,9 @@ this.notif();
   err=>console.log(err));
     event.preventDefault();
     this.auth.changeAuthStatus(false);
+    this.jarwis.setStatus(false);
     this.Token.remove() ;
+
 
 this.route.navigateByUrl('/login');
   }

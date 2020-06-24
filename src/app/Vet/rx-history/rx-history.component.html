@@ -1,0 +1,237 @@
+
+<div class="container-fluid" style="color: #00346a;">
+  <div style="transition: opacity 500ms ease-in-out 0s; opacity: 1;">
+    <div style="
+        min-height: calc(100vh - 306px);
+        padding-top: 51px;
+        padding-left: 0%;
+        padding-right: 0%;
+      ">
+      <div class="orders-container">
+        <h4 style="color: #00346a;">Patient Orders</h4>
+        <div class="row">
+          <div class="col-md-3 pull-left"></div>
+
+          <div class="col-md-9">
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label style="font-size: 12px;">Search By </label>
+                  <select class="form-control form-control-sm ng-pristine ng-valid ng-touched">
+                    <!----><option value="name">Patient/Pet Owner</option><option value="status">Order Status</option><option value="order_no">Order #</option><option value="vet_id">Veterinarian</option><option value="form">Type</option><option value="order_date">Order Date</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4" id="InputDiv">
+                <!---->
+                <!---->
+                <!----><div class="form-group">
+                  <label style="font-size: 12px;">Select Status </label>
+                  <select class="form-control form-control-sm ng-untouched ng-pristine ng-valid" id="select">
+                    <option selected="" value="-1"> All Status</option>
+
+                    <option value="4">Awaiting Payment</option>
+                    <option value="6">Incomplete</option>
+                    <option value="11">Canceled</option>
+                    <option value="3">In Process</option>
+                    <option value="0">Pharmacy Open</option>
+                    <option value="8">Pharmacy Order Filled</option>
+                    <option value="1">Pharmacy Shipped</option>
+                    <option value="10">Pharmacy Canceled</option>
+                    <option value="9">Pharmacy Incomplete</option>
+                    <option value="12">Pick Up</option>
+                    <option value="13">Local Delivery</option>
+                    <option value="14">Doctor Delivery</option>
+                    <option value="15">Awaiting Payment At Pharmacy</option>
+
+
+
+
+                  </select>
+
+                </div>
+                <!---->
+                <!---->
+                          </div>
+
+              <div class="col-md-4 mt-md-1 mt-lg-0 btn-bloc">
+                <br>
+                <button class="btn btn-sm btn-success" id="searchbtn" type="submit">
+                  <i aria-hidden="true" class="fa fa-search" style="font-size: 17px;"></i>&nbsp; Find &nbsp;
+                </button>
+                <button class="btn btn-sm btn-default" style="background-color: lightgray; padding: auto; margin-left: 5px;">
+                  <i aria-hidden="true" class="fa fa-ban float-left" style="font-size: 17px;"></i>
+                  &nbsp;Cancel
+                </button>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div>
+
+
+          <!----><div>
+            <!----><div>
+             <!--- <div class="table-responsive">
+                <div  style="width: 100%; margin-left: 0px;">
+                  <div class="col-md-6">
+
+                  </div>-->
+                  <table class="table" id="tableorders">
+                    <thead>
+                      <tr >
+
+
+
+
+                        <td class="btn-light" style="width: 110px;">
+                          <strong style="color: #00346a;">Order #</strong>
+
+                          <!---->
+                        </td>
+
+                        <td class="btn-light">
+                          <strong style="color: #00346a;">Patient Name</strong>
+
+                          <!---->
+                        </td>
+                        <td class="btn-light">
+                          <strong style="color: #00346a;">PetOwner Name</strong>
+
+                          <!---->
+                        </td>
+                        <td class="btn-light">
+
+                          <!---->
+                          <strong style="color: #00346a;">Price</strong>
+                        </td>
+                        <td class="btn-light">
+
+                          <!---->
+                          <strong style="color: #00346a;">Order Status</strong>
+                        </td>
+                        <td class="btn-light">
+
+                          <!---->
+                          <strong style="color: #00346a;">Order Date</strong>
+                        </td>
+                        <td class="btn-light">
+                          <!---->
+                          <strong style="color: #00346a;">Veterinarian</strong>
+                        </td>
+                        <td class="btn-light">
+                          <!---->
+                          <strong style="color: #00346a;">Pharmacy</strong>
+                        </td>
+                        <td class="btn-light">
+
+                          <!---->
+                          <strong style="color: #00346a;">Date Updated</strong>
+                        </td>
+                      </tr>
+                    </thead>
+                    <!----><tbody *ngFor='let order of order'>
+                      <!----><tr>
+                        <td>
+                        {{order.id}}
+                        </td>
+
+                        <td>{{order.petName}}</td>
+                        <td>{{order.petownr_name}}&nbsp;{{order.petowner_lastName}}</td>
+                        <td>${{order.price}}</td>
+                        <td>{{order.Status}}</td>
+
+                        <td>
+                          {{order.date}}
+                        </td>
+                        <td>{{order.VetName}}&nbsp;{{order.VetLastName}}</td>
+                        <td>{{order.pharmacyName}}</td>
+                        <td>
+                          {{order.DateUpdate}}
+                        </td>
+                      </tr>
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+              <!----><ngb-pagination aria-label="Default pagination" class="d-flex justify-content-center" role="navigation">
+    <ul class="pagination">
+      <!----><li class="page-item disabled">
+        <a aria-label="First" class="page-link" href="" tabindex="-1">
+          <span aria-hidden="true">««</span>
+        </a>
+      </li>
+
+      <!----><li class="page-item disabled">
+        <a aria-label="Previous" class="page-link" href="" tabindex="-1">
+          <span aria-hidden="true">«</span>
+        </a>
+      </li>
+      <!----><li class="page-item active">
+        <!---->
+        <!----><a class="page-link" href="">
+          1
+          <!----><span class="sr-only">(current)</span>
+        </a>
+      </li><li class="page-item">
+        <!---->
+        <!----><a class="page-link" href="">
+          2
+          <!---->
+        </a>
+      </li><li class="page-item">
+        <!---->
+        <!----><a class="page-link" href="">
+          3
+          <!---->
+        </a>
+      </li><li class="page-item">
+        <!---->
+        <!----><a class="page-link" href="">
+          4
+          <!---->
+        </a>
+      </li><li class="page-item">
+        <!---->
+        <!----><a class="page-link" href="">
+          5
+          <!---->
+        </a>
+      </li><li class="page-item disabled">
+        <!----><a class="page-link">...</a>
+        <!---->
+      </li><li class="page-item">
+        <!---->
+        <!----><a class="page-link" href="">
+          38
+          <!---->
+        </a>
+      </li>
+      <!----><li class="page-item">
+        <a aria-label="Next" class="page-link" href="">
+          <span aria-hidden="true">»</span>
+        </a>
+      </li>
+
+      <!----><li class="page-item">
+        <a aria-label="Last" class="page-link" href="">
+          <span aria-hidden="true">»»</span>
+        </a>
+      </li>
+    </ul>
+  </ngb-pagination>
+            </div>
+
+
+
+          <!--</div></div>-->
+        </div>
+      </div>
+    </div>
+
+</div>

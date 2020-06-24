@@ -9,6 +9,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class JarwisService {
+ public connected:boolean=false ;
 public jsonURL='http://backend.test:8800/api';
   constructor(private http: HttpClient) {
   }
@@ -16,8 +17,6 @@ public jsonURL='http://backend.test:8800/api';
   signup(data)
   {
     return this.http.post('http://backend2.test:8800/api/register',data) ;
-
-
   }
   onSubmit(data)
   {
@@ -30,5 +29,13 @@ public jsonURL='http://backend.test:8800/api';
   changePassword(data)
   {
     return this.http.post('http://backend2.test:8800/api/restPassword',data ) ;
+  }
+  getStatus()
+  {
+    return this.connected ;
+  }
+  setStatus(state:boolean)
+  {
+    this.connected=state;
   }
 }

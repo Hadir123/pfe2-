@@ -67,4 +67,9 @@ createOrder(data)
   return this.http.post('http://backend2.test:8800/api/createOrder?token='+this.Token,data);
 
 }
+RxHistory()
+{
+  this.Token=this.token.get();
+  return this.http.get('http://backend2.test:8800/api/allOrder?token='+this.Token);
+}
 }

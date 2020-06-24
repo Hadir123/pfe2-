@@ -4,9 +4,14 @@ import { PetOwnerService } from 'src/app/Services/pet-owner.service';
 import { element } from 'protractor';
 import { NotifierService } from 'angular-notifier';
 import { Router } from '@angular/router';
-import  Echo from 'laravel-echo';
-const PUSHER_API_KEY = '641670c9e8fc68b2eecb';
-const PUSHER_CLUSTER = 'eu';
+/*import  Echo from 'laravel-echo';
+
+let echo = new Echo({
+  broadcaster: 'pusher',
+  key: 'e92d996a81c7f660c657',
+  cluster: 'mt1',
+  forceTLS: true
+});*/
 @Component({
   selector: 'app-order-review',
   templateUrl: './order-review.component.html',
@@ -52,15 +57,21 @@ Add()
 console.log(this.order)
 
 
+
+
   this.rx.createOrder(this.order).subscribe(data=>{console.log(data)
     this.notifier.notify("success", "  Done ,  ");
     this.router.navigateByUrl('/NewRX')
-this.subscribe() ;
-
+//this.subscribe() ;
+/*var channel = echo.channel('order');
+channel.listen('.order', function(order) {
+  alert(JSON.stringify(order));
+});
+*/
   },
   err=>console.log(err)) ;
 }
-subscribe(){
+/*subscribe(){
   let echo = new Echo({
     broadcaster: 'pusher',
     key: PUSHER_API_KEY,
@@ -71,5 +82,5 @@ subscribe(){
      var  data = e.location;
       //  this.updateMap(this.data);
     });
-}
+}*/
 }
