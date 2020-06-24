@@ -1,18 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   </head>
   <body>
-  <div class="top-nav-bar">
-    <app-navbar  *ngIf="loggedIn"></app-navbar>
+  <div class="top-nav-bar" *ngIf="loggedIn">
+    <app-navbar></app-navbar>
   </div>
-  <div class="left-nav-bar ">
-    <app-menubar  *ngIf="loggedIn"  ></app-menubar>
+  <div class="left-nav-bar" *ngIf="loggedIn" >
+    <app-menubar></app-menubar>
   </div>
   <notifier-container></notifier-container>
-  <div class="container">
+  <div class="page-container">
   <router-outlet></router-outlet>
   </div>
-
 </body>
 </html>
