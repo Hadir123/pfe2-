@@ -40,7 +40,6 @@ public error= null ;
    // alert("sa77it yé rajjél ")*/
    localStorage.setItem('logedIn','true');
 
-console.log('haaa')
  this.handleResponse(data);
 },err=>{
   //console.log("erroor",error.error.error);
@@ -61,8 +60,8 @@ handleResponse(data)
 this.tokeen.handle(data.access_token);
 this.auth.changeAuthStatus(true);
 this.Jarwis.setStatus(true);
-
-this.route.navigateByUrl('/HomePage');
+window.location.replace('/HomePage');
+//this.route.navigateByUrl('/HomePage');
 }
 
 
