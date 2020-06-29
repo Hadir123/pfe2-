@@ -1,11 +1,11 @@
 body{
-
+/*background-image:image('assets/img/loginback.jpg') ;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
 
   margin-top: 150px;
-  font-family: 'Numans', sans-serif;
+  font-family: 'Numans', sans-serif;*/
   }
   .ng-invalid input{
     border-left:5px solid red ;
@@ -49,3 +49,16 @@ display: inline;
 /*margin-left: 250px;*/
 
 }
+
+/*.bg img{
+background-image: url("../../../assets/loginback.jpg");
+
+/* Half height */
+/*height: 100%;
+/* Center and scale the image nicely */
+/*background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+background-size: cover;
+}
+*/

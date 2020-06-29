@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+//import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ProfilComponent } from './components/profil/profil.component';
@@ -57,18 +57,19 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { Phase2NewRxComponent } from './Vet/new-rx/phase2-new-rx/phase2-new-rx.component';
 import { OrderReviewComponent } from './Vet/new-rx/order-review/order-review.component';
 import { RxHistoryComponent } from './Vet/rx-history/rx-history.component';
+import { NavbarVetComponent } from './components/navbar-vet/navbar-vet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+   // NavbarComponent,
    LoginComponent,
     SignUpComponent,
    ProfilComponent,
     PasswordComponent,
     RequestComponent,
     ResponseComponent,
-    HomePageComponent,
+   HomePageComponent,
 MenuBarComponent,
 NewRXComponent,
 AddPetOwnerComponent,
@@ -98,6 +99,8 @@ OrderReviewComponent,
 
 RxHistoryComponent,
 
+
+NavbarVetComponent,
 
   ],
   imports: [

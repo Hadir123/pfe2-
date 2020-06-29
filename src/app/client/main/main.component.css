@@ -1,0 +1,22 @@
+.left-nav-bar{
+  position: fixed;
+  top: 0px;
+  padding-top: 6px;
+  width: 20vw;
+  height: 100vh;
+  z-index: 999;
+
+}
+
+.page-container{
+  margin-top: 30px;
+  width: 80vw;
+  float:right;
+  padding: 25px;
+}
+.top-nav-bar{
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  z-index: 999;
+}

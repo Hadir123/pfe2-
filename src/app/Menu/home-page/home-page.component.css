@@ -14,7 +14,13 @@ height: 125px;
 
 .centre
 {
-
+background-image: url('../../../assets/loginback.jpg');
+height: 100%;
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+background-size: cover;
 
 }
 

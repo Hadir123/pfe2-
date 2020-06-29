@@ -17,34 +17,34 @@ import { VetRxService } from 'src/app/Services/vet-rx.service';
   styleUrls: ['./add-pet-owner.component.css']
 })
 export class AddPetOwnerComponent implements OnInit {
-public num:-1;
-public token;
-public err=null ;
-public vets=[];
-users=null ;
-petowner=null
-public relation ={
-  id_petOwner:null ,
-  id_vet:null,
-};
-public form=
-{ name:null,
-  date_of_birth:null ,
-  last_name:null ,
-  email:null ,
-  phone:null ,
-  gender:null,
-  age:null ,
-  adresse:null ,
-  street:null ,
-  postal_code:null ,
-  city:null ,
-  Hospital:"Haygard",
-  id:null ,
-};
-vet2=[] ;
-  constructor(private newOne : PetOwnerService ,private vet :VetRxService, private router :Router,private tokenn : TokenService ,private notifier:NotifierService) { }
+constructor(private petownerService : PetOwnerService ,private vet :VetRxService, private router :Router ,private notifier:NotifierService) { }
 
+  public num:-1;
+  public token;
+  public err=null ;
+  public vets=[];
+  users=null ;
+  petowner=null
+  public relation ={
+    id_petOwner:null ,
+    id_vet:null,
+  };
+  public form=
+  { name:null,
+    date_of_birth:null ,
+    last_name:null ,
+    email:null ,
+    phone:null ,
+    gender:null,
+    age:null ,
+    adresse:null ,
+    street:null ,
+    postal_code:null ,
+    city:null ,
+    Hospital:"Haygard",
+    id:null ,
+  };
+  vet2=[] ;
   ngOnInit(): void {
   }
   chekrbdclick(num)
@@ -69,7 +69,7 @@ else
   addPetowner()
   {
 this.form.name= this.form.name[0].toUpperCase() + this.form.name.substr(1).toLowerCase();
-this.newOne.addPetowner(this.form).subscribe(
+this.petownerService.addPetowner(this.form).subscribe(
   data=>{
 
 this.handleData(data);
@@ -106,7 +106,7 @@ console.log(this.petowner)
   this.relation.id_vet=this.vet2[i];
   console.log(this.vet2[i]);
   console.log(this.relation);
-       this.newOne.vetsAdd(this.relation).subscribe( data=>{console.log(data);},
+       this.petownerService.vetsAdd(this.relation).subscribe( data=>{console.log(data);},
         err=>console.log(err));
 }}
 this.notifier.notify("success", "Done!,Pet Owner added ");

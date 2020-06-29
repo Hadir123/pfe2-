@@ -41,13 +41,18 @@
   </div>
 </div>
  -->
- <section class="section-conten padding-y" style="min-height: 84vh;">
+ <div class="bg" >
+
+<section  class="section-conten padding-y" style="min-height: 84vh;">
   <!-- ============================ COMPONENT LOGIN   ================================= -->
   <div class="card mx-auto" style="max-width: 380px; margin-top: 100px;">
     <div class="card-body">
-      <h4 class="card-title mb-4"><img src="assets/img/login2.png" style="margin-left: 20%;align-self: center;" /></h4>
+      <h4 class="card-title mb-4">
+        <img src="assets/img/login2.png" style="margin-left: 20%;align-self: center;" /></h4>
          <form #loginForm=ngForm (ngSubmit)="onSubmit()" >
-
+          <div class="alert alert-danger" [hidden]="!error">
+            <p> {{error}}</p>
+           </div>
         <div class="form-group">
           <input
             name="email"
@@ -71,12 +76,12 @@
         <!-- form-group// -->
         <div class="form-group">
           <input
-            name="password
+            name="password"
             class="form-control"
             placeholder="Mot de passe"
             type="password"
-             [(ngModel)]="form.password" required>
-          />
+             [(ngModel)]="form.password" required/>
+
           <div
             *ngIf=" loginForm.controls.password.errors"
             class="invalid-feedback d-block"
@@ -91,13 +96,13 @@
         </div>
         <!-- form-group// -->
 
-        <div class="form-group">
-          <a routerLink="/reset" class="float-right">Mot de passe Oublié?</a>
+        <div class="form-group" >
+          <a routerLink="/reset" class="float-right">Forget Password ?</a>
         </div>
         <!-- form-group form-check .// -->
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid">
-            Authentification
+          <button  style="background-color:#4056A1; border-color: #4056A1;"type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid">
+            Sign In
           </button>
         </div>
         <!-- form-group// -->
@@ -107,9 +112,7 @@
   </div>
   <!-- card .// -->
 
-  <p class="text-center mt-4">
-    Vous n'avez pas un compte ? <a routerLink="/register">Inscrivez vous</a>
-  </p>
-  <br /><br />
+
   <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
 </section>
+ </div>

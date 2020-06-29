@@ -11,6 +11,7 @@ import { VetRxService } from 'src/app/Services/vet-rx.service';
   styleUrls: ['./add-new-vet.component.css']
 })
 export class AddNewVEtComponent implements OnInit {
+  constructor(private router :Router ,private notifier:NotifierService, private vet :VetRxService) { }
 
   public num:-1;
 public token;
@@ -39,8 +40,6 @@ public form=
   is_superviseur:0 ,
 };
 vet2=[] ;
-  constructor(private router :Router,private tokenn : TokenService ,private notifier:NotifierService, private vet :VetRxService) { }
-
   ngOnInit(): void {
   }
   chekrbdclick(num)

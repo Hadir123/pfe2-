@@ -1,9 +1,11 @@
-<div class="logo">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+<div class="logo"*ngIf="loggedIn"  >
 <a href="#">
     <img src="assets/img/login2.png" style="height: 50px; margin-left: 35px;"/>
 </a></div>
-<div class="leftMenu">
-<ul class="nav flex-column">
+<div class="leftMenu"  *ngIf="loggedIn">
+<ul class="nav flex-column"  *ngIf="loggedIn">
 
   <li class="nav-item">
     <a class="nav-link active"routerLink="/HomePage"><span class="fa fa-home" style="color:white E;font-size:25px; "></span>&nbsp;Home Page</a>
@@ -35,3 +37,4 @@
   </li>
 </ul>
 </div>
+

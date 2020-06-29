@@ -19,7 +19,8 @@ let echo = new Echo({
 })
 export class OrderReviewComponent implements OnInit {
 
-  constructor(private rx:RxServiceService ,private router:Router,private petowenr:PetOwnerService , private notifier:NotifierService) { }
+  constructor(private rx:RxServiceService ,private router:Router,
+    private petowenr:PetOwnerService , private notifier:NotifierService) { }
 order:any
 Petowner:any ;
 adresse:any ;

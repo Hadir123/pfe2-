@@ -1,18 +1,27 @@
-<!doctype html>
-<html lang="en">
-  <head>
-  </head>
-  <body>
+
+  <!-- <div class="page-container">
+  <router-outlet></router-outlet>
+  </div> --><div  *ngIf="client==false">
   <div class="top-nav-bar">
-    <app-navbar  *ngIf="loggedIn"></app-navbar>
+    <app-navbar-vet  *ngIf="loggedIn"></app-navbar-vet>
   </div>
   <div class="left-nav-bar ">
     <app-menubar  *ngIf="loggedIn"  ></app-menubar>
   </div>
-  <notifier-container></notifier-container>
-  <div class="container">
-  <router-outlet></router-outlet>
-  </div>
 
-</body>
-</html>
+
+
+
+  <notifier-container></notifier-container>
+
+  <div class="page-container">
+    <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div *ngIf="client">
+    <notifier-container></notifier-container>
+
+
+      <router-outlet></router-outlet>
+
+  </div>

@@ -10,6 +10,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class JarwisService {
  public connected:boolean=false ;
+ public client:boolean = false ;
 public jsonURL='http://backend.test:8800/api';
   constructor(private http: HttpClient) {
   }
@@ -38,4 +39,11 @@ public jsonURL='http://backend.test:8800/api';
   {
     this.connected=state;
   }
+  setCLient(s:boolean)
+  {
+    this.client=true ;
+
+  }
+ getCLient()
+ {return this.client;}
 }

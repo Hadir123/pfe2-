@@ -28,14 +28,23 @@ import { Phase2NewRxComponent } from './Vet/new-rx/phase2-new-rx/phase2-new-rx.c
 import { OrderReviewComponent } from './Vet/new-rx/order-review/order-review.component';
 import { RxHistoryComponent } from './Vet/rx-history/rx-history.component';
 
+import { ClientModule } from './client/client.module';
+import { PharmacistModule } from './pharmacist/pharmacist.module';
+import { PharmacistAdminModule } from './pharmacist-admin/pharmacist-admin.module';
+
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch:'full' ,
   },
+  { path:'HomePageClient', loadChildren:"./client/client.module#ClientModule" ,canActivate: []},
   {
      path: 'login', component: LoginComponent ,
  },
- { path:'HomePage', component: HomePageComponent ,canActivate: []
+ { path:'request-password', component: RequestComponent },
+ { path:'response-password', component: ResponseComponent },
+ { path:'HomePage', component: HomePageComponent ,canActivate: [AfterLoginService]
  },
+ //{ path:'HomePageVet', loadChildren:"./SuperViseur/superviseur-module/superviseur.module#SuperviseurModule" ,canActivate: []},
+
  { path:'request-password', component: RequestComponent },
  { path:'response-password', component: ResponseComponent },
   { path: 'singnup', component: SignUpComponent ,canActivate:[BeforeLoginService] },
@@ -82,7 +91,9 @@ component:AddPharamcyComponent,canActivate: [AfterLoginService]}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),ClientModule, PharmacistModule,
+     PharmacistAdminModule,
+    ],
   exports: [RouterModule]
 
 })

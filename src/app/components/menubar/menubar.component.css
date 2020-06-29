@@ -10,6 +10,7 @@
     font-size: 14px;
     color: #123C69;
     padding-left: 20px ;
+    font-size: large;
    /* box-sizing: border-box;*/
     border-top: 1px solid rgba(255,255,255,.1);
     border-bottom: 1px solid #ccc;
@@ -21,7 +22,7 @@
 
 }
 ul li:hover a{
-    padding-left: 50px;
+    padding-left: 30px;
     color: #4056A1;
 }
 .sidenav header{

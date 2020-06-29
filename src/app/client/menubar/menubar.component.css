@@ -1,0 +1,109 @@
+.leftMenu {
+  background: #efe2ba;
+  height: 100%;
+}
+/* The navigation menu links */
+.leftMenu ul a {
+    display: block;
+    font-style: oblique;
+    line-height: 40px;
+    font-size: 14px;
+    color: #123C69;
+    padding-left: 20px ;
+    font-size: large;
+   /* box-sizing: border-box;*/
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid #ccc;
+    transition: .4s;
+
+}
+.leftMenu ul{
+  border: 1px solid rgba(255,255,255,.1);
+
+}
+ul li:hover a{
+    padding-left: 30px;
+    color: #4056A1;
+}
+.sidenav header{
+    font-size: 22px;
+    color: red;
+    text-align: center;
+    line-height: 10px;
+   /* background: white;*/
+    user-select: none;
+}
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+
+  left:0;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+#check{
+    display: none;
+
+
+}
+label #btn, label #cancel{
+    position: absolute;
+    cursor: pointer;
+    background: #4056A1;
+    border-radius: 3px;
+
+}
+label #btn{
+    left :0px;
+    top: 00px;
+
+  font-size: 43px;
+  color: white;
+  padding:6px 12px;
+  background-color: #4056A1;
+  border: 0.2px solid #ccc;
+
+}
+label #btn:hover .sidenav{
+display: block;
+}
+
+label #cancel{
+    z-index: 1111;
+    left: -200px;
+    top: 22px;
+    font-size: 30px;
+    color: white;
+    padding:4px 9px;
+    transition: 1s;
+
+}
+
+#check:checked~ .sidenav{
+    left:0;
+}
+#check:checked~ label #cancel{
+  left:200px;
+}
+section{
+  background-position: center;
+  background-size: cover;
+  height:100vh;
+}
+.nav-item
+{
+  height: 50px;
+}
+
+
+
+

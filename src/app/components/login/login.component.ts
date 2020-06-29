@@ -22,12 +22,14 @@ public loggedIn :boolean;
 public error= null ;
   constructor(private Jarwis:JarwisService,
     private tokeen:TokenService, private route :Router,private auth:AuthService) {
+  this.auth.authStatus.subscribe(value=>this.loggedIn=false);
     localStorage.clear();
-    //this.auth.authStatus.subscribe(value=>this.loggedIn=value);
      }
 
   ngOnInit(): void {
     this.loggedIn =false
+    localStorage.clear();
+
   }
 
   onSubmit()
@@ -60,7 +62,7 @@ handleResponse(data)
 this.tokeen.handle(data.access_token);
 this.auth.changeAuthStatus(true);
 this.Jarwis.setStatus(true);
-window.location.replace('/HomePage');
+window.location.replace('/HomePageVet/HomePage');
 //this.route.navigateByUrl('/HomePage');
 }
 
