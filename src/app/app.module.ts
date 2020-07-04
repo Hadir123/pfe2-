@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-//import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ProfilComponent } from './components/profil/profil.component';
@@ -19,8 +18,8 @@ import { AuthService } from './Services/auth.service';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { NotifierModule } from "angular-notifier";
 import { ToastrModule } from 'ngx-toastr';
-import { HomePageComponent } from './Menu/home-page/home-page.component';
-import {MenuBarComponent} from'./components/menu-bar/menu-bar.component';
+//import { HomePageComponent } from './Menu/home-page/home-page.component';
+//import {MenuBarComponent} from'./components/menu-bar/menu-bar.component';
 import { NewRXComponent } from './Vet/new-rx/new-rx.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -32,7 +31,7 @@ import { PetOwnersComponent } from './SuperViseur/pet-owners/pet-owners.componen
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ProfilPetOwnerComponent } from './SuperViseur/pet-owners/profil-pet-owner/profil-pet-owner.component';
-import { VetsComponent } from './SuperViseur/vets/vets.component';
+//import { VetsComponent } from './SuperViseur/vets/vets.component';
 import { AddNewVEtComponent } from './SuperViseur/vets/add-new-vet/add-new-vet.component';
 import { ProfilVetComponent } from './SuperViseur/vets/profil-vet/profil-vet.component';
 
@@ -41,7 +40,7 @@ import { OrderModule } from 'ngx-order-pipe';
 import { PetComponent } from './Vet/pet/pet.component';
 import { PetOwnerInfoComponent } from './Vet/pet/PetOwnerInfor/pet-owner-info/pet-owner-info.component';
 import { PetOfPetwonerComponent } from './Vet/pet/PetOwnerInfor/PetOfPetowner/pet-of-petwoner/pet-of-petwoner.component';
-import { MenubarComponent } from './components/menubar/menubar.component';
+//import { MenubarComponent } from './components/menubar/menubar.component';
 import { PharmacyComponent } from 'src/app/SuperViseur/pharmacy/pharmacy.component';
 import { AddPharamcyComponent } from 'src/app/SuperViseur/pharmacy/add-pharamcy/add-pharamcy.component';
 import { AddPharamcistComponent } from 'src/app/SuperViseur/pharmacy/add-pharamcist/add-pharamcist.component';
@@ -57,7 +56,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { Phase2NewRxComponent } from './Vet/new-rx/phase2-new-rx/phase2-new-rx.component';
 import { OrderReviewComponent } from './Vet/new-rx/order-review/order-review.component';
 import { RxHistoryComponent } from './Vet/rx-history/rx-history.component';
-import { NavbarVetComponent } from './components/navbar-vet/navbar-vet.component';
+//import { NavbarVetComponent } from './components/navbar-vet/navbar-vet.component';
+import { PasswordPetOwnerComponent } from './components/password-pet-owner/password-pet-owner.component';
 
 @NgModule({
   declarations: [
@@ -69,19 +69,21 @@ import { NavbarVetComponent } from './components/navbar-vet/navbar-vet.component
     PasswordComponent,
     RequestComponent,
     ResponseComponent,
-   HomePageComponent,
-MenuBarComponent,
+  //
+   //HomePageComponent,
+////MenuBarComponent,
 NewRXComponent,
 AddPetOwnerComponent,
 PetOwnersComponent,
 ProfilPetOwnerComponent,
-VetsComponent,
+//VetsComponent,
 AddNewVEtComponent,
 ProfilVetComponent,
 PetComponent,
 PetOwnerInfoComponent,
 PetOfPetwonerComponent,
-MenubarComponent,    PharmacyComponent,
+//MenubarComponent,
+ PharmacyComponent,
 AddPharamcyComponent,
 AddPharamcistComponent,
 TableTreatmentComponent,
@@ -100,7 +102,10 @@ OrderReviewComponent,
 RxHistoryComponent,
 
 
-NavbarVetComponent,
+//NavbarVetComponent,
+
+
+PasswordPetOwnerComponent,
 
   ],
   imports: [
@@ -109,7 +114,7 @@ NavbarVetComponent,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule ,
-    SnotifyModule,
+   SnotifyModule,
     NotifierModule,
     ToastrModule,
     BrowserAnimationsModule,// ToastrModule added,
@@ -118,10 +123,10 @@ NavbarVetComponent,
  Ng2SearchPipeModule,
     NgxPaginationModule,
  OrderModule,
- NgbModule,NgxSpinnerModule,
+ NgbModule,
+ NgxSpinnerModule,
 
 // PharmacyModule
-
 
   ],
   providers: [JarwisService,

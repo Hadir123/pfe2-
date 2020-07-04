@@ -26,10 +26,13 @@ export class AppComponent {
     this.loggedIn = false;
     this._compiler.clearCache();
     //this.Token.remove() ;
+    this.auth.changeAuthStatus(true)
     if (localStorage.getItem('logedIn')) {
       this.loggedIn = Boolean(localStorage.getItem('logedIn'));
     }
     this.client=this.jarwis.getCLient() ;
+    this.client=this.jarwis.getCLient() ;
+    console.log(this.client)
   }
 
   ngOnInit(): void {
@@ -42,8 +45,8 @@ export class AppComponent {
       this.loggedIn = Boolean(localStorage.getItem('logedIn'));
     }
     //  this.auth.authStatus.subscribe(value=>this.loggedIn=value);
-    this.client=this.jarwis.getCLient() ;
-    console.log(this.client)
+   // this.client=false;
+
   }
 
   logout(event: MouseEvent) {

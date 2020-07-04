@@ -1,14 +1,13 @@
 
   <!-- <div class="page-container">
   <router-outlet></router-outlet>
-  </div> --><div  *ngIf="client==false">
-  <div class="top-nav-bar">
+  </div> --><!--<div  *ngIf="client===false">-->
+  <!--div class="top-nav-bar">
     <app-navbar-vet  *ngIf="loggedIn"></app-navbar-vet>
   </div>
   <div class="left-nav-bar ">
     <app-menubar  *ngIf="loggedIn"  ></app-menubar>
-  </div>
-
+   </div>
 
 
 
@@ -18,10 +17,9 @@
     <router-outlet></router-outlet>
     </div>
   </div>
-  <div *ngIf="client">
+  <div *ngIf="client===true">-->
     <notifier-container></notifier-container>
-
-
       <router-outlet></router-outlet>
 
-  </div>
+
+<!--</div>-->

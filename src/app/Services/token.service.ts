@@ -14,7 +14,7 @@ private iss= {
   handle(token)
   {
 this.set(token);
-//console.log(this.isValid());
+console.log(this.isValid());
   }
   set(token)
   {
@@ -49,7 +49,12 @@ decode(payloadd)
 return JSON.parse(atob(payloadd))
 }
 loggedIn()
-{ return this.isValid();
+{//return this.isValid();
+  if(this.get())
+  return true
+
+  else
+  return false
 }
 }
 

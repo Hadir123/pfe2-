@@ -9,7 +9,7 @@ import {RequestComponent}from './components/password/request/request.component';
 import {ResponseComponent}from './components/password/response/response.component';
 import { BeforeLoginService } from './Services/before-login.service';
 import { AfterLoginService } from './Services/after-login.service';
-import{HomePageComponent}from './Menu/home-page/home-page.component';
+//import{HomePageComponent}from './Menu/home-page/home-page.component';
 import{NewRXComponent} from'./Vet/new-rx/new-rx.component' ;
 import{AddPetOwnerComponent}from'./SuperViseur/add-pet-owner/add-pet-owner.component';
 import { PetOwnersComponent } from './SuperViseur/pet-owners/pet-owners.component';
@@ -31,19 +31,27 @@ import { RxHistoryComponent } from './Vet/rx-history/rx-history.component';
 import { ClientModule } from './client/client.module';
 import { PharmacistModule } from './pharmacist/pharmacist.module';
 import { PharmacistAdminModule } from './pharmacist-admin/pharmacist-admin.module';
-
+import { PasswordPetOwnerComponent } from './components/password-pet-owner/password-pet-owner.component';
+//import { HomePageComponent } from './Menu/home-page/home-page.component';
+import{SuperviseurModule} from'./SuperViseur/superviseur.module'
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch:'full' ,
+  { path:'', redirectTo: '/login', pathMatch:'full' ,
   },
-  { path:'HomePageClient', loadChildren:"./client/client.module#ClientModule" ,canActivate: []},
+  { path:'HomePageClient', loadChildren:"./client/client.module#ClientModule" ,canActivate: [AfterLoginService]},
   {
      path: 'login', component: LoginComponent ,
  },
+ /*{ path:'HomePage', component: HomePageComponent ,canActivate:[]
+ },*/
+  { path:'HomePageVet', loadChildren:"./SuperViseur/superviseur.module#SuperviseurModule" },
+
+ {
+  path:'petownerPassword', component:PasswordPetOwnerComponent,
+},
  { path:'request-password', component: RequestComponent },
  { path:'response-password', component: ResponseComponent },
- { path:'HomePage', component: HomePageComponent ,canActivate: [AfterLoginService]
- },
- //{ path:'HomePageVet', loadChildren:"./SuperViseur/superviseur-module/superviseur.module#SuperviseurModule" ,canActivate: []},
+ /*{ path:'HomePage', component: HomePageComponent ,canActivate: [AfterLoginService]
+ },*/
 
  { path:'request-password', component: RequestComponent },
  { path:'response-password', component: ResponseComponent },
@@ -57,8 +65,7 @@ canActivate: [AfterLoginService]
  canActivate: [AfterLoginService]
   },
   {path:'orderReview',component:OrderReviewComponent,canActivate: [AfterLoginService]}
-,
-{path:'orderHistory',component:RxHistoryComponent,canActivate: [AfterLoginService]},
+,{path:'orderHistory',component:RxHistoryComponent,canActivate: [AfterLoginService]},
 
   { path:'PetOwners', component: PetOwnersComponent,canActivate: [AfterLoginService] },
   { path:'addPetOwner', component: AddPetOwnerComponent,canActivate: [AfterLoginService] },
@@ -66,8 +73,8 @@ canActivate: [AfterLoginService]
  },
  { path:'NewPet/:id', component:PetComponent  ,canActivate: [AfterLoginService],
 },
- { path:'Vets', component: VetsComponent,canActivate: [AfterLoginService]
-},
+ /*{ path:'Vets', component: VetsComponent,canActivate: [AfterLoginService]
+},*/
  { path:'addVet', component: AddNewVEtComponent,canActivate: [AfterLoginService]
 },
  { path:'VetProfil/:id', component: ProfilVetComponent,canActivate: [AfterLoginService]
@@ -87,12 +94,13 @@ component:AddPharamcyComponent,canActivate: [AfterLoginService]}
 {path: 'pharmacies/pharmacy/:id',
  component:PharmacyComponent,canActivate: [AfterLoginService]
 },
-  {path: '**', redirectTo: 'HomePage'},
+ // {path: '**', redirectTo: 'HomePage'},
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),ClientModule, PharmacistModule,
-     PharmacistAdminModule,
+  imports: [RouterModule.forRoot(routes),
+
     ],
   exports: [RouterModule]
 

@@ -28,7 +28,7 @@ export class NavbarVetComponent implements OnInit {
     this.auth.authStatus.subscribe(value=>this.loggedIn=value);
   //    if(this.token,)
   this.notif();
-  Pusher.logToConsole = true;
+  /*Pusher.logToConsole = true;
 
       var pusher = new Pusher('e92d996a81c7f660c657', {
         cluster: 'mt1'
@@ -38,7 +38,7 @@ export class NavbarVetComponent implements OnInit {
       channel.bind('my-event', function(data) {
         alert(JSON.stringify(data));
   //this.countNotif=this.countNotif+1;
-      });
+      });*/
       this.jarwis.setCLient(false)
       this.client=this.jarwis.getCLient() ;
     }
@@ -51,8 +51,9 @@ export class NavbarVetComponent implements OnInit {
       this.jarwis.setStatus(false);
       this.Token.remove() ;
 
-
+localStorage.clear() ;
   this.route.navigateByUrl('/login');
+
     }
 
     notif()

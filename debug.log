@@ -166,3 +166,11 @@
 [0624/012309.002:ERROR:process_reader_win.cc(151)] SuspendThread: Accès refusé. (0x5)
 [0624/012309.002:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accès refusé} Un processus a demandé l’accès a un objet, mais il ne bénéficie pas des autorisations nécessaires. (0xc0000022)
 [0624/012309.002:ERROR:exception_snapshot_win.cc(98)] thread ID 11196 not found in process
+[0630/014420.179:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accès refusé} Un processus a demandé l’accès a un objet, mais il ne bénéficie pas des autorisations nécessaires. (0xc0000022)
+[0630/014420.116:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accès refusé} Un processus a demandé l’accès a un objet, mais il ne bénéficie pas des autorisations nécessaires. (0xc0000022)
+[0630/014420.116:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accès refusé} Un processus a demandé l’accès a un objet, mais il ne bénéficie pas des autorisations nécessaires. (0xc0000022)
+[0630/014420.916:ERROR:exception_snapshot_win.cc(98)] thread ID 12440 not found in process
+[0630/014420.916:ERROR:exception_snapshot_win.cc(98)] thread ID 16348 not found in process
+[0630/014420.916:ERROR:exception_snapshot_win.cc(98)] thread ID 6128 not found in process
+[0630/014420.916:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: Tentative d’accès à un processus en cours d’arrêt. (0xc000010a)
+[0630/014420.916:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: Tentative d’accès à un processus en cours d’arrêt. (0xc000010a)

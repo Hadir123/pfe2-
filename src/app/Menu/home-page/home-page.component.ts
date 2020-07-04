@@ -2,6 +2,7 @@ import { Component, OnInit, Compiler } from '@angular/core';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/Services/token.service';
+import { JarwisService } from 'src/app/Services/jarwis.service';
 
 @Component({
   selector: 'app-home-page',
@@ -15,15 +16,14 @@ export class HomePageComponent implements OnInit {
   visible: boolean;
   show = false ;
 
-  constructor(private auth :AuthService, private route:Router, private Token :TokenService ,private _compiler: Compiler) { this.loggedIn =false;
+  constructor(private auth :AuthService, private route:Router, private Token :TokenService ,private _compiler: Compiler , private jarwis :JarwisService) { this.loggedIn =false;
 
    // this._compiler.clearCache();
     //this.Token.remove() ;
-
-  this.loggedIn = true ;  }
+ }
 
   ngOnInit(): void {
-
+this.jarwis.setCLient(false)
 console.log('hhhhhhhhhhhhhhhhhh')
 
 if(this.isAuthenticated)

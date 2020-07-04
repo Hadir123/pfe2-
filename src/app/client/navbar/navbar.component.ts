@@ -25,9 +25,9 @@ export class NavbarComponent implements OnInit {
     constructor(private auth :AuthService, private route:Router, private Token :TokenService ,private http: HttpClient, private jarwis :JarwisService)  { }
   token =this.Token.get();
     ngOnInit(): void {
-   /* this.auth.authStatus.subscribe(value=>this.loggedIn=value);
+   this.auth.authStatus.subscribe(value=>this.loggedIn=value);
   //    if(this.token,)
-  this.notif();
+  /*this.notif();
   Pusher.logToConsole = true;
 
       var pusher = new Pusher('e92d996a81c7f660c657', {

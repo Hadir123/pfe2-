@@ -21,7 +21,7 @@ public jsonURL='http://backend.test:8800/api';
   }
   onSubmit(data)
   {
-  return this.http.post('http://backend2.test:8800/api/loginVet',data ) ;
+  return this.http.post('http://backend2.test:8800/api/login',data ) ;
   }
   sendPasswordRestLink(data)
   {
@@ -46,4 +46,8 @@ public jsonURL='http://backend.test:8800/api';
   }
  getCLient()
  {return this.client;}
+ NewPassword(data)
+ {
+  return this.http.post('http://backend2.test:8800/api/NewPassword',data ) ;
+ }
 }

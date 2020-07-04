@@ -1,5 +1,5 @@
 
-    <nav class="mb-4 navbar navbar-expand-lg navbar-dark indigo" style="background-color:#4056A1; background-size: cover;" *ngIf="loggedIn">
+    <nav class="mb-4 navbar navbar-expand-lg navbar-dark indigo" style="background-color:#4056A1; background-size: cover;" >
       <!-- <img src="assets/img/navbar1.png" style="height: 50px;margin-left: 25px;"/>-->
        <a class="navbar-brand font-bold" href="#"></a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +33,7 @@
                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="color:white" ><i class="fa fa-user" style="color:white"></i> Profile </a>
                    <div  style="height: auto;"class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
                        <a class="dropdown-item" routerLink='/profil'>My Account</a>
-                       <a class="dropdown-item"  href="login" (click)="logout($event)" *ngIf="loggedIn">Sign Out</a>
+                       <a class="dropdown-item"  href="login" (click)="logout($event)" >Sign Out</a>
                    </div>
                </li>
            </ul>
