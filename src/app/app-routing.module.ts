@@ -30,10 +30,10 @@ import { RxHistoryComponent } from './Vet/rx-history/rx-history.component';
 
 import { ClientModule } from './client/client.module';
 import { PharmacistModule } from './pharmacist/pharmacist.module';
-import { PharmacistAdminModule } from './pharmacist-admin/pharmacist-admin.module';
 import { PasswordPetOwnerComponent } from './components/password-pet-owner/password-pet-owner.component';
 //import { HomePageComponent } from './Menu/home-page/home-page.component';
 import{SuperviseurModule} from'./SuperViseur/superviseur.module'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   { path:'', redirectTo: '/login', pathMatch:'full' ,
   },
@@ -43,9 +43,11 @@ const routes: Routes = [
  },
  /*{ path:'HomePage', component: HomePageComponent ,canActivate:[]
  },*/
-  { path:'HomePageVet', loadChildren:"./SuperViseur/superviseur.module#SuperviseurModule" ,canActivate: [AfterLoginService]},
+ // { path:'HomePageVet', loadChildren:"./SuperViseur/superviseur.module#SuperviseurModule" ,canActivate: [AfterLoginService]},
+  { path:'HomePagePharmacist', loadChildren:"./pharmacist/pharmacist.module#PharmacistModule"},
+  { path:'HomePageVet', loadChildren: () => import('./SuperViseur/superviseur.module').then(m => m.SuperviseurModule)
 
- {
+ }, {
   path:'petownerPassword', component:PasswordPetOwnerComponent,
 },
  { path:'request-password', component: RequestComponent },
@@ -98,7 +100,7 @@ component:AddPharamcyComponent,canActivate: [AfterLoginService]}
 
 @NgModule({
   imports: [RouterModule.forRoot(routes),
-
+FormsModule, ReactiveFormsModule
     ],
   exports: [RouterModule]
 

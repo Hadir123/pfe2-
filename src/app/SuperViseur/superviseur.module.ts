@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MainContentComponent } from './main-content/main-content.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule   } from '@angular/forms';
+
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HomePageComponent } from '.././Menu/home-page/home-page.component';
 import { NavbarVetComponent } from '.././components/navbar-vet/navbar-vet.component';
 import { AppRoutingModule } from '.././app-routing.module';
-import { ReactiveFormsModule   } from '@angular/forms';
 import { NewRXComponent } from '.././Vet/new-rx/new-rx.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import{MenubarComponent}from'.././components/menubar/menubar.component';
@@ -105,7 +106,6 @@ component:AddPharamcyComponent,}
     CommonModule, RouterModule.forChild(routes),
     FormsModule, NgxPaginationModule ,ReactiveFormsModule,
     NgxSpinnerModule,
-
 
     NotifierModule,
     ToastrModule,

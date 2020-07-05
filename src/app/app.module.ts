@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { ReactiveFormsModule   } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -8,9 +11,7 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { PasswordComponent } from './components/password/password.component';
 import { RequestComponent } from './components/password/request/request.component';
 import { ResponseComponent } from './components/password/response/response.component';
-import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
-import { ReactiveFormsModule   } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 import {JarwisService} from'./Services/jarwis.service';
 import { TokenService } from './Services/token.service';
@@ -59,7 +60,24 @@ import { RxHistoryComponent } from './Vet/rx-history/rx-history.component';
 //import { NavbarVetComponent } from './components/navbar-vet/navbar-vet.component';
 import { PasswordPetOwnerComponent } from './components/password-pet-owner/password-pet-owner.component';
 import { SuperviseurModule } from './SuperViseur/superviseur.module';
-
+import { PharmacistModule } from './pharmacist/pharmacist.module';
+import { DashboredComponent } from './pharmacist/dashbored/dashbored.component';
+import { SidNavComponent } from './pharmacist/sid-nav/sid-nav.component';
+import { TopnavComponent } from './pharmacist/topnav/topnav.component';
+import { ManageUsersComponent } from './pharmacist/manage-users/manage-users.component';
+import { FooterPharmacistComponent } from './pharmacist/footer-pharmacist/footer-pharmacist.component';
+import { EditUserComponent } from './pharmacist/edit-user/edit-user.component';
+import { AddUserComponent } from './pharmacist/add-user/add-user.component';
+import { AddProductComponent } from './pharmacist/add-product/add-product.component';
+import { EditProductComponent } from './pharmacist/edit-product/edit-product.component';
+import { AddElementPrescriptionComponent } from './pharmacist/add-element-prescription/add-element-prescription.component';
+import { ManageOrdersComponent } from './pharmacist/manage-orders/manage-orders.component';
+import { ManageProductComponent } from './pharmacist/manage-product/manage-product.component';
+import { EditPharmacistComponent } from './pharmacist/edit-pharmacist/edit-pharmacist.component';
+import { EditElementComponent } from './pharmacist/edit-element/edit-element.component';
+import { OrderDetailsComponent } from './pharmacist/order-details/order-details.component';
+import { MenubarComponent } from './components/menubar/menubar.component';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,16 +92,16 @@ import { SuperviseurModule } from './SuperViseur/superviseur.module';
    //HomePageComponent,
 ////MenuBarComponent,
 NewRXComponent,
-/*AddPetOwnerComponent,
+AddPetOwnerComponent,
 PetOwnersComponent,
-ProfilPetOwnerComponent,*/
-//VetsComponent,
-//AddNewVEtComponent,
-//ProfilVetComponent,
+ProfilPetOwnerComponent,
+,
+AddNewVEtComponent,
+ProfilVetComponent,
 PetComponent,
 PetOwnerInfoComponent,
 PetOfPetwonerComponent,
-//MenubarComponent,
+MenubarComponent,
  PharmacyComponent,
 AddPharamcyComponent,
 AddPharamcistComponent,
@@ -102,6 +120,15 @@ OrderReviewComponent,
 
 RxHistoryComponent,
 
+DashboredComponent,
+SidNavComponent,
+ TopnavComponent, ManageUsersComponent,
+ , FooterPharmacistComponent,
+  EditUserComponent, AddUserComponent,
+   AddProductComponent, EditProductComponent,
+   AddElementPrescriptionComponent, ManageOrdersComponent, ManageProductComponent,
+     , EditPharmacistComponent,
+     EditElementComponent, OrderDetailsComponent,
 
 //NavbarVetComponent,
 
@@ -113,7 +140,7 @@ PasswordPetOwnerComponent,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    FormsModule,
+    CommonModule,
     ReactiveFormsModule,
     HttpClientModule ,
    SnotifyModule,
@@ -127,7 +154,8 @@ PasswordPetOwnerComponent,
  OrderModule,
  NgbModule,
  NgxSpinnerModule,
- SuperviseurModule
+ SuperviseurModule,
+ PharmacistModule
 
 // PharmacyModule
 

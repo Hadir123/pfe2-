@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { MenubarComponent } from './menubar/menubar.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -17,8 +19,7 @@ import { PasswordComponent } from '.././components/password/password.component';
 import { RequestComponent } from '.././components/password/request/request.component';
 import { ResponseComponent } from '.././components/password/response/response.component';
 import { AppRoutingModule } from '.././app-routing.module';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
-import { ReactiveFormsModule   } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 import {JarwisService} from'../Services/jarwis.service';
 import { TokenService } from '../Services/token.service';
@@ -54,8 +55,8 @@ const routes: Routes = [
     CommonModule,
 
     RouterModule.forChild(routes),
-    FormsModule, NgxPaginationModule,NotifierModule
-
+    FormsModule, NgxPaginationModule,NotifierModule,
+ReactiveFormsModule
   ]
 })
 export class ClientModule { }
