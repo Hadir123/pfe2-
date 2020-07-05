@@ -50,11 +50,10 @@ return JSON.parse(atob(payloadd))
 }
 loggedIn()
 {//return this.isValid();
-  if(this.get())
-  return true
-
-  else
-  return false
+if(this.get()!=null)
+  return true;
+else
+return false ;
 }
 }
 

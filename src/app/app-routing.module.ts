@@ -44,6 +44,7 @@ const routes: Routes = [
  /*{ path:'HomePage', component: HomePageComponent ,canActivate:[]
  },*/
   { path:'HomePageVet', loadChildren:"./SuperViseur/superviseur.module#SuperviseurModule" ,canActivate: [AfterLoginService]},
+ { path:'HomePagePharmacist', loadChildren:"./pharmacist/pharmacist.module#PharmacistModule" },
 
  {
   path:'petownerPassword', component:PasswordPetOwnerComponent,
@@ -92,7 +93,7 @@ component:AddPharamcyComponent,canActivate: [AfterLoginService]}
 {path: 'pharmacies/pharmacy/:id',
  component:PharmacyComponent,canActivate: [AfterLoginService]
 },*/
- {path: '**', redirectTo: 'login'},
+
 
 ];
 

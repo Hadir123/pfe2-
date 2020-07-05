@@ -93,8 +93,8 @@ component:AddPharamcyComponent,}
  {path: 'formulary',
  component:FormularyComponent,
 },
-{ path: '**', redirectTo: 'HomePageVet'},
-{ path:'NewPet/:id', component: PetComponent ,}
+{ path:'NewPet/:id', component: PetComponent ,},
+{ path: '**', redirectTo: '/HomePageVet'},
 
    ],
   },

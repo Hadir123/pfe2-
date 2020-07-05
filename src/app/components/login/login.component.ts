@@ -63,7 +63,7 @@ handleErro(error)
 }
 handleResponse(data)
 {
-this.tokeen.handle(data.access_token);
+//this.tokeen.handle(data.access_token);
 this.auth.changeAuthStatus(true);
 if(this.res=='1')
 {
@@ -71,12 +71,18 @@ if(this.res=='1')
    window.location.replace('/HomePageVet');
 
 }
-else
-{if (this.res=='2')
-  this.Jarwis.setCLient(true);
+else if (this.res=='2')
+ { this.Jarwis.setCLient(true);
 
   localStorage.setItem('logedIn','true');
-  window.location.replace('/HomePageClient')
+  window.location.replace('/HomePageClient');
+}
+else
+{if (this.res=='3')
+  //this.Jarwis.setCLient(true);
+
+  localStorage.setItem('logedIn','true');
+  window.location.replace('/HomePagePharmacist')
 }
 //this.route.navigateByUrl('/HomePage');
 }

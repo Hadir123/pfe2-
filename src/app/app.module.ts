@@ -59,6 +59,27 @@ import { RxHistoryComponent } from './Vet/rx-history/rx-history.component';
 //import { NavbarVetComponent } from './components/navbar-vet/navbar-vet.component';
 import { PasswordPetOwnerComponent } from './components/password-pet-owner/password-pet-owner.component';
 import { SuperviseurModule } from './SuperViseur/superviseur.module';
+import { DashboredComponent } from './pharmacist/dashbored/dashbored.component';
+import { SidNavComponent } from './pharmacist/sid-nav/sid-nav.component';
+import { TopnavComponent } from './pharmacist/topnav/topnav.component';
+import { ManageUsersComponent } from './pharmacist/manage-users/manage-users.component';
+import { ManageProductsComponent } from './pharmacist/manage-products/manage-products.component';
+import { MyAcoountComponent } from './pharmacist/my-acoount/my-acoount.component';
+import { FooterPharmacistComponent } from './pharmacist/footer-pharmacist/footer-pharmacist.component';
+import { EditUserComponent } from './pharmacist/edit-user/edit-user.component';
+import { AddUserComponent } from './pharmacist/add-user/add-user.component';
+import { AddProductComponent } from './pharmacist/add-product/add-product.component';
+import { EditProductComponent } from './pharmacist/edit-product/edit-product.component';
+import { AddElementPrescriptionComponent } from './pharmacist/add-element-prescription/add-element-prescription.component';
+import { ManageOrdersComponent } from './pharmacist/manage-orders/manage-orders.component';
+import { ProductItemComponent } from './pharmacist/product-item/product-item.component';
+import { ManageProductComponent } from './pharmacist/manage-product/manage-product.component';
+import { ElementPrecriptionItemsComponent } from './pharmacist/element-precription-items/element-precription-items.component';
+import { EditPharmacistComponent } from './pharmacist/edit-pharmacist/edit-pharmacist.component';
+import { EditElementComponent } from './pharmacist/edit-element/edit-element.component';
+import { OrderHistoryComponent } from './pharmacist/order-history/order-history.component';
+import { OrderDetailsComponent } from './pharmacist/order-details/order-details.component';
+import { PharmacistModule } from './pharmacist/pharmacist.module';
 
 @NgModule({
   declarations: [
@@ -107,6 +128,16 @@ RxHistoryComponent,
 
 
 PasswordPetOwnerComponent,
+DashboredComponent, SidNavComponent,
+TopnavComponent, ManageUsersComponent,
+ManageProductsComponent, MyAcoountComponent,
+ FooterPharmacistComponent, EditUserComponent,
+  AddUserComponent, AddProductComponent, EditProductComponent,
+   AddElementPrescriptionComponent, ManageOrdersComponent,
+   ProductItemComponent, ManageProductComponent,
+    ElementPrecriptionItemsComponent, EditPharmacistComponent,
+     EditElementComponent, OrderHistoryComponent,
+ OrderDetailsComponent
 
   ],
   imports: [
@@ -127,8 +158,8 @@ PasswordPetOwnerComponent,
  OrderModule,
  NgbModule,
  NgxSpinnerModule,
- SuperviseurModule
-
+ SuperviseurModule,
+PharmacistModule
 // PharmacyModule
 
   ],
