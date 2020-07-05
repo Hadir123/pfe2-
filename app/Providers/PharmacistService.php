@@ -85,4 +85,9 @@ public function index()
    // $vets=$this->vet->all();
     return PharmacistRessource::collection($this->pharmacy->all());
 }
+public function findById($id)
+{
+    return $this->pharmacy->find($id);
+}
+
 }

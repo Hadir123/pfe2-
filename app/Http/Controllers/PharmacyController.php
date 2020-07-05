@@ -46,5 +46,8 @@ return $u->index () ;*/
     {
         return $this->pharmacyservice->update($request);
     }
-
+function all()
+{
+    return $this->pharmacyservice->indexe();
+}
 }

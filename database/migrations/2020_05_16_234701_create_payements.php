@@ -15,7 +15,7 @@ class CreatePayements extends Migration
     {
         Schema::create('payements', function (Blueprint $table) {
             $table->id();
-            $table->date('paymentDate');
+            $table->date('paymentDate')->nullable();
             $table->string('paymentMethode');
             $table->timestamps();
         });

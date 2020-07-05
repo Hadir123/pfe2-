@@ -20,7 +20,7 @@ class CreateOrderItems extends Migration
             $table->integer('element_prespection_id');
             $table->foreign('element_prespection_id' )->references('gpCode')->on('element_prescription')->onDelete('cascade');
 
-            $table->unsignedBigInteger('refils_id');
+            $table->unsignedBigInteger('refils_id')->nullable();
             $table->foreign('refils_id')->references('id')->on('refils')->onDelete('cascade');
 
             $table->integer('quantité');

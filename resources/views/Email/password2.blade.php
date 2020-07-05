@@ -3,7 +3,7 @@
 
 Click on the button bellow to choose your password
 your email is :
-@component('mail::button', ['url' => 'http://localhost:4200/'])
+@component('mail::button', ['url' => 'localhost:4200/petownerPassword'])
 Reset Password
 @endcomponent
 

@@ -18,6 +18,8 @@ class ElementPrespectionRessource extends JsonResource
 
                 "gpCode"=>$this->gpCode,
                 "drug_id"=>$this->drug_id,
+                "drugName"=>$this->drug->drugName,
+                "drugTradeName"=>$this->drug->DrugTradeName,
                 "drugTypeName"=>$this->drugType->drugTypeName,
                 "drugFromName"=>$this->drugForm->drugFormName,
                 "drugStrengthName"=>$this->drugStrength->drugStrenghtName,

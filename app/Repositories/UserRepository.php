@@ -2,8 +2,13 @@
 
 namespace App\Repositories;
 use Illuminate\Support\Facades\DB;
+use Illuminate\ {
+    Http\Request,
+    Notifications\DatabaseNotification
+};
 
 use App\User ;
+use Notification;
 class UserRepositroy
 {
 protected $model ;
@@ -51,9 +56,13 @@ $user=$this->model->where('id',$id)->update(['status'=>'active']);
 return $user ;
 }
 public function Notification($id)
-{
+{//return auth()->user()->notifications();
     $notif = DB::table('notifications')->where('notifiable_id',$id)->get()->toArray();
 return $notif;
+}
+public function CountNotif($id)
+{
+ return DB::table('notifications')->where(['notifiable_id'=>$id , 'read_at'=>null])->get()->count() ;
 }
 public function updateMotDePasse($id , $passe)
 {

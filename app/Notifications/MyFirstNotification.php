@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Auth;
 
 class MyFirstNotification extends Notification
 {
@@ -32,7 +33,7 @@ class MyFirstNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail','database'];
+        return ['database','broadcast'];
     }
 
     /**
@@ -41,13 +42,13 @@ class MyFirstNotification extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    public function toMail($notifiable)
+   /* public function toMail($notifiable)
     {
         return (new MailMessage)
                     ->line('The introduction to the notification.')
                     ->action('Notification Action', url('/'))
                     ->line('Thank you for using our application!');
-    }
+    }*/
 
     /**
      * Get the array representation of the notification.
@@ -57,16 +58,25 @@ class MyFirstNotification extends Notification
      */
     public function toArray($notifiable)
     {
-        return [
-            //
-        ];
+        return[
+
+            'order'=> $this->details
+           ];
     }
-    public function toDatabase($notifiable)
+  /*public function toDatabase($notifiable)
     {
-        return [
-            'order_id' => $this->details['order_id']
+        return[
+
+         'order'=>$this->details
         ];
-    }
+    }*/
+    public function toBroadcast($notifiable)
+{
+    return [
+        'order'=> $this->details
+
+    ];
+}
 }
 
 

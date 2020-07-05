@@ -25,7 +25,29 @@ class UserController extends Controller
 	{
 		$this->user = new UserService()
 ;	}
-
+public function Login(Request $request)
+{$input = $request->only('email', 'password');
+    $token = null;
+            if($res=$this->user->login($request))
+                    {
+                 //   if($this->VetService->Status($res->id)===true)
+                    //{
+                        if (!$token = JWTAuth::attempt($input)) {
+                  return response()->json(['error' => 'Email or password invalid'], 401);
+                                                             }
+                    return response()->json([
+                                'access_token' => $token,
+                                     'token_type' => 'bearer',
+                                     'res'=>$res
+                                            ]);
+                     }
+           /*  else
+                    return response()->json(['error' => 'desactive account '], 401);
+                    }*/
+         else
+      { return response()->json(['error' => 'Not Vet'], 401);
+      }
+}
  public function show($id)
 {
     return $this->user->show($id);
@@ -45,7 +67,8 @@ public function Profil()
 
 public function Notif()
 {
-return $this->user->Notif();
+return  response()->json(['notification'=>$this->user->Notif(),
+'count'=>$this->user->CountNotif()]);
 }
 public function create(RegistrationFormRequest $req)
 {try

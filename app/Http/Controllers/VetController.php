@@ -79,6 +79,12 @@ class VetController extends  APIController
     return response()->json(['user'=>$res,
     'info'=>$res2]);*/
     }
+    public function all2(){
+  $res2=$this->VetService->all() ;
+
+    return response()->json(['user'=>$res2,
+    'info'=>$res2]);
+    }
 public function show($id)
 {
    $vet= $this->VetService->showVet($id);

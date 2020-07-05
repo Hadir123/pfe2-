@@ -126,4 +126,8 @@ $petOwners=$this->user->all();
     }
     return $user ;
  }
+ public function findById($id)
+{
+    return $this->user->find($id);
+}
 }

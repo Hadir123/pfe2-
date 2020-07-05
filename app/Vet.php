@@ -25,4 +25,8 @@ class Vet extends Model
         return $this->hasOne(Adresse::class);
 
     }
+    public function Notification()
+    {
+        return $this->hasMany(Notification::class);
+    }
 }

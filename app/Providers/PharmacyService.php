@@ -5,7 +5,7 @@ namespace App\Providers;
 use App\Http\Resources\PharmacyRessource;
 use App\Pharmacie;
 use App\Pharmacist;
-use App\Repositories\PharmacyRepositroy;
+use App\Repositories\PharmacyRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 
@@ -13,8 +13,8 @@ class PharmacyService extends ServiceProvider
 {  protected $pharmacy;
 protected $adresse;
     public function __construct()
-    { $pharmacye =new PharmacyRepositroy(new Pharmacie ());
-    $this->pharmacy=new \App\Repositories\PharmacyRepositroy(new Pharmacie());
+    {
+    $this->pharmacy=new \App\Repositories\PharmacyRepository(new Pharmacie());
     $this->adresse= new AdresseService() ;
     }
     /**
@@ -106,6 +106,11 @@ return false ;
 public function index()
 {
    return PharmacyRessource::collection($this->pharmacy->all());
+
+}
+public function indexe()
+{
+    return PharmacyRessource::collection($this->pharmacy->all2());
 
 }
 }

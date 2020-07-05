@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use PayPal\Api\Order;
 
 class Pet extends Model
 {
@@ -22,5 +23,9 @@ class Pet extends Model
     {
         return $this->hasOne(PetOwner::class);
 
+    }
+    public function Order()
+    {
+        return $this->hasMany(Order::class);
     }
 }

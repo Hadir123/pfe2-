@@ -22,6 +22,10 @@ function all ()
 {
     return $this->model->paginate(5);
 }
+function all2()
+{
+    return $this->model->all();
+}
 function find($id)
 {$user=  $this->model->where('user_id',$id)->first();
     return $user;

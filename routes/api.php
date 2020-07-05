@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\DrugController;
+use App\Http\Controllers\OrderController;
+use App\Http\Requests\ChangePassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+Route::get('orderById/{id}','OrderController@orderById');
 Route ::get('pharmacist/{id}','PharmacistController@FindByIdPharmacy');
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +17,10 @@ Route ::get('pharmacist/{id}','PharmacistController@FindByIdPharmacy');
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::get('Drug/{id}','DrugController@getElementPrescriptions');
-Route::post('login', 'ApiController@login');
+//ElementPrespectionController
+Route ::post('NewPassword' , 'ChangerPasswordController@ChangePassword2');
+Route::post('test','ElementPrespectionController@ProductList');
+Route::post('login', 'UserController@Login');
 Route::post('loginVet', 'VetController@loginVet');
 Route::post('loginPetOwner', 'PeetOwnerController@loginPetOwner');
 
@@ -43,6 +47,7 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::post('addVet', 'VetController@register');
     Route::post('DeletePetowner', 'VetController@DeletePetOwner');
     Route::get('Vets','VetController@index');
+    Route::get('Vetss','VetController@all2');
 
      //all
     //Route::get('Users','UserController@index');
@@ -61,8 +66,11 @@ Route ::post('AddPet','PetController@create');
 Route ::post('AddPharmacy','PharmacyController@register');
 Route ::post('AddPharmacien','PharmacistController@createAdmin');
 Route::get('pharmacies','PharmacyController@indexe');
+Route::get('pharmaciess','PharmacyController@all');
+
 Route::get('pharmacy/{id}','PharmacyController@find');
 Route::post('UpdatePharmacy','PharmacyController@update');
+
 
 //FindByIdPharmacy
 //Route ::get('pharmacist/{id}','PharmacistController@FindByIdPharmacy');
@@ -74,5 +82,10 @@ Route::post('ProfilUpdate','UserController@ProfilUpdate');
    /// Drug
    Route ::get('Drugs', 'DrugController@indexe');
    Route::get('Drug/{id}','DrugController@getElementPrescriptions');
+//elemenet Prespection
+Route::get('elem/{id}','ElementPrespectionController@getElementPrescriptions');
+//Order
+Route ::post('createOrder','OrderController@create');
+Route ::get('allOrder','OrderController@all');
 
 });

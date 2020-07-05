@@ -4,7 +4,7 @@ namespace App\Repositories;
 use App\Pharmacie;
 use Illuminate\Support\Facades\DB;
 
-class PharmacyRepositroy
+class PharmacyRepository
 {
 protected $model ;
 
@@ -19,6 +19,10 @@ protected $model ;
 function all ()
 {
     return $this->model->paginate(5);
+}
+function all2 ()
+{
+    return $this->model->all();
 }
 /*function find ($city,$street,$code,$adress)
 {

@@ -37,4 +37,8 @@ public function indexe ()
     $petOwners= DB::table('pet_owners')->all();
     return $petOwners;
 }
+function find($id)
+{$user=  $this->model->where('user_id',$id)->first();
+    return $user;
+}
 }

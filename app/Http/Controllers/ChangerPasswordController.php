@@ -22,13 +22,20 @@ return DB::table('reset_password')->where(['email'=>$request->email,'token'=>$re
     private function tokenNotFound()
     {
 return response()->json(['error'=>'Email is invalid'],Response::HTTP_UNPROCESSABLE_ENTITY);
-    }
-    private function ChangePassword($request)
+     }
+     public function ChangePassword($request)
     {
 $user=User::where('email',$request->email)->first();
 $user->update((['password'=> bcrypt($request->password)]));
 $this->getPasswordRestTableRow($request)->delete();
 return response()->json(['data'=>'Password Successfully Changed '],Response::HTTP_CREATED);
     }
+public function ChangePassword2(Request $request)
+    {
+$user=User::where('email',$request->email)->first();
+$user->update((['password'=> bcrypt($request->password)]));
+//$this->getPasswordRestTableRow($request)->delete();
+return response()->json(['data'=>'Password Successfully Changed '],Response::HTTP_CREATED);
+}
 }
 

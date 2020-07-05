@@ -23,18 +23,22 @@ use Illuminate\Support\Facades\Notification;
 
 
 use Illuminate\Support\Facades\Password;
+use Illuminate\ {
 
+    Notifications\DatabaseNotification
+};
 use App\Http\Requests\RegistrationFormRequest;
+use App\PetOwner;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 
 use App\Providers\AdresseService;
 use Illuminate\Contracts\Encryption\DecryptException;
-
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Redis;
 
 class UserService extends ServiceProvider
-{
+{  use Notifiable;
     /**
      * Register services.
      *
@@ -98,7 +102,7 @@ else
   'adresse_id'=> $adresse_id]) ;
    $attributes=$request2->all();
 $res= $this->user->create($attributes);
-
+$this->sendEmail($request->email );
    return $res;
 
 
@@ -135,35 +139,30 @@ function changeStatus($id)
      false ;
 }
 public function Notif()
-{$user =Auth::user();
- $notif=  $this->user->Notification($user->id);
-return $notif;
+{$user2 =Auth::user() ;
+
+ $notif=  $this->user->Notification(Auth::user()->id);
+
+for($i=0 ;$i<count($notif);$i++)
+{$data2 = json_decode($notif[$i]->data, true);
+
+    $data[$i]=$data2;
+}
+
+ return $data;
+
+}
+public function CountNotif()
+{
+$user=Auth::user() ;
+return $this->user->CountNotif($user->id) ;
 }
 public function sendEmail($email)
 {
 Mail::to($email)->send(new PetownerMail());
 
 }
-public function sendNotif()
-{    //$user = DB::table('users')->where('id',$id)->get()->first();
-    $details = [
 
-        'greeting' => 'Hi Artisan',
-
-        'body' => 'This is my first notification from ItSolutionStuff.com',
-
-        'thanks' => 'Thank you for using ItSolutionStuff.com tuto!',
-
-        'actionText' => 'View My Site',
-
-        'actionURL' => url('/'),
-        'order_id'=>'hi'
-
-
-    ];
-    Notification::send(Auth::user(), new MyFirstNotification($details));
-return response()->json(['user'=>Auth::user()]);
-}
 function createPharmacyAdmin(Request $request)
 {
     $attributes=$request->all();
@@ -238,4 +237,31 @@ private function passwordCorrect(Request $request)
        }
        else return false ;
 }
+public function login(Request $request)
+{$input = $request->only('email', 'password');
+$request2 = new \Illuminate\Http\Request();
+$request2->replace(['email' => $request->email]);
+$vet1=$this->user->findByEmail($request->email);
+if ($vet1)
+    {$vet=new VetService () ;
+if($vet->findById($vet1->id))
+    {
+    return 1;
+    }else{
+$petowner=new PetOwnerService() ;
+
+    if($petowner->findById($vet1->id))
+    return 2 ;
+     else
+    {
+$pharmacist=new PharmacistService() ;
+if($pharmacist->findById($vet1->id))
+return 3 ;
+    }
+}
+    }
+else
+    return false ;
+    }
+
 }

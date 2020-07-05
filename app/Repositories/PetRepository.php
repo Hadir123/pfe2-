@@ -49,7 +49,7 @@ function allBreeds()
 }
 function findByPetOwner($id)
 {
-    return $res=$this->model->where('pet_owner_id',$id)->get() ;
+    return $res=$this->model->where('pet_owner_id',$id)->get()->toArray() ;
 }
 
 }

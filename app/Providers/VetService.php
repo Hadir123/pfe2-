@@ -85,6 +85,15 @@ public function Status ($id)
 function all ()
 {
     $vets=$this->vet->all();
+     $i=0;
+    $user=[];
+    foreach($vets as $vet)
+    {
+       $user[$i]=$this->user->show($vet->user_id) ;
+       $i++;
+    }
+
+    return $user ;
 }
 function create(RegistrationFormRequest  $request)
 {if( $request->validated())
@@ -147,5 +156,9 @@ if($i===count($add))
 return true ;
 else
 return false ;
+}
+public function findById($id)
+{
+    return $this->vet->find($id);
 }
 }

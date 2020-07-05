@@ -2,10 +2,20 @@
 
 namespace App\Providers;
 
+use App\orderItem;
+use App\Repositories\OrderItemRepository;
+use Illuminate\Http\Request;
+
 use Illuminate\Support\ServiceProvider;
 
 class orderItemService extends ServiceProvider
 {
+
+    protected $order;
+    public function __construct()
+    {
+    $this->order=new OrderItemRepository(new orderItem());
+    }
     /**
      * Register services.
      *
@@ -24,5 +34,11 @@ class orderItemService extends ServiceProvider
     public function boot()
     {
         //
+    }
+    public function create(Request $request)
+    {
+$attr=$request->all();
+
+$this->order->create($attr);
     }
 }
