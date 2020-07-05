@@ -107,6 +107,7 @@ component:AddPharamcyComponent,}
     FormsModule, NgxPaginationModule ,ReactiveFormsModule,
     NgxSpinnerModule,
 
+
     NotifierModule,
     ToastrModule,
  MatDatepickerModule,NgSelectModule,

@@ -78,6 +78,7 @@ import { EditElementComponent } from './pharmacist/edit-element/edit-element.com
 import { OrderDetailsComponent } from './pharmacist/order-details/order-details.component';
 import { MenubarComponent } from './components/menubar/menubar.component';
 import { CommonModule } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,12 +93,19 @@ import { CommonModule } from '@angular/common';
    //HomePageComponent,
 ////MenuBarComponent,
 NewRXComponent,
-AddPetOwnerComponent,
+/*AddPetOwnerComponent,
 PetOwnersComponent,
+<<<<<<< HEAD
 ProfilPetOwnerComponent,
 ,
 AddNewVEtComponent,
 ProfilVetComponent,
+=======
+ProfilPetOwnerComponent,*/
+//VetsComponent,
+//AddNewVEtComponent,
+//ProfilVetComponent,
+>>>>>>> 221d58f... final
 PetComponent,
 PetOwnerInfoComponent,
 PetOfPetwonerComponent,
@@ -140,7 +148,11 @@ PasswordPetOwnerComponent,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+<<<<<<< HEAD
     CommonModule,
+=======
+    FormsModule,
+>>>>>>> 221d58f... final
     ReactiveFormsModule,
     HttpClientModule ,
    SnotifyModule,
@@ -154,8 +166,12 @@ PasswordPetOwnerComponent,
  OrderModule,
  NgbModule,
  NgxSpinnerModule,
+<<<<<<< HEAD
  SuperviseurModule,
  PharmacistModule
+=======
+ SuperviseurModule
+>>>>>>> 221d58f... final
 
 // PharmacyModule
 

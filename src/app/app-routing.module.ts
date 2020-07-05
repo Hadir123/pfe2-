@@ -43,9 +43,13 @@ const routes: Routes = [
  },
  /*{ path:'HomePage', component: HomePageComponent ,canActivate:[]
  },*/
+<<<<<<< HEAD
  // { path:'HomePageVet', loadChildren:"./SuperViseur/superviseur.module#SuperviseurModule" ,canActivate: [AfterLoginService]},
   { path:'HomePagePharmacist', loadChildren:"./pharmacist/pharmacist.module#PharmacistModule"},
   { path:'HomePageVet', loadChildren: () => import('./SuperViseur/superviseur.module').then(m => m.SuperviseurModule)
+=======
+  { path:'HomePageVet', loadChildren:"./SuperViseur/superviseur.module#SuperviseurModule" ,canActivate: [AfterLoginService]},
+>>>>>>> 221d58f... final
 
  }, {
   path:'petownerPassword', component:PasswordPetOwnerComponent,
