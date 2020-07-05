@@ -23,27 +23,27 @@ export class AppComponent {
   //private login:LoginComponent
 
   constructor(private auth: AuthService, private route: Router, private Token: TokenService, private _compiler: Compiler, public jarwis: JarwisService) {
-    this.loggedIn = false;
-    this._compiler.clearCache();
+   // this.loggedIn = false;
+    //this._compiler.clearCache();
     //this.Token.remove() ;
-    this.auth.changeAuthStatus(true)
-    if (localStorage.getItem('logedIn')) {
+  //  this.auth.changeAuthStatus(true)
+   /* if (localStorage.getItem('logedIn')) {
       this.loggedIn = Boolean(localStorage.getItem('logedIn'));
     }
     this.client=this.jarwis.getCLient() ;
     this.client=this.jarwis.getCLient() ;
-    console.log(this.client)
+    console.log(this.client)*/
   }
 
   ngOnInit(): void {
     //this.loggedIn=this.login.loggedIn;
     //if(this.loggedIn)
-    this.token = localStorage.getItem("token");
+  //  this.token = localStorage.getItem("token");
     console.log("Token ==>", this.token);
     console.log("Token ==>", this.loggedIn);
-    if (localStorage.getItem('logedIn')) {
+    /*if (localStorage.getItem('logedIn')) {
       this.loggedIn = Boolean(localStorage.getItem('logedIn'));
-    }
+    }*/
     //  this.auth.authStatus.subscribe(value=>this.loggedIn=value);
    // this.client=false;
 

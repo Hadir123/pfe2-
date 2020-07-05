@@ -20,6 +20,10 @@ export class VetRxService {
   {
     this.token= this.tokenn.get() ;
     return this.http.get('http://backend2.test:8800/api/Vets?token='+this.token)//.pipe(map(response =>JSON.stringify(response)));
+  } Vets2()
+  {
+    this.token= this.tokenn.get() ;
+    return this.http.get('http://backend2.test:8800/api/Vetss?token='+this.token)
   }
   ChangeStatsu($id)
   {

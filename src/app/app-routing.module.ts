@@ -43,22 +43,20 @@ const routes: Routes = [
  },
  /*{ path:'HomePage', component: HomePageComponent ,canActivate:[]
  },*/
-  { path:'HomePageVet', loadChildren:"./SuperViseur/superviseur.module#SuperviseurModule" },
+  { path:'HomePageVet', loadChildren:"./SuperViseur/superviseur.module#SuperviseurModule" ,canActivate: [AfterLoginService]},
 
  {
   path:'petownerPassword', component:PasswordPetOwnerComponent,
 },
  { path:'request-password', component: RequestComponent },
  { path:'response-password', component: ResponseComponent },
- /*{ path:'HomePage', component: HomePageComponent ,canActivate: [AfterLoginService]
- },*/
+
 
  { path:'request-password', component: RequestComponent },
  { path:'response-password', component: ResponseComponent },
-  { path: 'singnup', component: SignUpComponent ,canActivate:[BeforeLoginService] },
-  { path:'profil', component: ProfilComponent ,
-canActivate: [AfterLoginService] },
-{ path:'NewRX', component: NewRXComponent ,
+ /* { path:'profil', component: ProfilComponent ,
+canActivate: [AfterLoginService] },*/
+/*{ path:'NewRX', component: NewRXComponent ,
 canActivate: [AfterLoginService]
  },
  { path:'NewRX/payment', component:  Phase2NewRxComponent,
@@ -66,16 +64,16 @@ canActivate: [AfterLoginService]
   },
   {path:'orderReview',component:OrderReviewComponent,canActivate: [AfterLoginService]}
 ,{path:'orderHistory',component:RxHistoryComponent,canActivate: [AfterLoginService]},
-
-  { path:'PetOwners', component: PetOwnersComponent,canActivate: [AfterLoginService] },
-  { path:'addPetOwner', component: AddPetOwnerComponent,canActivate: [AfterLoginService] },
-  { path:'PetOwnerProfil/:id', component:ProfilPetOwnerComponent  ,canActivate: [AfterLoginService],
- },
- { path:'NewPet/:id', component:PetComponent  ,canActivate: [AfterLoginService],
+*/
+  /*{ path:'PetOwners', component: PetOwnersComponent,canActivate: [AfterLoginService] },
+  { path:'addPetOwner', component: AddPetOwnerComponent,canActivate: [AfterLoginService] },*/
+  //{ path:'PetOwnerProfil/:id', component:ProfilPetOwnerComponent  ,canActivate: [AfterLoginService],
+ //},
+ /*{ path:'NewPet/:id', component:PetComponent  ,canActivate: [AfterLoginService],
 },
  /*{ path:'Vets', component: VetsComponent,canActivate: [AfterLoginService]
 },*/
- { path:'addVet', component: AddNewVEtComponent,canActivate: [AfterLoginService]
+ /*{ path:'addVet', component: AddNewVEtComponent,canActivate: [AfterLoginService]
 },
  { path:'VetProfil/:id', component: ProfilVetComponent,canActivate: [AfterLoginService]
 },
@@ -84,7 +82,7 @@ component:PharmaciesComponent,canActivate: [AfterLoginService]},
 {path: 'addPharmacy',
 component:AddPharamcyComponent,canActivate: [AfterLoginService]}
 ,{ path: 'addPharmacist/:id1/:id2', component:AddPharamcistComponent,canActivate: [AfterLoginService]
- },
+ },*************
  {path: 'addTreatment',
  component:NewTreatmentComponent,canActivate: [AfterLoginService]
 },
@@ -93,8 +91,8 @@ component:AddPharamcyComponent,canActivate: [AfterLoginService]}
 },
 {path: 'pharmacies/pharmacy/:id',
  component:PharmacyComponent,canActivate: [AfterLoginService]
-},
- // {path: '**', redirectTo: 'HomePage'},
+},*/
+ {path: '**', redirectTo: 'login'},
 
 ];
 

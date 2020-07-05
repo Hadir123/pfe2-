@@ -127,7 +127,7 @@ Exit()
           }).then((result) => {
           if (result.value) {
 
-              this.router.navigateByUrl('/HomePage');
+              this.router.navigateByUrl('/HomePageVet');
                              }
                               }
                   )

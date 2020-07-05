@@ -73,7 +73,7 @@ element = new elements() ;
           this.rx.setOrder(this.order);
           console.log(this.rx.getOrder() )
           //console.log(this.elem)
-          this.router.navigateByUrl('/NewRX/payment');
+          this.router.navigateByUrl('/HomePageVet/NewRX/payment');
         }
 
 

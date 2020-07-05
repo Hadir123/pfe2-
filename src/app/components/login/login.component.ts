@@ -65,7 +65,6 @@ handleResponse(data)
 {
 this.tokeen.handle(data.access_token);
 this.auth.changeAuthStatus(true);
-this.Jarwis.setStatus(true);
 if(this.res=='1')
 {
    localStorage.setItem('logedIn','true');
@@ -75,6 +74,8 @@ if(this.res=='1')
 else
 {if (this.res=='2')
   this.Jarwis.setCLient(true);
+
+  localStorage.setItem('logedIn','true');
   window.location.replace('/HomePageClient')
 }
 //this.route.navigateByUrl('/HomePage');

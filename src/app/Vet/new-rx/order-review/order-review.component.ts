@@ -33,7 +33,7 @@ this.order=this.rx.getOrder() ;
 var $id=this.rx.getPetOwner() ;
 if($id===null)
     {
-this.router.navigateByUrl('/HomePage')
+this.router.navigateByUrl('/HomePageVet')
     }else
     {
 this.pharmacyName=this.rx.getPharmacyName();
@@ -62,7 +62,7 @@ console.log(this.order)
 
   this.rx.createOrder(this.order).subscribe(data=>{console.log(data)
     this.notifier.notify("success", "  Done ,  ");
-    this.router.navigateByUrl('/NewRX')
+    this.router.navigateByUrl('/HomePageVet/NewRX')
 //this.subscribe() ;
 /*var channel = echo.channel('order');
 channel.listen('.order', function(order) {

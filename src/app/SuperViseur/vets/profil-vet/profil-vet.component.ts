@@ -101,10 +101,11 @@ this.edite=false ;
   this.teste2=data
   this.petowner.Petowners2().subscribe(data=>{console.log(data)
     this.test=data ;
-  for( var i=0; i<this.test.length;i++)
+    this.petowners=this.test
+  /*for( var i=0; i<this.test.length;i++)
     {
     this.petowners[i]=this.test[i];
-    } var d=[];
+    } */var d=[];
 console.log(this.petowners);
 //console.log(this.teste2[0].id_petOwner);
   var aux=null ;

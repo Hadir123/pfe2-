@@ -34,7 +34,7 @@ admin:'1'
     this.form.pharmacy_id=this.id2;
     if((this.id1==='null')&&(this.id2==='null'))
     { alert("y3tk kasra");
-      this.router.navigateByUrl('addPharmacy');
+      this.router.navigateByUrl('/HomePageVet/addPharmacy');
     }
   }
   chekrbdclick(num)
@@ -60,7 +60,7 @@ save()
   this.pharmacy.addPharmacistAdmin(this.form).subscribe(data=>
     { console.log(data);
       this.notifier.notify("success", "Done!,Pharmacy added ");
-      this.router.navigateByUrl('/Pharmacies');
+      this.router.navigateByUrl('/HomePageVet/Pharmacies');
   },
     err=>console.log(err));
 }

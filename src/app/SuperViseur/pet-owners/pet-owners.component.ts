@@ -115,7 +115,7 @@ this.petowner.ChangeStatsu($id).subscribe(data=>console.log,
 }
 edit($id)
 {
- this.route.navigateByUrl('/PetOwnerProfil/'+$id);
+ this.route.navigateByUrl('HomePageVet/PetOwnerProfil/'+$id);
 }
 
 pageChanged(){

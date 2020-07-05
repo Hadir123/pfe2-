@@ -68,7 +68,7 @@ Swal.fire({
  id2=this.test.adresse_id;
 console.log(id2);
 console.log(this.id_pharmacy);
-  this.route.navigateByUrl('addPharmacist/'+id2+'/'+this.id_pharmacy);
+  this.route.navigateByUrl('/HomePageVet/addPharmacist/'+id2+'/'+this.id_pharmacy);
   },
     err=>console.log(err));
 

@@ -109,14 +109,16 @@ console.log(this.petowner)
        this.petownerService.vetsAdd(this.relation).subscribe( data=>{console.log(data);},
         err=>console.log(err));
 }}
+this.router.navigateByUrl('/HomePageVet/PetOwners');
+
 this.notifier.notify("success", "Done!,Pet Owner added ");
-this.router.navigateByUrl('/PetOwners');
 }
 Vetss()
 {
-  this.vet.Vets().subscribe(data=>
+  this.vet.Vets2().subscribe(data=>
     {
-      this.users=data
+      this.users=data;
+      this.users=this.users.user
       console.log(this.users)
       for( var i=0; i<this.users.length;i++)
   {

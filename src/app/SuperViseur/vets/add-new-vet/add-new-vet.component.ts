@@ -66,7 +66,7 @@ else
 console.log(this.form);
 
 this.vet.AddVet(this.form).subscribe(data=>{console.log(data)
-  this.notifier.notify("success", "Done!,Vet added ");  this.router.navigateByUrl('/Vets');},
+  this.notifier.notify("success", "Done!,Vet added ");  this.router.navigateByUrl('/HomePageVet/Vets');},
 err=>{console.log(err)
 this.handelErro(err)});
   }
@@ -78,7 +78,7 @@ handleData(data)
 {
 
 this.notifier.notify("success", "Done!,Vet added ");
-this.router.navigateByUrl('/Vets');
+this.router.navigateByUrl('/HomePageVet/Vets');
 }
 
 

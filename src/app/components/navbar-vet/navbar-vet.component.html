@@ -14,7 +14,7 @@
                      <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" (click)='notif()'aria-haspopup="true" aria-expanded="false" style="color:white"> <i class="fa fa-bell" style="color:white"> </i>
                        <span class="badge badge-info" style="background-color :red;">{{countNotif}}</span>  </a>
 
-                     <div style="overflow: auto;height: 200px;" class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                     <div style="overflow: auto;max-height: 200px; height: auto;" class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
                          <a class="dropdown-item" href="#"*ngFor="let notif of noti ">{{notif.statusName}} in the {{notif.RxOrderDate}} </a>
                      </div>
 
@@ -32,7 +32,7 @@
                 <li class="nav-item dropdown" >
                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="color:white" ><i class="fa fa-user" style="color:white"></i> Profile </a>
                    <div  style="height: auto;"class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                       <a class="dropdown-item" routerLink='/profil'>My Account</a>
+                       <a class="dropdown-item" routerLink='/HomePageVet/profil'>My Account</a>
                        <a class="dropdown-item"  href="login" (click)="logout($event)" >Sign Out</a>
                    </div>
                </li>

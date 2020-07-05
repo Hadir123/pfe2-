@@ -24,6 +24,25 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrderModule } from 'ngx-order-pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VetsComponent } from '.././SuperViseur/vets/vets.component';
+import { AppModule } from '../app.module';
+import { AddNewVEtComponent } from './vets/add-new-vet/add-new-vet.component';
+import { Router, RouterOutlet } from "@angular/router";
+import { ProfilVetComponent } from './vets/profil-vet/profil-vet.component';
+import { PetOwnersComponent } from './pet-owners/pet-owners.component';
+import { AddPetOwnerComponent } from './add-pet-owner/add-pet-owner.component';
+import { ProfilPetOwnerComponent } from './pet-owners/profil-pet-owner/profil-pet-owner.component';
+import { ProfilComponent } from '../components/profil/profil.component';
+import { PharmaciesComponent } from './pharmacy/pharmacies/pharmacies.component';
+import { AddPharamcyComponent } from './pharmacy/add-pharamcy/add-pharamcy.component';
+import { AddPharamcistComponent } from './pharmacy/add-pharamcist/add-pharamcist.component';
+import { PharmacyComponent } from './pharmacy/pharmacy.component';
+import { Phase2NewRxComponent } from '../Vet/new-rx/phase2-new-rx/phase2-new-rx.component';
+import { AfterLoginService } from '../Services/after-login.service';
+import { OrderReviewComponent } from '../Vet/new-rx/order-review/order-review.component';
+import { RxHistoryComponent } from '../Vet/rx-history/rx-history.component';
+import { NewTreatmentComponent } from '../Vet/Treatment/new-treatment/new-treatment.component';
+import { FormularyComponent } from '../Vet/formulary/formulary.component';
+import { PetComponent } from '../Vet/pet/pet.component';
 
 const routes: Routes = [
   {
@@ -34,23 +53,60 @@ const routes: Routes = [
        path:'',
        component:HomePageComponent
       },
+      { path:'profil', component: ProfilComponent ,
+ },
+      { path:'addVet', component: AddNewVEtComponent
+},
      {
         path:'Vets'
       ,
       component:VetsComponent
-      }
+      },
+      { path:'VetProfil/:id', component: ProfilVetComponent
+},
+{ path:'PetOwners', component: PetOwnersComponent, },
+{ path:'addPetOwner', component: AddPetOwnerComponent, },
+{ path:'PetOwnerProfil/:id', component:ProfilPetOwnerComponent
+},
+{ path:'profil', component: ProfilComponent ,
+ },
+
+{path: 'Pharmacies',
+component:PharmaciesComponent},
+{path: 'addPharmacy',
+component:AddPharamcyComponent,}
+,{ path: 'addPharmacist/:id1/:id2', component:AddPharamcistComponent
+ },
+ {path: 'pharmacies/pharmacy/:id',
+ component:PharmacyComponent,},
+ { path:'NewRX', component: NewRXComponent ,
+
+  },
+  { path:'NewRX/payment', component:  Phase2NewRxComponent,
+ canActivate: [AfterLoginService]
+   },
+   {path:'orderReview',component:OrderReviewComponent,}
+ ,{path:'orderHistory',component:RxHistoryComponent,},
+ {path: 'addTreatment',
+ component:NewTreatmentComponent,
+},
+ {path: 'formulary',
+ component:FormularyComponent,
+},
+{ path: '**', redirectTo: 'HomePageVet'},
+{ path:'NewPet/:id', component: PetComponent ,}
+
    ],
   },
 ];
 @NgModule({
-  declarations: [MainContentComponent, NavbarVetComponent, MenubarComponent, VetsComponent],
+  declarations: [MainContentComponent, NavbarVetComponent, MenubarComponent, VetsComponent, AddNewVEtComponent ,ProfilVetComponent ,PetOwnersComponent, ProfilPetOwnerComponent, AddPetOwnerComponent],
   imports: [
     CommonModule, RouterModule.forChild(routes),
     FormsModule, NgxPaginationModule ,ReactiveFormsModule,
     NgxSpinnerModule,
 
-    HttpClientModule ,
-   SnotifyModule,
+
     NotifierModule,
     ToastrModule,
  MatDatepickerModule,NgSelectModule,
@@ -58,6 +114,8 @@ const routes: Routes = [
     NgxPaginationModule,
  OrderModule,
  NgbModule,
+ NotifierModule,
+
  //RouterModule.forRoot(routes),
 
   ],

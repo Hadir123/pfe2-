@@ -1,7 +1,8 @@
 .left-nav-bar{
-  position: fixed;
+position: fixed;
+
   top: 0px;
-  padding-top: 6px;
+  padding-top: 0px;
   width: 20vw;
   height: 100vh;
   z-index: 999;
@@ -17,6 +18,8 @@
 .top-nav-bar{
   position: fixed;
   top: 0px;
+  padding-left:20vw;
   width: 100vw;
+  float:right;
   z-index: 999;
 }

@@ -98,7 +98,7 @@ this.vets.ChangeStatsu($id).subscribe(data=>console.log(data),
 }
 edit($id)
 {
-this.route.navigateByUrl('/pharmacies/pharmacy/'+$id);
+this.route.navigateByUrl('/HomePageVet/pharmacies/pharmacy/'+$id);
 }
 pageChanged(){
 

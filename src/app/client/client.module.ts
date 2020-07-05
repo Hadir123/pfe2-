@@ -41,18 +41,20 @@ const routes: Routes = [
         path:'RxHistoryClient'
       ,
       component:RxHistoryComponent
-      }
+      },
+      { path:'profil', component: ProfilComponent ,
+     },
    ],
   },
 ];
 
 @NgModule({
-  declarations: [NavbarComponent, MenubarComponent, MainComponent, RxHistoryComponent, HomePageClientComponent],
+  declarations: [NavbarComponent, MenubarComponent, MainComponent,RxHistoryComponent, HomePageClientComponent],
   imports: [
     CommonModule,
-    CommonModule,
+
     RouterModule.forChild(routes),
-    FormsModule, NgxPaginationModule
+    FormsModule, NgxPaginationModule,NotifierModule
 
   ]
 })

@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { OrderPipe } from 'ngx-order-pipe';
 import { HttpClient } from '@angular/common/http';
 import { TokenService } from 'src/app/Services/token.service';
+import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+
 @Component({
   selector: 'app-vets',
   templateUrl: './vets.component.html',
@@ -70,7 +72,7 @@ this.vets.ChangeStatsu($id).subscribe(data=>console.log(data),
 }
 edit($id)
 {console.log($id);
-  this.route.navigateByUrl('/VetProfil/'+$id);
+  this.route.navigateByUrl('/HomePageVet/VetProfil/'+$id);
 }
 find ()
 {

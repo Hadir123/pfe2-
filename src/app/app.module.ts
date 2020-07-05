@@ -58,6 +58,7 @@ import { OrderReviewComponent } from './Vet/new-rx/order-review/order-review.com
 import { RxHistoryComponent } from './Vet/rx-history/rx-history.component';
 //import { NavbarVetComponent } from './components/navbar-vet/navbar-vet.component';
 import { PasswordPetOwnerComponent } from './components/password-pet-owner/password-pet-owner.component';
+import { SuperviseurModule } from './SuperViseur/superviseur.module';
 
 @NgModule({
   declarations: [
@@ -73,12 +74,12 @@ import { PasswordPetOwnerComponent } from './components/password-pet-owner/passw
    //HomePageComponent,
 ////MenuBarComponent,
 NewRXComponent,
-AddPetOwnerComponent,
+/*AddPetOwnerComponent,
 PetOwnersComponent,
-ProfilPetOwnerComponent,
+ProfilPetOwnerComponent,*/
 //VetsComponent,
-AddNewVEtComponent,
-ProfilVetComponent,
+//AddNewVEtComponent,
+//ProfilVetComponent,
 PetComponent,
 PetOwnerInfoComponent,
 PetOfPetwonerComponent,
@@ -112,6 +113,7 @@ PasswordPetOwnerComponent,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule ,
    SnotifyModule,
@@ -125,6 +127,7 @@ PasswordPetOwnerComponent,
  OrderModule,
  NgbModule,
  NgxSpinnerModule,
+ SuperviseurModule
 
 // PharmacyModule
 
