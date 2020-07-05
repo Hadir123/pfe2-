@@ -1,0 +1,43 @@
+ input{
+
+  width: 300px;
+  margin-left: 10px;
+}
+button{
+  color:black ;
+  background-color: lightgrey;
+
+  margin-left: 10px;
+}
+.buttongroupe{
+float:right;
+margin-left: 450px;
+}
+.buttongroupe #cancel
+{
+
+  width: 150px;
+  background-color: #F13c20;
+  color: white;
+
+}
+ .hi h4{
+
+
+  float: left;
+}
+.hi{
+/*display: inline;**/
+  margin-top: 60px;
+}
+.hi button{
+  float:right;
+  margin-bottom: 10px;
+  background-color: #4056A1;
+  width: 300px;
+  color: white;
+}
+.hi button :hover{
+  background-color: lightgrey;
+}
+

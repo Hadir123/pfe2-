@@ -1,0 +1,52 @@
+.all{
+  border-color: darkgray;
+  border-style: solid;
+margin-right: 10px;
+margin-bottom: 15px;
+
+}
+#form{
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 40px;
+
+}
+#form2{
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+
+}
+#labelInput
+{
+font-size: large;
+font-weight: 500
+}
+.all2{
+  border-color: darkgray;
+  border-style: solid;
+
+margin-top: 90px;
+margin-bottom: 25px;
+
+
+}
+#edit
+{
+  background-color: aliceblue;
+  color: #123C69;
+  border-color: #123C69;
+float: right;
+margin-bottom: 10px;
+
+}
+a{
+  font-size: 13px;
+  color:#123C69;
+
+    text-decoration:underline;
+}
+a:hover{
+  padding-left: 0.5px;
+  left: 0;
+}

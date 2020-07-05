@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'https://unpkg.com/browse/bootstrap@4.1.0/dist/css/bootstrap.min.css';
+
+/*@import 'C:/Users/Hadir/angular larvel/Login3/node_modules/angular-notifier/styles/core.css';
+@import'C:/Users/Hadir/angular larvel/Login3/node_modules/angular-notifier/styles/themes/theme-material.css';
+@import'C:/Users/Hadir/angular larvel/Login3/node_modules/angular-notifier/styles/types/type-success.css';
+@import'C:/Users/Hadir/angular larvel/Login3/node_modules/angular-notifier/styles/types/type-default.css';
+@import'C:/Users/Hadir/angular larvel/Login3/node_modules/angular-notifier/styles/types/type-error.css';
+@import'C:/Users/Hadir/angular larvel/Login3/node_modules/angular-notifier/styles/types/type-info.css';
+*/
+
+@import 'C:/Users/Hadir/angular larvel/Login3/node_modules/ngx-toastr/toastr.css';
+
+@import "./assets/fontawesome-free-5.13.0-web/css/all.css";
+@import "./assets/fontawesome-free-5.13.0-web/css/fontawesome.css";
+@import "./assets/fontawesome-free-5.13.0-web/css/brands.css";
+@import "./assets/fontawesome-free-5.13.0-web/css/solid.css";
+@import "./assets/fontawesome-free-5.13.0-web/css/regular.css";
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+@import "~angular-notifier/styles";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

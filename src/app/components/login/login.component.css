@@ -1,0 +1,64 @@
+body{
+/*background-image:image('assets/img/loginback.jpg') ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+
+  margin-top: 150px;
+  font-family: 'Numans', sans-serif;*/
+  }
+  .ng-invalid input{
+    border-left:5px solid red ;
+    }
+
+    .ng-valid input{
+      border-left:5px solid green;
+      }
+  .card{
+
+    margin-top: auto;
+    margin-bottom: auto;
+    border-style: inset;
+    background-color: rgba(255, 255, 255, 0.397)!important;
+    }
+
+  .card-header h3{
+  color:#4056A1;
+  size: large;
+
+  text-align: center;
+  }
+  .card-body
+  {
+    background-color: rgba(255, 255, 255, 0.397)!important;
+
+  }
+
+  @media (max-width: 767px) {
+      footer .text-right { text-align:left }
+  }
+  .fpass
+{
+text-align: right;
+margin-left:500px;
+padding: 0px;
+display: inline;
+}
+#hi
+{
+/*margin-left: 250px;*/
+
+}
+
+/*.bg img{
+background-image: url("../../../assets/loginback.jpg");
+
+/* Half height */
+/*height: 100%;
+/* Center and scale the image nicely */
+/*background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+background-size: cover;
+}
+*/

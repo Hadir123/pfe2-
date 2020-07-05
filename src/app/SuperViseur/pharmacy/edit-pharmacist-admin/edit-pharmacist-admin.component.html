@@ -1,0 +1,28 @@
+<h3 style="color: #123C69;margin-bottom: 50px; margin-left: 30px;">Pharmacist Admin </h3>
+  <form id='form2' style="color: #123C69;">
+     <div class="form-row">
+        <label for="inputName">First Name <i style="color:red">*</i></label>
+        <input type="text"   [(ngModel)]='user.name'name="name"class="form-control" id="inputName" value="{{user.name}}">
+      </div>
+      <div class="form-row">
+         <label for="inputlastName">Last Name <i style="color:red">*</i></label>
+          <input type="text" name="last_name"  [(ngModel)]='user.last_name'class="form-control" id="inputlastName" value="{{user.last_name}}">
+      </div>
+      <div class="form-row">
+         <label for="inputEmail" >Email Address <i style="color:red">*</i></label>
+          <input type="email" name="email"[(ngModel)]='user.email' class="form-control" id="inputEmail" value="{{user.email}}" >
+      </div>
+     <div class="row">
+     <div class="col">
+         <label for="inputphone" > Mobile Number <i style="color:red">*</i></label>
+         <input type="phone" name="phone" id="inputphone" [(ngModel)]='user.phone'class="form-control"value="{{user.phone}}">
+     </div>
+     </div>
+     <br>
+     <br>
+    <button type="submit" class="btn btn-primary "(click)='save()'style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 200px; background-color:#F13c20"> <span class="fa fa-save"  style="margin-right:15px"> Save </span></button>
+      <br>
+       <br>
+</form>
+
+

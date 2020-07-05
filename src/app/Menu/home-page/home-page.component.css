@@ -1,0 +1,31 @@
+
+
+button{
+
+border: 0cm;
+text-align: center;
+margin-left:25px;
+height: 125px;
+
+
+}
+
+
+
+.centre
+{
+background-image: url('../../../assets/loginback.jpg');
+height: 100%;
+/* Center and scale the image nicely */
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+background-size: cover;
+
+}
+
+
+.btn:hover{outline:0;box-shadow:0 0 0 .2rem rgba(0,123,255,.25)}
+
+
+

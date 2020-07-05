@@ -1,0 +1,68 @@
+.all{
+  border-color: darkgray;
+  border-style: solid;
+margin-right: 10px;
+margin-bottom: 15px;
+
+}
+#form{
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 40px;
+
+}
+#form2{
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+
+}
+#labelInput
+{
+font-size: large;
+font-weight: 500
+}
+.all2{
+  border-color: darkgray;
+  border-style: solid;
+
+margin-top: 90px;
+margin-bottom: 25px;
+
+
+}
+#edit
+{
+  background-color: aliceblue;
+  color: #4056A1;
+  border-color:#4056A1;
+float: right;
+margin-bottom: 10px;
+
+}
+a{
+  font-size: 13px;
+  color:#123C69;
+
+    text-decoration:underline;
+}
+/*.modal{
+  display: block !important; /* I added this to see the modal, you don't need this} */
+
+
+/* Important part */
+.modal-dialog{
+  overflow-y: initial !important
+}
+.modal-body{
+  height: 400px;
+  width: 500px;
+  overflow-y: auto;
+}
+button{
+  background-color: darkred;
+}
+a:hover{
+  padding-left: 0.5px;
+  left: 0;
+}

@@ -1,0 +1,91 @@
+<span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="/HomePageVet"> Dashbord</a>
+<br>
+<span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="/HomePageVet/PetOwners" >PetOwner List </a>
+
+<div class="all2"*ngIf="!edite">
+  <form id='form'*ngIf="!edite" style="color:#123C69" >
+    <h3 style="color:#123C69;margin-bottom: 20px;">PetOwner </h3>
+
+    <div class="form-row">
+      <label for="inputName" id='labelInput' >First Name :</label> &nbsp;&nbsp;<label >{{user.name}}</label>
+    </div>
+
+    <div class="form-row">
+        <label for="inputAddress"id='labelInput'>Last Name :</label> &nbsp;&nbsp;<label >{{user.last_name}}</label>
+    </div>
+
+    <div class="form-row">
+        <label for="inputAddress" id='labelInput'>Email Address :</label> &nbsp;&nbsp;<label >{{user.email}}</label>
+    </div>
+
+    <div class="form-row">
+          <label for="validationDefault03" id='labelInput'>Phone :</label> &nbsp;&nbsp;<label >{{user.phone}}</label>
+    </div>
+
+    <div class="form-row">
+        <label for="inputAddress"id='labelInput'>Date of Birth :</label> &nbsp;&nbsp;<label >{{user.date_of_birth}} </label>
+    </div>
+    <div class="form-row">
+      <label for="inputAddress"id='labelInput'>Address :</label> &nbsp;&nbsp;<label >{{ adresse.adresse}} <br> {{ adresse.city}}
+      &nbsp;{{ adresse.street}}<br>{{ adresse.postal_code}} </label>
+  </div>
+<br>
+  <button type="submit" class="btn btn-primary " id="edit"(click)='edit()'style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 100px;"> <span class="fas fa-pencil-alt">Edit </span></button>
+<br>
+<br>
+</form>
+<br>
+</div>
+
+<div class="all" *ngIf="edite">
+  <h3 style="color: #123C69;margin-bottom: 20px; margin-left: 10px;">PetOwner </h3>
+  <form id='form2' style="color: #123C69;">
+     <div class="form-row"*ngIf="edite">
+        <label for="inputName">First Name <i style="color:red">*</i></label>
+        <input type="text"   [(ngModel)]='user.name'name="name"class="form-control" id="inputName" value="{{user.name}}">
+      </div>
+      <div class="form-row">
+         <label for="inputAddress">Last Name <i style="color:red">*</i></label>
+          <input type="text" name="last_name"  [(ngModel)]='user.last_name'class="form-control" id="inputAddress" value="{{user.last_name}}">
+      </div>
+      <div class="form-row">
+         <label for="inputEmail" >Email Address <i style="color:red">*</i></label>
+          <input type="text" name="email"  [(ngModel)]='user.email' class="form-control" id="inputEmail" value="{{user.email}}" >
+      </div>
+     <div class="row">
+     <div class="col">
+         <label for="validationDefault03" >Phone <i style="color:red">*</i></label>
+         <input type="text" name="phone"  [(ngModel)]='user.phone'class="form-control"value="{{user.phone}}">
+     </div>
+     </div>
+           <h3 style="color:#123C69">Shipping Address</h3>
+     <div class="form-group">
+          <label for="inputAddress">Address <i style="color:red">*</i></label>
+          <input type="text" name="adresse"  [(ngModel)]='adresse.adresse'class="form-control" id="inputAddress" value="{{adresse.adresse}}">
+     </div>
+     <div class="form-row">
+     <div class="form-group col-md-6">
+           <label for="inputCity">City <i style="color:red">*</i></label>
+           <input type="text" class="form-control" id="inputCity"   [(ngModel)]='adresse.city'name="city"  value="{{adresse.city}}">
+     </div>
+     <div class="form-group col-md-4">
+            <label for="inputState">State <i style="color:red">*</i></label>
+            <select id="inputState" class="form-control" name="street" [(ngModel)]='adresse.street' value="{{adresse.street}}">
+            <option value="hi"selected>Choose...</option>
+            <option >...</option>
+            </select>
+     </div>
+     <div class="form-group col-md-2">
+           <label for="inputZip">Zip <i style="color:red">*</i></label>
+           <input type="text" class="form-control"   [(ngModel)]='adresse.postal_code'name="postal_code" id="inputZip"value="{{adresse.postal_code}}">
+
+      </div>
+      </div>
+
+        <br>
+        <br>
+       <button type="submit" class="btn btn-primary "(click)='save()'style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 200px; background-color:#F13c20"> <span class="fa fa-save"  style="margin-right:15px"> Save </span></button>
+         <br>
+          <br>
+ </form>
+</div>

@@ -1,0 +1,77 @@
+<table class="table" style="color:#123C69"  (ngSubmit)="all()" >
+  <thead class="table-active">
+    <tr style="font-size:small; font-style:normal">
+      <th scope="col" >Product</th>
+      <th scope="col" style="width:7%;" >Qty</th>
+      <th scope="col">Type</th>
+      <th scope="col" style="width:7%">Form</th>
+      <th scope="col">Strength</th>
+      <th scope="col">Size</th>
+      <th scope="col" style="width:5%;">Refills</th>
+      <th scope="col">Auto Refill</th>
+      <th scope="col"> Unit Price</th>
+      <th scope="col"> </th>
+    </tr>
+  </thead>
+  <tbody *ngFor='let elem of newDrugs' >
+
+    <tr>
+      <td><strong>{{elem.drug}} </strong><br><span style="color: #123C69;">Trade Name:</span><strong> {{elem.drugTradeName}}</strong></td>
+      <td ><input _ngcontent-c7="" required appquantitydirective="" class="form-control form-control-sm ng-pristine ng-valid ng-touched" type="text" title="1" [(ngModel)]="elem.qty"></td>
+      <td>{{elem.type}}</td>
+      <td>{{elem.form}}</td>
+      <td>{{elem.strength}}</td>
+      <td>{{elem.size}}</td>
+      <td><input _ngcontent-c7="" appquantitydirective="" #id class="form-control form-control-sm ng-pristine" type="text" [(ngModel)]="elem.refills" [disabled]="!elem.autorefill"></td>
+      <td><input _ngcontent-c7="" id="autorefill" style="width: 28px;height: 30px; margin-left: 5px;" type="checkbox" [(ngModel)]="elem.autorefill" class="ng-valid ng-dirty ng-touched" ></td>
+
+     <td _ngcontent-c7="" style="width: 2%;">
+        <span style="color: #123C69;">$</span>{{elem.price}}
+      </td>
+      <td _ngcontent-c7="" style="width: 1%;">
+        <div _ngcontent-c7="" class="row">
+          <div _ngcontent-c7="" class="col-md-6">
+
+          </div>
+          <div _ngcontent-c7="" class="col-md-6">
+            <button _ngcontent-c7="" class="btn btn-sm btn-danger btn-sm pull-right" type="button" (click)='DeleteElement(elem.gp_code)'>
+              <i _ngcontent-c7="" aria-hidden="true" class="fa fa-times-circle"></i>
+            </button>
+          </div>
+        </div>
+      </td></tr>
+<tr>
+
+  <td colspan="5" class="instruction" style="border: 1px solid transparent;">
+    <label>
+    Enter Rx Directions
+    </label>
+    <!--[(ngModel)]="item.instructions"-->
+    <div class="form-group " >
+    <input type="text" class="form-control form-control-sm "
+    placeholder="Enter Rx Directions" [(ngModel)]='elem.discription' required>
+    </div>
+
+    </td>
+
+    <td _ngcontent-c7="" colspan="2" style="border: 1px solid transparent;">
+
+      <label _ngcontent-c7="">
+        Expires
+      </label>
+      <div _ngcontent-c7="" class="input-group">
+        <input class="form-control"[(ngModel)]='elem.endDate'placeholder="MM-DD-YYYY" required   id="inputDate"   style='height: 34px; font-size: 14px;'type="date"name="date">
+<br>
+
+
+
+
+    </div>
+    </td>
+    </tr>
+
+  </tbody>
+
+
+</table>
+<button type="button"(click)='all()' class="btn btn-primary" style="float: right;width: 200px ;background-color: darkred;border-color: darkred;">Continue </button>

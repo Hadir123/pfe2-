@@ -1,0 +1,129 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+$(document).ready(function () {
+  $('select').selectize({
+      sortField: 'text'
+  });
+});</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
+
+<body>
+<h3 style ="color:#123C69;"> Create New Rx Order</h3>
+<br>
+<div class ="buttongroupe" style="float:right;">
+<button type="button" class="btn btn-secondary"  [disabled]="!formvalide" (click)="write()"> <span class="fa fa-save"style="font-size:20px ;color:black"></span> &nbsp; Save and Exist  </button>
+<button type="button" class="btn btn-secondary" id="cancel" (click)="Exit()" > <span class="fa fa-ban"style="font-size:20px ;color:white"></span> &nbsp; Cancel  </button>
+</div>
+
+<div class ="select_bar" style="padding-bottom: 20px; margin-top: 50px;">
+  <h4 style ="color:#123C69; margin-left: 20px;">Step 1: Select Petowner & Patient  </h4>
+    <br>
+    <div class="input_bar">
+      <p style ="color:#123C69;">Pet Owner Name*</p>
+<!--<select class="custom-select custom-select-lg mb-3" type ="checkbox" name="form.PetOwner"
+[(ngModel)]="form.PetOwner" (change)="Petowner()"  data-show-subtext="true" data-live-search="true">
+
+  <option  value="null"></option>
+    <option *ngFor="let user of user" >
+    {{ user.email}} </option>
+</select>-->
+<ng-select class="custom"[items]="user"
+bindLabel="email"
+placeholder="Select PetOwner"
+[(ngModel)]="form.PetOwner"(change)="Petowner()" >
+
+</ng-select>
+
+<p style ="color:#123C69; padding-top: 20px;">Patient (Pet) Name*</p>
+<ng-select class="custom"[items]="petss"
+bindLabel="animal_name"
+placeholder="Select Pet"
+[(ngModel)]="form.Pet"(change)="peet()" [disabled]="!formvalide">
+
+</ng-select>
+<span class="text-danger"[hidden]="!error">
+  Select a Pet Owner Please !
+</span>
+
+<p style ="color:#123C69; ">Need to add a new patient (pet)? &nbsp; &nbsp; <a   style="text-align: left;color:cyan ;text-decoration: underline;" *ngIf="formvalide"[routerLink]="['/HomePageVet/NewPet/',user.id]" >Click Here</a> </p>
+
+</div>
+</div>
+
+<h4 style ="color:#123C69; margin-left: 20px; padding-top: 15px;">Step 2: Select Order Content</h4>
+<div class="input-group mb-3" >
+
+  <!--<select class="custom-select" style='color:#123C69' data-live-search="true"  (click)="openModal($event.target.value)" [disabled]="!formvalide" >
+<option selected >
+   </option>
+    <option *ngFor='let drug of  drugs'  value="{{drug.id}}">
+      {{drug.drugName}} ({{drug.DrugTradeName}})
+    </option>
+  </select>
+-->
+<div class="input_bar2">
+<ng-select class="input_bar2" [items]="drugs"
+bindLabel="fullName"
+placeholder="Select Drug"
+(change)="drugChange()" [(ngModel)]="Drug" [disabled]="!formvalide">
+
+</ng-select>
+</div>
+  <button type="button" id="first" class="btn"[disabled]="!formvalide"data-toggle="modal" data-target="#childModalOption1"(click)="openModal()"> <span class="fa fa-plus"style="font-size:20px ;color:white;float:left ;  margin-left:10px"></span> &nbsp;Add </button>
+
+  <button type="button" id="deuxieme"class="btn"  [disabled]="!formvalide"> <span class="fa fa-list-ul"style="font-size:20px ;color:black ; float:right ; ; margin-left:20px"></span> &nbsp; Treatment Plans </button>
+
+</div>
+
+<div class="row" style="float: right; margin-right: 15px;">
+
+<small>Rx Start Date</small>
+<br>
+<!--[isDisabled]="isDisabled"-->
+  <!--<input class="form-control" placeholder="MM/DD/YYYY" bsDatepicker #dp="bsDatepicker"
+ name="form.date" style="color:#123C69" for="date"   style="display: inline;"[(ngModel)]="form.date">
+<span class="fa fa-calendar"  id="date" style="display: inline; margin-left: 5px;"></span>-->
+<div _ngcontent-c7="" class="input-group">
+
+  <input class="form-control" required placeholder="MM-DD-YYYY"  style="width: 400px;" id="inputDate"  [disabled]="!formvalide" type="date"[(ngModel)]="form.date"name="date">
+  <small>DD-MM-YYYY</small>
+
+</div>
+
+  <br>
+<!--<input class="form-control" placeholder="MM-DD-YYYY" type="date" [(ngModel)]="form.date"  name="form.date">-->
+
+
+<br>
+</div>
+<br>
+<br>
+
+<app-table-treatment *ngIf='able'[table]='elem'[date]='form.date'[order]='order'></app-table-treatment>
+<div class="modal" *ngIf='show' tabindex="-1" id='childModalOption1' role="dialog" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style='color:#123C69'>Element Prespection</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <app-modal-option  [Drug]='form.Drug'(event)='hi($event)'(event2)='Clear($event)'></app-modal-option>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"(click)='Save()' data-dismiss="modal">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+<div style='position: relative;'>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+</div>

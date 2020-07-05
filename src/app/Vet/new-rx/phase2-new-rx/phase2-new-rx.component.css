@@ -1,0 +1,15 @@
+button{
+  color:black ;
+  background-color: lightgrey;
+
+  margin-left: 15px;
+}
+
+.buttongroupe #cancel
+{
+
+  width: 150px;
+  background-color: #F13c20;
+  color: white;
+
+}

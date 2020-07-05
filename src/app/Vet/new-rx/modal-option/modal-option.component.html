@@ -1,0 +1,36 @@
+
+
+     <table class="table">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Form</th>
+          <th>Strength</th>
+          <th>Size</th>
+          <th>Price</th>
+          <th>Actions</th>
+
+        </tr>
+
+      </thead>
+        <tbody  *ngFor="let elements of element" >
+
+        <td>{{elements.drugTypeName}}</td>
+        <td>{{elements.drugFromName}}</td>
+        <td>{{elements.drugStrengthName}}</td>
+        <td>{{elements.size}}</td>
+        <td>{{elements.price}}</td>
+        <td class="d-flex justify-content-center">
+          <!-- Default unchecked -->
+          <div class="custom-control custom-checkbox">
+              <input type="checkbox"  class="form-check-input"(change)="onChange2(elements.gpCode,$event.target.checked)" >
+             <!-- <label class="custom-control-label" ></label>-->
+          </div>
+        </td>
+         <!--<tr app-element-precription-items *ngFor="let element of prescriptions" [element]="element"></tr>
+        --> </tbody>
+    </table>
+
+
+    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-atom" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+

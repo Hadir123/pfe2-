@@ -1,0 +1,124 @@
+<app-pet-of-petwoner></app-pet-of-petwoner>
+<app-pet-owner-info></app-pet-owner-info>
+
+<div class='all'>
+<form style="color:darkblue;"  id='form'>
+  <h3 style="color:#01094E"> Add Patient</h3>
+
+  <div class="form-row">
+     <label for="inputName">Pet Name <i style="color:red">*</i></label>
+     <input type="text"   name="animal_name"class="form-control" id="inputName" placeholder=""[(ngModel)]="form.animal_name">
+    <!-- <span class="error text-danger"[hidden]="!err.name">{{err.name}}</span>-->
+   </div>
+   <div class="row">
+    <div class="col" style="display: inline;">
+      <label for="exampleFormControlSelect">Species</label>
+
+      <select class="form-control" id="exampleFormControlSelect"  style="display: inline-block;" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+        <option selected>Choose...</option>
+        <option  *ngFor="let species of species"(click)="selectSpecies(species.id)">{{species.species}}</option>
+
+      </select>
+
+
+
+
+      <!-- Button trigger modal
+<button type="button" style="display:inline-block" data-toggle="modal" data-target="#exampleModal">
+  <span class="fa fa-plus"></span>
+</button>
+    </div>-->
+<!-- Modal
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">add New Breed</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" style="display: inline; background-color:#01094E;margin-left: 15px;"(click)="addItem()" data-dismiss="modal">Submit </button>
+      </div>
+    </div>
+  </div>-->
+</div>
+
+   <div class="col">
+    <label for="exampleFormControlSelect1">Breed</label>
+
+    <select class="form-control" id="exampleFormControlSelect1"onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+      <option selected>Choose...</option>
+
+      <option  *ngFor="let breeds of breeds"(click)="selectBreed(breeds.id)">{{breeds.breed}}</option>
+
+    </select>
+
+
+   </div>
+
+   </div>
+
+
+   <div class="row">
+    <div class="col" style="display: inline;">
+      <label for="inputSexe">Gender<i style="color:red">*</i></label>
+      <select class="form-control" id="inputSexe" (change)="genderrr($event.target.value)">
+        <option name="gender" selected value=1>Male</option>
+        <option name="gender"value=2>Female</option>
+      </select>
+
+    </div>
+    <div class="col">
+      <label for="inputGender">Gender Description <i style="color:red">*</i></label>
+      <input type="text"   name="Gender_Description"class="form-control" id="inputGender" placeholder=""[(ngModel)]="form.Gender_Description">
+    </div>
+   </div>
+   <div class="row">
+    <div class="col" style="display: inline;">
+
+      <label for="inputwie">Weight<i style="color:red">*</i></label>
+      <input type="text"   name="current_weight"class="form-control" id="inputWie" placeholder=""[(ngModel)]="form.current_weight">
+    </div>
+    <div class="col">
+
+      <label for="exampleFormControlSelec">Weight Unit<i style="color:red">*</i></label>
+      <select class="form-control" id="exampleFormControlSelec"(change)="weight($event.target.value)">
+        <option selected value=1>kg</option>
+        <option value=2>Pounds</option>
+      </select>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col" style="display: inline;">
+
+      <label for="inputColor">Color<i style="color:red">*</i></label>
+      <input type="text"  [(ngModel)]="form.color" name="color"class="form-control" id="inputColor" placeholder="white">
+    </div>
+
+      <div class="col">
+        <label for="inputDate">Date of Birth<i style="color:red">*</i></label>
+        <input class="form-control" placeholder="MM-DD-YYYY" id="inputDate" type="date"[(ngModel)]="form.date_of_birth"name="date_of_birth">
+         <small>DD-MM-YYYY</small>
+          <br>
+      </div>
+    </div>
+    <br>
+    <div class ="buttongroupe" >
+      <button type="button" class="btn btn-secondary" id="cancel"(click)="Exit()" > <span class="fa fa-ban"style="font-size:15px;color:white"></span> &nbsp; Cancel  </button>
+
+      <button type="button" class="btn btn-secondary"  (click)='save()'> <span class="fa fa-save"style="font-size:15px ;color:black"></span> &nbsp; Save  </button>
+      </div>
+
+<br>
+<br>
+
+   </form>
+  </div>
+<br>
+<br>

@@ -1,0 +1,34 @@
+
+    <nav class="mb-4 navbar navbar-expand-lg navbar-dark indigo"style="background-color:#d79922; background-size: cover;">
+      <!-- <img src="assets/img/navbar1.png" style="height: 50px;margin-left: 25px;"/>-->
+       <a class="navbar-brand font-bold" href="#"></a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+
+           <ul class="navbar-nav ml-auto">
+             <a class="navbar-brand font-bold" href="#"><small>do you need help!!<small>5563585</small></small></a>   <!--  </a>  <span class="badge badge-info" style="background-color :red;">11</span>
+              <i class="fa fa-bell"></i>-->
+                   <li class="nav-item dropdown" id='notification'>
+                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" (click)='notif()'aria-haspopup="true" aria-expanded="false" style="color:white"> <i class="fa fa-bell" style="color:white"> </i>
+                       <span class="badge badge-info" style="background-color :red;">{{countNotif}}</span>  </a>
+
+                     <div class="dropdown-menu dropdown-menu-right dropdown-cyan"style="overflow: auto;max-height: 200px; height: auto;" aria-labelledby="navbarDropdownMenuLink-4">
+                         <a class="dropdown-item" href="#"*ngFor="let notif of noti ">{{notif.statusName}} in the {{notif.RxOrderDate}} </a>
+                     </div>
+
+                 </li>
+
+                <li class="nav-item dropdown">
+                   <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="color:white" ><i class="fa fa-user" style="color:white"></i> Profile </a>
+                   <div style="height:auto" class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                       <a class="dropdown-item" routerLink='/HomePageClient/profil'>My Account</a>
+                       <a class="dropdown-item"  href="login" (click)="logout($event)" >Sign Out</a>
+                   </div>
+               </li>
+           </ul>
+       </div>
+   </nav>
+
+ <!--/.Navbar -->

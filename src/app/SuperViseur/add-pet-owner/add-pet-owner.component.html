@@ -1,0 +1,150 @@
+
+
+<span class="fa fa-arrow-left" style="color: #123C69"></span><a routerLink="/HomePageVet"> Dashbord</a>
+<br>
+<span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="/HomePageVet/PetOwners" >PetOwner List </a>
+<h2 style="color:#123C69"> Add New Pet Owner</h2>
+<form>
+
+   <div class="form-row">
+      <label for="inputName">First Name <i style="color:red">*</i></label>
+      <input type="text"   name="name"class="form-control" id="inputName" placeholder=""[(ngModel)]='form.name'>
+     <!-- <span class="error text-danger"[hidden]="!err.name">{{err.name}}</span>-->
+    </div>
+    <div class="form-row">
+      <label for="inputLastName">Last Name<i style="color:red">*</i></label>
+      <input type="text"  name="last_name" class="form-control" id="inputLastName" placeholder="" [(ngModel)]='form.last_name'>
+    <!-- <span class="error text-danger"[hidden]="!err.last_name">{{err.last_name}}</span>-->
+    </div>
+    <div class="form-row">
+      <label for="inputAddress">Email Address<i style="color:red">*</i></label>
+      <input type="text" name="email" class="form-control" id="inputAddress" placeholder="exemple@...."[(ngModel)]="form.email">
+    <!--<span class="error text-danger"[hidden]="!err.email">{{err.email}}</span>-->
+    </div>
+    <div class="row">
+    <div class="col">
+        <label for="validationDefault03">Phone <i style="color:red">*</i></label>
+        <input type="text"  id="validationDefault03"name="phone"class="form-control" placeholder=""[(ngModel)]="form.phone">
+       <!-- <span class="error text-danger"[hidden]="!err.phone">{{err.phone}}</span>-->
+    </div>
+    <div class="col">
+        <label for="inputsexe" id="sexe">Sexe<i style="color:red">*</i></label>
+        <div class="sexe">
+          <div class="form-check">
+             <label class="form-check-label">
+              <input type="radio" class="form-check-input" (click)="chekrbdclick(0)"  name="gender" >Male
+              </label>
+          </div>
+          <div class="form-check">
+              <label class="form-check-label">
+              <input type="radio" class="form-check-input" (click)="chekrbdclick(1)"  name="gender" >Female
+               </label>
+          </div>
+          </div>
+        <!-- <span class="error text-danger" [hidden]="!err.gender">{{err.gender}}</span>-->
+      </div>
+      </div>
+      <div class="row">
+      <div class="col">
+      <label for="inputDate">Date of Birth<i style="color:red">*</i></label>
+      <input class="form-control" placeholder="MM-DD-YYYY" id="inputDate"type="date" [(ngModel)]="form. date_of_birth"  name="date_of_birth">
+       <small>DD-MM-YYYY</small>
+        <br>
+            <!--<span class="error text-danger"[hidden]="!err.date_of_birth">{{err.date_of_birth}}</span>-->
+    </div>
+    <div class="col">
+    <div class="form-group">
+        <label for="inputState">Hospital</label>
+        <select id="inputState"  class="form-control" disabled name="Hospital" [(ngModel)]="form.Hospital" >
+        <option value="Haygard" id="Hospital"  selected>Haygard Hospital</option>
+        <option >..</option>
+        </select>
+     </div>
+    </div>
+    </div>
+          <h3 style="color:#123C69">Shipping Address</h3>
+    <div class="form-group">
+    <label for="inputAddressHome">Address</label>
+    <input type="text" name="adresse" class="form-control" id="inputAddressHome" placeholder=""[(ngModel)]="form.adresse">
+            <!--<span class="error text-danger"[hidden]="!err.adresse">{{err.adresse}}</span>-->
+    </div>
+
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity"  name="city" [(ngModel)]="form.city">
+        <!--   <span class="error text-danger"[hidden]="!err.city">{{err.city}}</span>-->
+    </div>
+    <div class="form-group col-md-4">
+       <label for="inputState">State</label>
+        <select id="inputState" class="form-control" name="street"[(ngModel)]="form.street">
+        <option value="hi"selected>Choose...</option>
+        <option >...</option>
+        </select>
+       <!--  <span class="error text-danger" [hidden]="!err.street">{{err.street}}</span>-->
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" name="postal_code" id="inputZip"[(ngModel)]="form.postal_code">
+        <!--   <span class="error text-danger"[hidden]="!err.postal_code">{{err.postal_code}}</span>-->
+    </div>
+    </div>
+    <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#exampleModalCenter" (click)='Vetss()' style="width: 400px;">
+      <h6 style="float:left;">Attach a Vet </h6>
+  </button>
+
+    <!-- Modal -->
+    <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="background-color: aliceblue;">
+          <span aria-hidden="true" style="color:darkgrey;">&times;</span>
+          </button>
+      </div>
+    <div class="modal-body">
+
+        <input type="text" class="form-control" style="display: inline; width:300px;margin-right: 15px;" placeholder="Search by Name">
+        <button type="button" class="btn btn-primary" style="display: inline; background-color: #4056A1;">Find </button>
+        <button style="display: inline; background-color:darkred;margin-left: 10px;"type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="row"></th>
+              <td scope="row" style="" >Name </td>
+              <td scope="row" style="float: right;" >Attach</td>
+
+            </tr>
+          </thead>
+          <tbody >
+             <tr *ngFor="let vets of vets">
+              <th scope="row"></th>
+              <td>{{vets.name }} {{vets.last_name}} &nbsp;({{vets.email}}) </td>
+              <td style="float: right;">
+                <!-- Default unchecked -->
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" (change)="onChange(vets.id ,$event.target.checked)"class="form-check-input" >
+                   <!-- <label class="custom-control-label" ></label>-->
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" style="display: inline; background-color:#01094E;margin-left: 15px;"(click)="saveVet()" data-dismiss="modal">Submit </button>
+      </div>
+    </div>
+  </div>
+  </div>
+<br>
+<br>
+
+     <button type="submit" class="btn btn-primary " (click)="addPetowner()" style="float:right;font-style:oblique ; margin-bottom :20px ;font-size:large;width: 200px; background-color:darkred"> <span class="fa fa-save"  style="margin-right:15px"> Save </span></button>
+ <br>
+ <br>
+  </form>
+

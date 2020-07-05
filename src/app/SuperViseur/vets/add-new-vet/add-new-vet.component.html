@@ -1,0 +1,119 @@
+<span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="/HomePageVet"> Dashbord</a>
+<br>
+<span class="fa fa-arrow-left" style="color: #123C69;"></span><a routerLink="/HomePageVet/Vets" >Vets List </a>
+<h2 style="color:#123C69"> Add New Vet</h2>
+<form>
+  <div class="row">
+    <div class="col">
+      <label for="inputFirstName">First Name <i style="color:red">*</i></label>
+      <input type="text"   name="name"class="form-control" id="inputFirstName" placeholder=""[(ngModel)]='form.name'>
+    <!--<span class="error text-danger"[hidden]="!err.name"> </span>-->
+    </div>
+    <div class="col">
+      <label for="inputLastName">Last Name<i style="color:red">*</i></label>
+      <input type="text"  name="last_name" class="form-control" id="inputLastName" placeholder="" [(ngModel)]='form.last_name'>
+   <!-- <span class="error text-danger"[hidden]="!err.last_name">last Name is required</span>-->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="inputDate">Date of Birth<i style="color:red">*</i></label>
+      <input class="form-control" placeholder="MM-DD-YYYY" id="inputDate" type="date" [(ngModel)]="form. date_of_birth"  name="date_of_birth">
+       <small>DD-MM-YYYY</small>
+        <br>
+    </div>
+    <div class="col">
+      <label for="inputSexe" id="sexe">Gender<i style="color:red">*</i></label>
+      <div class="sexe">
+        <div class="form-check">
+           <label class="form-check-label">
+            <input type="radio" class="form-check-input" (click)="chekrbdclick(0)"  name="gender" >Male
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+            <input type="radio" class="form-check-input" (click)="chekrbdclick(1)"  name="gender" >Female
+             </label>
+        </div>
+        </div>
+      <!--<span class="error text-danger" [hidden]="!err.gender"></span>-->
+    </div>
+  </div>
+    <div class="form-row">
+      <label for="inputAddress">Email Address<i style="color:red">*</i></label>
+      <input type="text" name="email" class="form-control" id="inputAddress" placeholder="exemple@gmail.com"[(ngModel)]="form.email">
+  <!--  <span class="error text-danger"[hidden]="!err.email"></span>-->
+    </div>
+      <div class="row">
+        <div class="col">
+          <label for="inputDirectNumber">Direct Line <i style="color:red">*</i></label>
+          <input type="text"  id="inputDirectNumber"name="phone"class="form-control" placeholder="7236....."[(ngModel)]="form.directLine">
+         <!--<span class="error text-danger"[hidden]="!err.directLine"></span>-->
+     </div>
+     <div class="col">
+      <label for="inputeMobile">Mobile Number <i style="color:red">*</i></label>
+      <input type="text" id="inputeMobile" name="phone"class="form-control" placeholder="00....."[(ngModel)]="form.phone">
+    <!-- <span class="error text-danger"[hidden]="!err.phone"></span>-->
+      </div>
+      <div class="col">
+      <label for="inputFax">Fax</label>
+      <input type="text" id="inputFax" name="phone"class="form-control" placeholder=""[(ngModel)]="form.fax">
+
+     </div>
+      </div>
+      <div class="row">
+        <div class="col">
+            <label for="inputSpecialty">Specialty <i style="color:red">*</i></label>
+            <input type="text"  id="inputSpecialty"name="phone"class="form-control" placeholder=""[(ngModel)]="form.speciality">
+          <!-- <span class="error text-danger"[hidden]="!err.phone"></span>-->
+       </div>
+      <div class="col">
+        <div class="form-group">
+        <label for="inputState">Hospital</label>
+        <select id="inputState"  class="form-control" disabled name="Hospital" [(ngModel)]="form.Hospital" >
+        <option value="Haygard" id="Hospital"  selected>Haygard Hospital</option>
+        <option >..</option>
+        </select>
+     </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <label for="inputadress">Address</label>
+    <input type="text" name="adresse" class="form-control" id="inputadress" placeholder=""[(ngModel)]="form.adresse">
+           <!-- <span class="error text-danger"[hidden]="!err.adresse">
+            </span>-->
+    </div>
+
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity"  name="city" [(ngModel)]="form.city">
+        <!-- <span class="error text-danger"[hidden]="!err.city"></span>-->
+    </div>
+    <div class="form-group col-md-4">
+       <label for="inputState">State</label>
+        <select id="inputState" class="form-control" name="street"[(ngModel)]="form.street">
+        <option value="hi"selected>Choose...</option>
+        <option >...</option>
+        </select>
+        <!--<span class="error text-danger" [hidden]="!err.street"></span>-->
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" name="postal_code" id="inputZip"[(ngModel)]="form.postal_code">
+        <!-- <span class="error text-danger"[hidden]="!err.postal_code"></span>-->
+    </div>
+    </div>
+    <label class="container">Is Supervisor
+      <input type="checkbox"  (change)="onChange($event.target.checked)">
+      <span class="checkmark"></span>
+    </label>
+<br>
+<br>
+
+     <button type="submit" class="btn btn-primary " (click)="Save()" style="float:right; margin-bottom :20px ;font-size:large;width: 200px; background-color:darkred"> <span class="fa fa-save"  style="margin-right:15px"> Save </span></button>
+ <br>
+ <br>
+  </form>
+

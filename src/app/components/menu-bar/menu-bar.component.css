@@ -1,0 +1,43 @@
+.centre
+{
+  margin-top: 0px;
+background-color: aliceblue;
+
+}
+li {
+  display: inline;
+font-size: larger;
+font-style:normal italic ;
+}
+ul{
+overflow: hidden;
+margin-top: 0px;
+padding-top: 0cm;
+text-align: center;
+}
+li a {
+  display: block;
+  color: darkred;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: large ;
+margin-left: 5px;
+
+
+}
+li a:hover {
+border-bottom-color: darkred;
+border-bottom-width:5px;
+border-bottom-style:solid;
+text-decoration: none;
+
+}
+.home {
+ color:#01094E!important;
+
+ border-bottom: solid;
+  border-bottom-width: 5px;
+  border-color:darkred ;
+
+}
+

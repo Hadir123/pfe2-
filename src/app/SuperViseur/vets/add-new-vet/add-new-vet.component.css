@@ -1,0 +1,150 @@
+.form-row #hi
+{margin-top: 20px;
+  margin-left: 0px;
+  margin-right: 0px;padding-left: 0px;
+width: 200px;
+}
+.col #sexe
+{
+  margin-top:50px;
+  display: inline;
+  width: 20px;
+}
+.sexe
+{
+  margin-left:50px;
+
+}
+input[type="date"] {
+  position: relative;
+}
+
+/* create a new arrow, because we are going to mess up the native one
+see "List of symbols" below if you want another, you could also try to add a font-awesome icon.. */
+input[type="date"]:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f073";
+  color: #123C69;
+  padding: 0 5px;
+}
+
+/* change color of symbol on hover */
+input[type="date"]:hover:after {
+  color: #bf1400;
+}
+
+/* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+}
+label{
+  color:#123C69;
+}
+a{
+  font-size: 13px;
+  color:#123C69;
+
+    text-decoration:underline;
+}
+button{
+  background-color: #01094E;
+}
+input[checkbox]
+{
+width: 10px;
+}
+#exampleCheck1
+{
+  border-color: #123C69;
+  width: 20px;
+}
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+ font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  border: 1px solid #01094E ;
+
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 1px solid #123C69 ;
+
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #123C69;
+
+
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  border: 1px solid #123C69;
+
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+
+}
+a:hover{
+  padding-left: 0.5px;
+  left: 0;
+}

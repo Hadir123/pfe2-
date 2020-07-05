@@ -1,0 +1,46 @@
+
+<h3 style="color:#123C69 ; text-align:left;margin-left:05px; "> Add  Treatment Plan</h3>
+
+<div class ="buttongroupe">
+    <button type="button" class="btn btn-secondary"  > <span class="fa fa-save"style="font-size:20px ;color:black"></span> &nbsp; Save  </button>
+    <button type="button" class="btn btn-secondary" id="cancel"  (click)="Exit()" > <span class="fa fa-ban"style="font-size:20px ;color:white"></span> &nbsp; Cancel  </button>
+</div>
+
+<br>
+<br>
+<br>
+
+<form style="margin-left:10px ;">
+  <div class="form-row">
+    <label for="inputName" style="color: #123C69;">Plan Name <i style="color:red">*</i></label>
+    <input type="text"   name="animal_name"class="form-control" id="inputName" placeholder="">
+   <!-- <span class="error text-danger"[hidden]="!err.name">{{err.name}}</span>-->
+  </div>
+</form>
+
+<div class='hi' >
+<h4 for="inputName" style="color: #123C69;">Plan Content <i style="color:red">*</i></h4>
+<button type="button" class="btn btn-secondary" id="add2">  <span class="fa fa-plus" style="margin-right: 15px;"></span>Add Item</button>
+</div>
+
+<table class="table" style="color:#123C69">
+  <thead class="table-active">
+    <tr style="font-size:small;">
+      <th scope="col" style="width:16%;">Product</th>
+      <th scope="col" style="width:5%;">Qty</th>
+      <th scope="col">Type</th>
+      <th scope="col">Form</th>
+      <th scope="col">Strength</th>
+      <th scope="col">Size</th>
+
+      <th scope="col">Days of Supply</th>
+      <th scope="col"> Price</th>
+      <th scope="col"> Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+  <tr></tr>
+
+</table>

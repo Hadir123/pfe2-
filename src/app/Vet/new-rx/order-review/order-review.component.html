@@ -1,0 +1,233 @@
+
+
+<script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_APP_KEY"></script>
+<div _ngcontent-c14="" class="NewPage">
+  <h4 _ngcontent-c14=""style='color: #123C69;'>
+      Review Order
+
+  </h4>
+  <div _ngcontent-c14="" class="row" style="margin-top: 10px;">
+      <div _ngcontent-c14="" class="col-md-5">
+
+      </div>
+      <div _ngcontent-c14="" class="col-md-7">
+          <div _ngcontent-c14="" class="row">
+              <div _ngcontent-c14="" class="col-md-1">
+
+              </div>
+              <div _ngcontent-c14="" class="col-md-5">
+                  <button _ngcontent-c14="" class="btn btn-sm btn-default cancel pull-right btn-block" style="background-color: lightgray">
+      <i _ngcontent-c14="" aria-hidden="true" class="fa fa-ban float-left" style="font-size:22px"></i>
+      Save and Exit
+    </button>
+              </div>
+              <!----><div _ngcontent-c14="" class="col-md-5">
+                  <button _ngcontent-c14="" class="btn btn-sm btn-danger pull-right cancel btn-block">
+      <i _ngcontent-c14="" aria-hidden="true" class="fa fa-minus-circle float-left" style="font-size:22px"></i>
+      Cancel the Order
+    </button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div _ngcontent-c14="" style=" color: #123C69;margin-top: 30px;">
+      <div _ngcontent-c14="" class="sub-form step-1" style="font-size: 17px;background-color: #f4f4f4;">
+          <h3 _ngcontent-c14=""> Order Details </h3>
+          <p _ngcontent-c14="" class="basic">
+              Pet Owner:
+              <strong _ngcontent-c14="">{{Petowner.name }} &nbsp;{{Petowner.last_name}}</strong>
+
+              <br _ngcontent-c14=""> Patient:
+              <strong _ngcontent-c14="">{{Pet.animal_name}}</strong>
+          </p>
+          <div _ngcontent-c14="" class="row">
+              <div _ngcontent-c14="" class="col-md-3">
+                  <h5 _ngcontent-c14="" style="font-size: 17px;">
+                      Shipping Address
+
+
+                  </h5>
+                  <!----><p _ngcontent-c14="">
+                      {{adresse.adresse}}
+                      <!---->
+                      <br _ngcontent-c14="">{{adresse.street}} &nbsp;{{adresse.city}} &nbsp;{{adresse.postal_code}}
+                      <br _ngcontent-c14="">
+                  </p>
+                  <!---->
+              </div>
+              <div _ngcontent-c14="" class="col-md-3">
+                  <h5 _ngcontent-c14="" style="font-size: 17px;">
+                      Payment Method
+                  </h5>
+                  <span _ngcontent-c14="">
+
+                      <!---->
+                      <!----><div _ngcontent-c14="">
+                          <!---->
+                          <!----><p _ngcontent-c14="">    {{order.paymentMethode}}</p>
+                          <!---->
+                      </div>
+                  </span>
+                  <br _ngcontent-c14="">
+
+
+              </div>
+              <div _ngcontent-c14="" class="col-md-3">
+                  <h5 _ngcontent-c14="" style="font-size: 17px;">
+                     Pharmacy
+                  </h5>
+                  <!----><p _ngcontent-c14="">{{pharmacyName}}</p>
+                  <!---->
+
+                  <!---->
+              </div>
+          </div>
+      </div>
+
+      <div _ngcontent-c14="" class="sub-form">
+          <h3 _ngcontent-c14="">
+              Order Contents
+              <!----><a _ngcontent-c14="" class="btn btn-sm btn-default pull-right" href="/vet/neworder?id=363&amp;method=back&amp;section=content" style="color:rgb(21, 146, 146)">Edit</a>
+          </h3>
+          <div _ngcontent-c14="" class="table-responsive">
+              <table _ngcontent-c14="" class="table sub-form-handle "style="color:#123C69" >
+                  <thead _ngcontent-c14="">
+                      <tr _ngcontent-c14="" id="tr_head_item">
+                          <td _ngcontent-c14=""></td>
+                          <td _ngcontent-c14="">Product</td>
+                          <td _ngcontent-c14="">Qty</td>
+                          <td _ngcontent-c14="">Type</td>
+                          <td _ngcontent-c14="">Form</td>
+
+                          <td _ngcontent-c14="">Strength</td>
+                          <td _ngcontent-c14="">Size</td>
+                          <td _ngcontent-c14="">Refills</td>
+                          <td _ngcontent-c14="">Expires</td>
+                          <td _ngcontent-c14="">Auto Refill</td>
+                          <td _ngcontent-c14="">Price</td>
+                      </tr>
+                  </thead>
+                  <tbody _ngcontent-c14="" *ngFor='let elem of newDrugs'>
+                      <!----><tr _ngcontent-c14="" id="tr_item">
+                          <td _ngcontent-c14="">
+
+                          </td>
+                          <!----><td _ngcontent-c14="">
+                            <strong>{{elem.drug}} </strong><br><span style="color: #123C69;">Trade Name:</span><strong> {{elem.drugTradeName}}</strong>
+                          </td>
+                          <td _ngcontent-c14="">
+                            {{elem.qty}}
+                          </td>
+                          <!----><td _ngcontent-c14="">
+                             {{elem.type}}
+                          </td>
+                          <!---->
+                          <!----><td _ngcontent-c14="">
+                             {{elem.form}}
+                          </td>
+                          <!---->
+                          <!---->
+                          <td _ngcontent-c14="">
+                            {{elem.strength}}
+                            </td>
+                          <!----><td _ngcontent-c14="">
+                          {{elem.size}}
+                          </td>
+                          <!---->
+                          <!---->
+                          <td _ngcontent-c14="">
+                            {{elem.refills}}
+                        </td>
+                          <!----><td _ngcontent-c14="">
+                            <input _ngcontent-c7="" id="autorefill" style="width: 28px;height: 30px; margin-left: 5px;" type="checkbox"[checked]='elem.autorefill===true' disabled class="ng-valid ng-dirty ng-touched" >
+
+                          </td>
+                          <!---->
+
+                          <td _ngcontent-c14="">
+                              {{elem.endDate}}
+                          </td>
+
+                          <td _ngcontent-c14="">
+                          <span>  $</span>{{elem.price}}
+                          </td>
+                      </tr>
+                  </tbody>
+
+              </table>
+          </div>
+      </div>
+      <div _ngcontent-c14="" class="row" style="padding-right: 3%;margin-bottom: 1%">
+          <div _ngcontent-c14="" class="col-md-8">
+
+          </div>
+          <div _ngcontent-c14="" class="col-md-4 card">
+              <div _ngcontent-c14="" class="card-body">
+                  <div _ngcontent-c14="" class="row">
+                      <div _ngcontent-c14="" class="col-md-8">
+
+                          <span _ngcontent-c14="">
+              <b _ngcontent-c14="">Initial Price:</b>
+          </span>
+                          <br _ngcontent-c14="">
+                          <span _ngcontent-c14="">
+              <b _ngcontent-c14="">Shipping Amount:</b>
+          </span>
+                          <br _ngcontent-c14="">
+                          <span _ngcontent-c14="">
+              <b _ngcontent-c14="">Tax:</b>
+          </span>
+                          <br _ngcontent-c14="">
+
+                      </div>
+                      <div _ngcontent-c14="" class="col-md-4">
+                          <span _ngcontent-c14="" class="pull-right">
+            ${{order.subTotalPrice}}
+        </span>
+                          <br _ngcontent-c14="">
+                          <span _ngcontent-c14="" class="pull-right">
+            ${{order.amount}}
+        </span>
+                          <br _ngcontent-c14="">
+                          <span _ngcontent-c14="" class="pull-right">
+            ${{order.Tax}}
+        </span>
+
+                      </div>
+                  </div>
+                  <div _ngcontent-c14="" class="row" style="border-top: 1px dashed;margin-top: 5%;padding-top: 3%">
+                      <div _ngcontent-c14="" class="col-md-6">
+                          <b _ngcontent-c14="">Total Price:</b>
+                      </div>
+                      <div _ngcontent-c14="" class="col-md-6">
+                          <span _ngcontent-c14="" class="pull-right">
+              ${{all}}
+          </span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div _ngcontent-c14="" class="row" style="padding-right: 3%">
+          <div _ngcontent-c14="" class="col-md-8">
+
+          </div>
+          <div _ngcontent-c14="" class="col-md-4" style="text-align: center;">
+              <!----><div _ngcontent-c14="">
+
+              </div>
+
+              <!----><div _ngcontent-c14="">
+                  <!---->
+                  <!----><button _ngcontent-c14=""(click)='Add()' class="btn btn-sm btn-success btn-lg btn-block" style="margin-right: 30px;">Place Order At Pharmacy</button>
+                  <!---->
+                  <!---->
+                  <br _ngcontent-c14="">
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
