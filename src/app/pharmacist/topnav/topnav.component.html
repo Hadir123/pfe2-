@@ -9,13 +9,15 @@
        <ul class="navbar-nav ml-auto">
          <a class="navbar-brand font-bold" href="#"><small>do you need help!!<small>5563585</small></small></a>   <!--  </a>  <span class="badge badge-info" style="background-color :red;">11</span>
           <i class="fa fa-bell"></i>-->
-               <li class="nav-item dropdown" id='notification'>
-                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white"> <i class="fa fa-bell" style="color:white"> </i>
-                   <span class="badge badge-info" style="background-color :red;">11</span>  </a>
+          <li class="nav-item dropdown" id='notification'>
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" (click)='notif()'aria-haspopup="true" aria-expanded="false" style="color:white"> <i class="fa fa-bell" style="color:white"> </i>
+              <span class="badge badge-info" style="background-color :red;">{{countNotif}}</span>  </a>
 
-                 <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                     <a class="dropdown-item" href="#"> </a>
-                 </div>
+            <div class="dropdown-menu dropdown-menu-right dropdown-cyan"style="overflow: auto;max-height: 200px; height: auto;" aria-labelledby="navbarDropdownMenuLink-4">
+                <a class="dropdown-item" href="#"*ngFor="let notif of noti|orderBy:order ">{{notif.statusName}} in the {{notif.RxOrderDate}} </a>
+            </div>
+
+
 
              </li>
              <li class="nav-item dropdown">

@@ -24,7 +24,7 @@ export class AppComponent {
 
   constructor(private auth: AuthService, private route: Router, private Token: TokenService, private _compiler: Compiler, public jarwis: JarwisService) {
    // this.loggedIn = false;
-    this._compiler.clearCache();
+   // this._compiler.clearCache();
     //this.Token.remove() ;
   //  this.auth.changeAuthStatus(true)
    /* if (localStorage.getItem('logedIn')) {

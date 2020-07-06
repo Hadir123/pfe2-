@@ -83,12 +83,12 @@
         </div>
     </div>
 
-    <div class="table-responsive" style="width:1200px">
+    <div class="table-responsive" style="width:100%">
       <table class="table">
         <thead>
           <tr>
-            <th></th>
-            <th>Order</th>
+
+            <th>Order #</th>
             <th>Status</th>
             <th>Pet Owner Name</th>
             <th>Patient Name</th>
@@ -99,7 +99,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+        <!-- <tr>
             <td>
 
                 <div class="pretty p-icon p-round p-jelly">
@@ -135,7 +135,43 @@
         </tbody>
       </table>
     </div>
+--->
+                   <tbody *ngFor='let order of order2|paginate: config'>
+                      <!----><tr>
 
-</div>
-</div>
-</div>
+                        <th>
+                        {{order.id}}
+                        </th>
+
+
+                        <td>{{order.Status}}</td>
+                        <td>{{order.petownr_name}}&nbsp;{{order.petowner_lastName}}</td>
+                        <td>
+                          {{order.petName}}
+                        </td>
+                        <td>{{order.VetName}}&nbsp;{{order.VetLastName}}</td>
+                        <td>{{order.vetEmail}}</td>
+                        <td>
+                          {{order.date}}
+                        </td>
+                        <td >
+                          <div  class="d-flex flex-wrap" style="width: 120%; ">
+                                <button  routerLink="/HomePagePharmacist/orderDetails"class="btn btn-sm btn-info btn-sm m-1" style="width: 120%;font-size: 15px;" href="/pharmacy/orders/250"class="bntedit">
+                                  View
+                                </button>
+                                  <label></label>
+                                  <button class="btn btn-sm btn-info btn-block text-center" style="width: 120%;font-size: 15px;color: #123C69;background-color: #d79922;"class="bntedit">
+                                  <i  aria-hidden="true" class="fa fa-file-pdf-o" style="    margin-left: -18%;"></i> PDF</button>
+                              </div>
+                          </td>
+
+                      </tr>
+
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+
+  </div></div>
+  <pagination-controls  class="pagination d-flex justify-content-center" (pageChange)="pageChanged($event)"></pagination-controls>

@@ -39,6 +39,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrderModule } from 'ngx-order-pipe';
 import { ProfilComponent } from '../components/profil/profil.component';
+import { RxHistoryComponent } from '../Vet/rx-history/rx-history.component';
 
 
 const routes: Routes = [
@@ -48,12 +49,11 @@ const routes: Routes = [
   children: [
    {
        path:'',
-       component:ManageUsersComponent,
+       component:ManageOrdersComponent
       },
-      {
-        path:'orders',
-        component:ManageOrdersComponent,
-      },
+      {path:'orders',component:ManageOrdersComponent},
+        //{path:'orders',component:RxHistoryComponent},
+
       {
         path:'Users',
         component:ManageUsersComponent,

@@ -8,8 +8,12 @@
 @import'C:/Users/Hadir/angular larvel/Login3/node_modules/angular-notifier/styles/types/type-error.css';
 @import'C:/Users/Hadir/angular larvel/Login3/node_modules/angular-notifier/styles/types/type-info.css';
 */
-
-@import 'C:/Users/Hadir/angular larvel/Login3/node_modules/ngx-toastr/toastr.css';
+@import'../node_modules/angular-notifier/styles/types/type-success.css';
+@import'../node_modules/angular-notifier/styles/types/type-default.css';
+@import'../node_modules/angular-notifier/styles/types/type-error.css';
+@import'../node_modules/angular-notifier/styles/types/type-info.css';
+@import "~angular-notifier/styles";
+@import '../node_modules/ngx-toastr/toastr.css';
 
 @import "./assets/fontawesome-free-5.13.0-web/css/all.css";
 @import "./assets/fontawesome-free-5.13.0-web/css/fontawesome.css";
@@ -25,3 +29,7 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+main{
+  position: relative;
+  text-align: center;
+}

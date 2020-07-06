@@ -8,6 +8,7 @@ import { RxHistoryComponent } from './rx-history/rx-history.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HomePageClientComponent } from './home-page-client/home-page-client.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { OrderModule } from 'ngx-order-pipe';
 
 import { AppComponent } from '.././app.component';
 import { LoginComponent } from '.././components/login/login.component';
@@ -54,8 +55,8 @@ const routes: Routes = [
     CommonModule,
 
     RouterModule.forChild(routes),
-    FormsModule, NgxPaginationModule,NotifierModule
-
+    FormsModule, NgxPaginationModule,NotifierModule,
+OrderModule
   ]
 })
 export class ClientModule { }

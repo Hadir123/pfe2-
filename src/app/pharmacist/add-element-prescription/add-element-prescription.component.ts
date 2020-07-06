@@ -53,7 +53,10 @@ export class AddElementPrescriptionComponent implements OnInit {
     this.submitted=true;
 
     console.log(this.regForm);
-
+    this.element.drug_form_id=this.regForm.value.drugForm;
+    this.element.drug_strength_id=this.regForm.value.drugStrength;
+this.element.drug_id=this.drugId
+console.log(this.element)
          this.elementService.insertElementPrescription(this.element).subscribe(res=>{
            console.log(res);
            this.notifier.show({

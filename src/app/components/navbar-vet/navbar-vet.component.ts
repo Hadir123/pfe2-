@@ -22,11 +22,14 @@ export class NavbarVetComponent implements OnInit {
   public test ;
   public countNotif=0 ;
   client:boolean ;
+  order: string = 'RxOrderDate'
     constructor(private auth :AuthService, private route:Router, private Token :TokenService ,private http: HttpClient, private jarwis :JarwisService)  { }
   token =this.Token.get();
     ngOnInit(): void {
     this.auth.authStatus.subscribe(value=>this.loggedIn=value);
   //    if(this.token,)
+  this.noti=[];
+
   this.notif();
   /*Pusher.logToConsole = true;
 
@@ -57,7 +60,8 @@ localStorage.clear() ;
     }
 
     notif()
-    {
+    {  this.noti=[];
+
       this.token=this.Token.get();
       this.http.get('http://backend2.test:8800/api/Notif'+'?token='+this.token).subscribe(
         data=>{console.log(data);

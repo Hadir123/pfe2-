@@ -5,12 +5,14 @@ import { TokenService } from 'src/app/Services/token.service';
 import { HttpClient } from '@angular/common/http';
 import Pusher from 'pusher-js';
 import { JarwisService } from 'src/app/Services/jarwis.service';
-/*let echo = new Pusher(
+import { OrderPipe } from 'ngx-order-pipe';
+
+let echo = new Pusher(
 
 'e92d996a81c7f660c657',
 
 
-);*/
+);
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -22,12 +24,14 @@ export class NavbarComponent implements OnInit {
   public noti=[];
   public test ;
   public countNotif=0 ;
+  order: string = 'RxOrderDate'; config: any;
     constructor(private auth :AuthService, private route:Router, private Token :TokenService ,private http: HttpClient, private jarwis :JarwisService)  { }
   token =this.Token.get();
     ngOnInit(): void {
    this.auth.authStatus.subscribe(value=>this.loggedIn=value);
-  //    if(this.token,)
-  /*this.notif();
+  ///   if(this.token,)
+  this.noti=[];
+  this.notif();
   Pusher.logToConsole = true;
 
       var pusher = new Pusher('e92d996a81c7f660c657', {
@@ -38,7 +42,7 @@ export class NavbarComponent implements OnInit {
       channel.bind('my-event', function(data) {
         alert(JSON.stringify(data));
   //this.countNotif=this.countNotif+1;
-      });*/
+      });
     }
 
     logout(event :MouseEvent)
@@ -53,7 +57,8 @@ export class NavbarComponent implements OnInit {
     }
 
     notif()
-    {
+    {  this.noti=[];
+
       this.token=this.Token.get();
       this.http.get('http://backend2.test:8800/api/Notif'+'?token='+this.token).subscribe(
         data=>{console.log(data);

@@ -1,0 +1,6 @@
+@import"./../../../assets/css/swiper.css";
+@import"./../../../assets/css/demo.css";
+@import "./../../../assets/css/styles";
+.custom-bg{
+  background-color: #ad172b !important;
+}

@@ -70,12 +70,12 @@ createOrder(data)
 RxHistory()
 {
   this.Token=this.token.get();
-  return this.http.get('http://backend2.test:8800/api/allOrder?token='+this.Token);
+  return this.http.get('http://backend2.test:8800/api/orderAuth?token='+this.Token);
 }
-RxHitstoryClient($id)
+RxHitstoryClient()
 {
   this.Token=this.token.get() ;
-  return this.http.get('http://backend2.test:8800/api/orderById/'+$id);
+  return this.http.get('http://backend2.test:8800/api/orderById?token='+this.Token);
 
 }
 }

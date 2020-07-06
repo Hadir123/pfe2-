@@ -13,7 +13,7 @@ order:any ;
   ngOnInit(): void {
     this.rx.RxHistory().subscribe(data=>{
       this.order=data ;
-      this.order=this.order.data ;
+     this.order=this.order[0];
       console.log(this.order)
 
 

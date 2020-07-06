@@ -80,6 +80,7 @@ import { EditElementComponent } from './pharmacist/edit-element/edit-element.com
 import { OrderHistoryComponent } from './pharmacist/order-history/order-history.component';
 import { OrderDetailsComponent } from './pharmacist/order-details/order-details.component';
 import { PharmacistModule } from './pharmacist/pharmacist.module';
+import { animation } from '@angular/animations';
 
 @NgModule({
   declarations: [
@@ -114,7 +115,6 @@ FormularyComponent,
 PharmaciesComponent,
 EditPharmacyComponent,
 EditPharmacistAdminComponent,
-
 ModalOptionComponent,
 
 Phase2NewRxComponent,

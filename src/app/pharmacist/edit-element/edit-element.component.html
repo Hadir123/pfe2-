@@ -62,11 +62,11 @@
 
               <td  scope="row">
                 <div  class="form-group">
-                  <select value={{element.drugTypeName}} formControlName="drugType" [ngClass]="{'is-invalid':submitted && (f.drugType.errors || (errors && errors.drugType))}"
+                  <select value='{{element.drugTypeName}}'formControlName="drugType" [ngClass]="{'is-invalid':submitted && (f.drugType.errors || (errors && errors.drugType))}"
                     style="width: 150px;" class="form-control form-control-sm"  name="type" onchange="this.title=this.value;"
                     [(ngModel)]="element.drug_type_id">
-                    <option  value="2">Compound</option>
-                    <option  value="1">OTC</option>
+                    <option  value="1">Compound</option>
+                    <option  value="2">OTC</option>
                     <option  value="3">Rx</option>
                   </select>
                   <div *ngIf="submitted && f.drugType.errors" class="invalid-feedback">
@@ -85,7 +85,7 @@
 
               <td  scope="row" >
                 <div  class="form-group">
-                  <select  value="{{element.drugFromName}}"[(ngModel)]="element. drug_form_id" [ngClass]="{'is-invalid':submitted && (f.drugForm.errors || (errors && errors.drugForm))}"formControlName="drugForm"  style="width: 150px;" class="form-control form-control-sm"  onchange="this.title=this.value;" >
+                  <select  value="drugFromName"[(ngModel)]="element.drug_form_id" [ngClass]="{'is-invalid':submitted && (f.drugForm.errors || (errors && errors.drugForm))}"formControlName="drugForm"  style="width: 150px;" class="form-control form-control-sm"  onchange="this.title=this.value;" >
                     <option value="1">
                       LINIMENT
                     </option>
@@ -113,7 +113,7 @@
 
               <td>
                   <div class="form-group">
-                    <select value="drugStrengthName" [(ngModel)]="element. drug_strength_id" [ngClass]="{'is-invalid':submitted && (f.drugStrength.errors || (errors && errors.drugStrength))}" formControlName="drugStrength" style="width: 150px;"class="form-control form-control-sm" id="sel1" name="type" onchange="this.title=this.value;" required="" title="Compound">
+                    <select value='element.drugStrengthName' [(ngModel)]="element.drug_strength_id" [ngClass]="{'is-invalid':submitted && (f.drugStrength.errors || (errors && errors.drugStrength))}" formControlName="drugStrength" style="width: 150px;"class="form-control form-control-sm" id="sel1" name="type" onchange="this.title=this.value;" required="" title="Compound">
                       <option  value="1">2 GM/SCOOP</option>
                       <option  value="2" >30%</option>
                       <option value="3" >5%</option>

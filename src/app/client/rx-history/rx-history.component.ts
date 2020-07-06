@@ -16,7 +16,7 @@ constructor(private rx:RxServiceService) {
 
 }
   ngOnInit(): void {
-    this.rx.RxHitstoryClient(5).subscribe(data=>{
+    this.rx.RxHitstoryClient().subscribe(data=>{
       this.order=data ;
       //this.order=this.order.data ;
 var j =0 ;

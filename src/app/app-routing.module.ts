@@ -33,10 +33,16 @@ import { PharmacistModule } from './pharmacist/pharmacist.module';
 import { PharmacistAdminModule } from './pharmacist-admin/pharmacist-admin.module';
 import { PasswordPetOwnerComponent } from './components/password-pet-owner/password-pet-owner.component';
 //import { HomePageComponent } from './Menu/home-page/home-page.component';
-import{SuperviseurModule} from'./SuperViseur/superviseur.module'
+import{SuperviseurModule} from'./SuperViseur/superviseur.module';
+import {HeaderComponent} from'./home-page/header/header.component';
+import{HomePageModule} from'./home-page/home-page.module'
 const routes: Routes = [
-  { path:'', redirectTo: '/login', pathMatch:'full' ,
+ // { path:'', redirectTo: '/login', pathMatch:'full' ,
+ // },
+  { path:'', redirectTo: '/Dashbord', pathMatch:'full' ,
   },
+  { path:'Dashbord', loadChildren:"./home-page/home-page.module#HomePageModule" },
+
   { path:'HomePageClient', loadChildren:"./client/client.module#ClientModule" ,canActivate: [AfterLoginService]},
   {
      path: 'login', component: LoginComponent ,
