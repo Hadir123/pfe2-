@@ -15,14 +15,15 @@ class PharmacyRessource extends JsonResource
      * @return array
      */
     public function toArray($request)
-    {$pharmacist=new Pharmacist();
-        $pharmacist=$pharmacist->where('pharmacy_id',$this->id)->first();
-    $user=User::find($pharmacist->id_user);
+    {
+      $pharmacist=  Pharmacist::where('pharmacy_id',$this->id)->first();
+  $user=User::find($pharmacist['id_user']);
         return [
         'email'=>$this->email ,
         'pharmacyName'=>$this->pharmacyName ,
         'id'=>$this->id ,
-'admin'=>$user ,
+'admin'=> $user,
+
         'adresse_id'=>$this->adresse_id ,
         //'adresse'=>$this->adresse->city ,
          'phone'=>$this->phone,

@@ -23,6 +23,16 @@ function all ()
 function orderById($id)
 {
     return $this->model->where('pet_id',$id)->get() ;
-}
 
+}
+function OrderByIdVet($id)
+{
+    return $this->model->where('veterinary_id',$id)->get() ;
+
+}
+function orderByPharmacy($id)
+{
+    return $this->model->where('pharmacy_id',$id)->get() ;
+
+}
 }

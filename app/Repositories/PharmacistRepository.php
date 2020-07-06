@@ -25,7 +25,7 @@ function all()
     return $this->model->paginate(1);
 }
 function find($id)
-{$user=  $this->model->where('user_id',$id)->first();
+{$user=  $this->model->where('id_user',$id)->first();
     return $user;
 }
 }

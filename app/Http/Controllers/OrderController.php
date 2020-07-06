@@ -30,9 +30,13 @@ return response()->json(['status'=>'success', 'data'=>$res]);
     {
         return $this->OrderService->all();
     }
-    protected function orderById($id)
+    protected function orderById()
     {
-return $this->OrderService->orderById($id);
+return $this->OrderService->orderById();
+    }
+    function orderAuth()
+    {
+        return $this->OrderService->orderById2();
     }
 
 }

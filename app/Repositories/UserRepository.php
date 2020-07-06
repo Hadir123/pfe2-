@@ -68,5 +68,6 @@ public function updateMotDePasse($id , $passe)
 {
     $user=$this->model->where('id',$id)->update(['password'=>$passe]);
 }
+
 }
 

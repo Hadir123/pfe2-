@@ -67,4 +67,8 @@ $attributes =$request->all() ;
     public function ShowPetOwner($id)
     { return $this->pet->findByPetOwner($id);
     }
+    public function findByPet($id)
+    {
+        return $this->pet->findByPet($id);
+    }
 }

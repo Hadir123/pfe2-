@@ -51,5 +51,9 @@ function findByPetOwner($id)
 {
     return $res=$this->model->where('pet_owner_id',$id)->get()->toArray() ;
 }
+function findByPet($id)
+{
+    return $res=$this->model->where('id',$id)->first();
+}
 
 }

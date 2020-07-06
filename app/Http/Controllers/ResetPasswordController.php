@@ -12,9 +12,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 //use Symfony\Component\HttpFoundation\Response as HttpFoundationResponse;
-
 class ResetPasswordController extends Controller
-{public $token ;
+{public $tokenn ;
     public function SendEmail(Request $request ) {
         if (!$this->validatEmail($request->email))
         {
@@ -34,13 +33,13 @@ return response()->json([
 ],Response::HTTP_NOT_FOUND);
 }
 public function send($email)
-{ $token= $this->createToken($email);
-    $this->token=$token;
+{ $tokenn= $this->createToken($email);
+    $this->token=$tokenn;
 Mail::to($email)->send(new ResetPasswordMail($this->token->token));
 
 }
 public function createToken($email)
-{$oldToken=DB::table('reset_password')->where('email',$email)->get('token')->first();
+{$oldToken=DB::table('reset_password')->where('email',$email)->first();
 if($oldToken)
 {
     return $oldToken;

@@ -140,7 +140,6 @@ function changeStatus($id)
 }
 public function Notif()
 {$user2 =Auth::user() ;
-
  $notif=  $this->user->Notification(Auth::user()->id);
 
 for($i=0 ;$i<count($notif);$i++)
@@ -167,8 +166,8 @@ function createPharmacyAdmin(Request $request)
 {
     $attributes=$request->all();
     $res= $this->user->create($attributes);
-
-       return $res;
+    $this->sendEmail($request->email );
+    return $res;
 }
 public function ProfilUpdate (Request $request)
 {
@@ -263,5 +262,8 @@ return 3 ;
 else
     return false ;
     }
-
+function find($id)
+{
+return $this->user->find($id);
+}
 }

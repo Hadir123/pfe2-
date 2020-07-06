@@ -5,7 +5,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Requests\ChangePassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-Route::get('orderById/{id}','OrderController@orderById');
+//Route::get('orderById/{id}','OrderController@orderById');
 Route ::get('pharmacist/{id}','PharmacistController@FindByIdPharmacy');
 /*
 |--------------------------------------------------------------------------
@@ -87,5 +87,7 @@ Route::get('elem/{id}','ElementPrespectionController@getElementPrescriptions');
 //Order
 Route ::post('createOrder','OrderController@create');
 Route ::get('allOrder','OrderController@all');
+Route::get('orderAuth','OrderController@orderAuth');
+Route::get('orderById','OrderController@orderById');
 
 });
