@@ -74,10 +74,51 @@ export class NavbarComponent implements OnInit {
 
         for(var i = 0 ; i<this.noti.length;i++)
          {this.noti[i]=this.noti[i].order;
-          if(this.noti[i].statusName==='created')
+          /*if(this.noti[i].statusName==='created')
           {this.noti[i].statusName='You Have a new Order'
 
+          } */
+          switch (this.noti[i].statusName)
+          {
+          case 'created': {
+            this.noti[i].statusName='You Have a new Order # '+this.noti[i].id+' in the '+this.noti[i].RxOrderDate;
+             break;
           }
+          case 'In Process': {
+            this.noti[i].statusName='Order#'+this.noti[i].id+' was changed to '+this.noti[i].statusName
+            //this.display=true;
+             break;
+          }
+          case'pending assignment':{
+            this.noti[i].statusName='Order# '+this.noti[i].id+' was changed to '+this.noti[i].statusName
+            break;
+          }
+          case'Shipped':{
+            this.noti[i].statusName='Order# '+this.noti[i].id+' was changed to '+this.noti[i].statusName
+            break;
+          }
+          case'Incomplete':{
+            this.noti[i].statusName='Order# '+this.noti[i].id+' was changed to '+this.noti[i].statusName
+            break;
+          }
+          case'Canceled':{
+            this.noti[i].statusName='Order# '+this.noti[i].id+' was changed to '+this.noti[i].statusName;
+            break;
+          }
+          case'Pick Up':{
+            this.noti[i].statusName='Order# '+this.noti[i].id+' was changed to '+this.noti[i].statusName
+            break;
+          }
+          case'ready':{
+            this.noti[i].statusName='Order# '+this.noti[i].id+' was changed to '+this.noti[i].statusName
+            break;
+          }
+
+          case'Awaiting payment in pharmacy':{
+            this.noti[i].statusName='Order# '+this.noti[i].id+' was changed to '+this.noti[i].statusName
+            break;
+          }
+        }
           console.log(this.noti[i])}
         /*  for( var i=0; i<this.test.length;i++)
       {

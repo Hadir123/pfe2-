@@ -15,7 +15,7 @@
                        <span class="badge badge-info" style="background-color :red;">{{countNotif}}</span>  </a>
 
                      <div style="overflow: auto;max-height: 200px; height: auto;" class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                         <a class="dropdown-item" href="#"*ngFor="let notif of noti|orderBy:order">{{notif.statusName}} in the {{notif.RxOrderDate}} </a>
+                         <a class="dropdown-item" href="#"*ngFor="let notif of noti|orderBy:order:true">{{notif.statusName}}  </a>
                      </div>
 
                  </li>

@@ -19,6 +19,7 @@ export class ManageOrdersComponent implements OnInit {
   @ViewChild('searchInput') searchQuery: ElementRef;
   order:any ;
   order2=[]
+  orderf: string = 'id'
   constructor(private rx:RxServiceService) { }
 
   ngOnInit(): void {

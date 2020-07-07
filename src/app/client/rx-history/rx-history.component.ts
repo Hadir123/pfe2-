@@ -9,7 +9,7 @@ import { RxServiceService } from 'src/app/Services/rx-service.service';
 export class RxHistoryComponent implements OnInit {
   order:any ;
   config: any;
-
+orderf:string='id';
 test=[] ;
 constructor(private rx:RxServiceService) {
 

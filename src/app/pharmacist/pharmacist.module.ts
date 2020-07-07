@@ -94,7 +94,7 @@ const routes: Routes = [
         component:EditElementComponent
       },
       {
-        path:'orderDetails',
+        path:'orderDetails/:id',
         component:OrderDetailsComponent
       },
       { path:'profil', component: ProfilComponent ,

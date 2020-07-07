@@ -126,7 +126,7 @@
                         </td>
                       </tr>
                     </thead>
-                    <!----><tbody *ngFor='let order of test|paginate: config'>
+                    <!----><tbody *ngFor='let order of test|orderBy:orderf :true|paginate: config'>
                       <!----><tr>
                         <td>
                         {{order.id}}

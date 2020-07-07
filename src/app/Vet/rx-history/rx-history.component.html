@@ -125,7 +125,7 @@
                         </td>
                       </tr>
                     </thead>
-                    <!----><tbody *ngFor='let order of order'>
+                    <!----><tbody *ngFor='let order of order2|orderBy:orderf :true|paginate: config'>
                       <!----><tr>
                         <td>
                         {{order.id}}
@@ -149,73 +149,9 @@
                   </table>
                 </div>
               </div>
-              <!----><ngb-pagination aria-label="Default pagination" class="d-flex justify-content-center" role="navigation">
-    <ul class="pagination">
-      <!----><li class="page-item disabled">
-        <a aria-label="First" class="page-link" href="" tabindex="-1">
-          <span aria-hidden="true">««</span>
-        </a>
-      </li>
-
-      <!----><li class="page-item disabled">
-        <a aria-label="Previous" class="page-link" href="" tabindex="-1">
-          <span aria-hidden="true">«</span>
-        </a>
-      </li>
-      <!----><li class="page-item active">
-        <!---->
-        <!----><a class="page-link" href="">
-          1
-          <!----><span class="sr-only">(current)</span>
-        </a>
-      </li><li class="page-item">
-        <!---->
-        <!----><a class="page-link" href="">
-          2
-          <!---->
-        </a>
-      </li><li class="page-item">
-        <!---->
-        <!----><a class="page-link" href="">
-          3
-          <!---->
-        </a>
-      </li><li class="page-item">
-        <!---->
-        <!----><a class="page-link" href="">
-          4
-          <!---->
-        </a>
-      </li><li class="page-item">
-        <!---->
-        <!----><a class="page-link" href="">
-          5
-          <!---->
-        </a>
-      </li><li class="page-item disabled">
-        <!----><a class="page-link">...</a>
-        <!---->
-      </li><li class="page-item">
-        <!---->
-        <!----><a class="page-link" href="">
-          38
-          <!---->
-        </a>
-      </li>
-      <!----><li class="page-item">
-        <a aria-label="Next" class="page-link" href="">
-          <span aria-hidden="true">»</span>
-        </a>
-      </li>
-
-      <!----><li class="page-item">
-        <a aria-label="Last" class="page-link" href="">
-          <span aria-hidden="true">»»</span>
-        </a>
-      </li>
-    </ul>
-  </ngb-pagination>
+              <!---->
             </div>
+            <pagination-controls  class="pagination d-flex justify-content-center" (pageChange)="pageChanged($event)"></pagination-controls>
 
 
 

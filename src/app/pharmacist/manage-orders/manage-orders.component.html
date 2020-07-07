@@ -136,7 +136,7 @@
       </table>
     </div>
 --->
-                   <tbody *ngFor='let order of order2|paginate: config'>
+                   <tbody *ngFor="let order of order2|orderBy:orderf :true|paginate: config">
                       <!----><tr>
 
                         <th>
@@ -156,7 +156,7 @@
                         </td>
                         <td >
                           <div  class="d-flex flex-wrap" style="width: 120%; ">
-                                <button  routerLink="/HomePagePharmacist/orderDetails"class="btn btn-sm btn-info btn-sm m-1" style="width: 120%;font-size: 15px;" href="/pharmacy/orders/250"class="bntedit">
+                                <button  routerLink="/HomePagePharmacist/orderDetails/+{{order.id}}"class="btn btn-sm btn-info btn-sm m-1" style="width: 120%;font-size: 15px;" href="/pharmacy/orders/250"class="bntedit">
                                   View
                                 </button>
                                   <label></label>
