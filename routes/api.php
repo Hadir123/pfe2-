@@ -5,8 +5,10 @@ use App\Http\Controllers\OrderController;
 use App\Http\Requests\ChangePassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-//Route::get('orderById/{id}','OrderController@orderById');
+Route::get('order/{id}','OrderController@find');
 Route ::get('pharmacist/{id}','PharmacistController@FindByIdPharmacy');
+Route ::post('orderUpdate','OrderController@update');
+
 /*
 |--------------------------------------------------------------------------
 | API Routes

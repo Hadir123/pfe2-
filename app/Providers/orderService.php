@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Events\StatusLiked;
+use App\Http\Resources\OrderDetails;
 use App\Http\Resources\OrderRessource;
 use App\Repositories\OrderRepository;
 use Illuminate\Support\ServiceProvider;
@@ -184,5 +185,48 @@ if($usser)
 
 return $order ;
 
+}
+function find ($id)
+{
+    return new OrderDetails($this->order->find($id));
+}
+function update(Request $req)
+{
+    $status=$req->status ;
+    $id=$req->id ;
+    if( $this->order->updateStatus($id , $status))
+    {
+        $orders=$this->order->find($id);
+     $this->sendNotifUpdate( $orders->veterinary_id,$orders,$orders->pet_id, $status,$orders->id);
+        return $orders;
+    }
+    else
+    return false ;
+}
+public function sendNotifUpdate($reciver ,$details , $pet,$status,$id)
+{
+    $petowen=new PetService() ;
+    $petowenr=$petowen->findByPet($pet);
+    $user= new UserService();
+    $petownerNot=$user->find($petowenr['pet_owner_id']);
+$vet=new VetService();
+$vet=$vet->findById($reciver);
+$user2= new UserService();
+$vet=$user2->find($vet->user_id);
+
+    //Notification pour le pharmacien Admin
+   Notification::send($vet, new MyFirstNotification($details));
+    //Notification client
+    Notification::send($petownerNot, new MyFirstNotification($details));
+
+    //SMS pour le  client
+    $basic  = new \Nexmo\Client\Credentials\Basic('cf0ead93', '6Ql6SUXtRTHSlAuN');
+    $client = new \Nexmo\Client($basic);
+
+    $message = $client->message()->send([
+        'to' => '21655340732',
+        'from' => 'Hagyard Clinc',
+        'text' => 'Hello , The status of your order numbre '.$id.' :changed to '.$status
+    ]);
 }
 }

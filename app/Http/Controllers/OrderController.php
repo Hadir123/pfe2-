@@ -38,5 +38,12 @@ return $this->OrderService->orderById();
     {
         return $this->OrderService->orderById2();
     }
-
+function find ($id)
+{
+    return $this->OrderService->find($id);
+}
+function Update(Request $req)
+{
+    return $this->OrderService->update($req);
+}
 }

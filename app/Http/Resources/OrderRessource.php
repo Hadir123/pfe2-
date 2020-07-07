@@ -28,6 +28,7 @@ class OrderRessource extends JsonResource
        'date'=>$this->RxOrderDate,
        'VetName'=>User::find($this->veterinary_id)->name ,
        'VetLastName'=>User::find($this->veterinary_id)->last_name ,
+       'vetEmail'=>User::find($this->veterinary_id)->email ,
        'DateUpdate'=>$this->updated_at,
        'pharmacyName'=>Pharmacie::find($this->pharmacy_id)->pharmacyName ,
        /* 'userName'=>$this->->gender ,
