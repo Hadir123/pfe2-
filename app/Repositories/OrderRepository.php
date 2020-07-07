@@ -16,6 +16,10 @@ protected $model ;
 {
     return $this->model->create($attribue);
 }
+function find($id)
+{
+    return $this->model->where('id',$id)->first() ;
+}
 function all ()
 {
     return $this->model->paginate(10);
@@ -33,6 +37,11 @@ function OrderByIdVet($id)
 function orderByPharmacy($id)
 {
     return $this->model->where('pharmacy_id',$id)->get() ;
+
+}
+function updateStatus($id, $status)
+{
+return $this->model->where('id',$id)->update(['statusName'=>$status]);
 
 }
 }
